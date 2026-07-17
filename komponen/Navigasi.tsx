@@ -93,17 +93,6 @@ export default function Navigasi() {
                 <Link href="/artikel" className={navLinkClass(pathname === '/artikel')}>ARTIKEL</Link>
               </div>
 
-              {/* Kontak Desktop */}
-              <div className="hidden md:flex items-center flex-shrink-0">
-                <Link href="/kontak"
-                  className={`px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-200
-                    ${pathname === '/kontak'
-                      ? 'bg-[#D17B36] text-white shadow-md'
-                      : 'bg-[#5D9C76] text-white hover:bg-[#4a8562] hover:shadow-md active:scale-95'}`}>
-                  KONTAK
-                </Link>
-              </div>
-
               {/* Hamburger */}
               <button
                 className="md:hidden p-2 mr-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
@@ -128,7 +117,7 @@ export default function Navigasi() {
             </button>
           </div>
 
-          <div className="overflow-y-auto h-[calc(100%-130px)] px-4 py-3 space-y-1">
+          <div className="overflow-y-auto h-[calc(100%-70px)] px-4 py-3 space-y-1">
             <Link href="/" className={`block px-4 py-3 font-semibold text-sm rounded-xl transition-colors
               ${pathname === '/' ? 'bg-[#fff3e8] text-[#D17B36]' : 'text-gray-700 hover:bg-gray-50 hover:text-[#5D9C76]'}`}>
               HOME
@@ -167,13 +156,6 @@ export default function Navigasi() {
             <Link href="/artikel" className={`block px-4 py-3 font-semibold text-sm rounded-xl transition-colors
               ${pathname === '/artikel' ? 'bg-[#fff3e8] text-[#c96a1a]' : 'text-gray-700 hover:bg-gray-50 hover:text-[#3d8b5e]'}`}>
               ARTIKEL
-            </Link>
-          </div>
-
-          <div className="absolute bottom-0 left-0 right-0 p-4 border-t border-gray-100 bg-white">
-            <Link href="/kontak"
-              className="block w-full text-center px-4 py-3 font-bold text-sm rounded-xl bg-[#5D9C76] text-white hover:bg-[#4a8562] transition-colors">
-              KONTAK KAMI
             </Link>
           </div>
         </div>

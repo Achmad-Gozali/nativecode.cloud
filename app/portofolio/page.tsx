@@ -9,6 +9,18 @@ export const metadata = {
   description: 'Kumpulan website yang telah kami bangun untuk berbagai klien.',
 };
 
+function SectionCurve({ fill, path }: { fill: string; path: string }) {
+  return (
+    <svg
+      viewBox="0 0 1440 60"
+      preserveAspectRatio="none"
+      className="absolute bottom-0 left-0 w-full h-8 sm:h-14 block pointer-events-none"
+    >
+      <path d={path} fill={fill} />
+    </svg>
+  );
+}
+
 async function getPortofolio() {
   return prisma.portofolio.findMany({
     orderBy: [{ urutan: 'asc' }, { createdAt: 'desc' }],
@@ -42,42 +54,46 @@ export default async function PortofolioPage() {
           >
             Konsultasi
           </a>
+          <SectionCurve fill="#f1f5f9" path="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" />
         </section>
 
         {/* PORTOFOLIO GRID */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24">
-          {portofolioList.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-xl font-semibold text-gray-400 mb-2">Segera Hadir</p>
-              <p className="text-sm text-gray-400">Portofolio kami sedang dalam proses pembaruan.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-              {portofolioList.map((item) => (
-                <a
-                  key={item.id}
-                  href={item.linkWebsite}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 block"
-                >
-                  <div className="relative overflow-hidden bg-gray-100" style={{ height: '190px' }}>
-                    <img
-                      src={item.gambarUrl}
-                      alt={item.namaProyek}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="px-4 py-3">
-                    <p className="font-bold text-gray-900 text-sm truncate">{item.namaProyek}</p>
-                    {item.deskripsi && (
-                      <p className="text-xs text-gray-500 mt-1 line-clamp-2">{item.deskripsi}</p>
-                    )}
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
+        <section className="relative bg-[#f1f5f9] pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {portofolioList.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-xl font-semibold text-gray-400 mb-2">Segera Hadir</p>
+                <p className="text-sm text-gray-400">Portofolio kami sedang dalam proses pembaruan.</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                {portofolioList.map((item) => (
+                  <a
+                    key={item.id}
+                    href={item.linkWebsite}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 block"
+                  >
+                    <div className="relative overflow-hidden bg-gray-100" style={{ height: '190px' }}>
+                      <img
+                        src={item.gambarUrl}
+                        alt={item.namaProyek}
+                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="px-4 py-3">
+                      <p className="font-bold text-gray-900 text-sm truncate">{item.namaProyek}</p>
+                      {item.deskripsi && (
+                        <p className="text-xs text-gray-500 mt-1 line-clamp-2">{item.deskripsi}</p>
+                      )}
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+          <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
       </main>
