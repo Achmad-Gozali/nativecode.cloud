@@ -28,7 +28,7 @@ ENV R2_SECRET_ACCESS_KEY=${R2_SECRET_ACCESS_KEY}
 ENV R2_BUCKET_NAME=${R2_BUCKET_NAME}
 ENV R2_PUBLIC_URL=${R2_PUBLIC_URL}
 
-RUN echo "DATABASE_URL is: $DATABASE_URL" && npx prisma generate
+RUN npx prisma generate
 RUN npm run build
 
 # ---- Stage 3: Production runtime ----
@@ -44,7 +44,10 @@ COPY --from=builder /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/prisma.config.ts ./prisma.config.ts
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/dotenv ./node_modules/dotenv
+COPY --from=builder /app/package.json ./package.json
 
 USER nextjs
 
