@@ -128,22 +128,22 @@ export default function TentangKami() {
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
-        {/* KOMITMEN SECTION */}
+        {/* KOMITMEN SECTION — teks kiri, gambar kanan */}
         <section className="relative bg-white py-12 sm:py-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="fade-up grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-              <div className="flex items-center justify-center">
+              <div className="order-2 lg:order-1">
+                <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
+                  Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.id bukan sekadar penyedia jasa digital, tetapi mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat.
+                </p>
+              </div>
+              <div className="order-1 lg:order-2 flex items-center justify-center">
                 <img
                   src="/images/tentang-kami/ilustrasi-komitmen.png"
                   alt="Komitmen nativecode.id"
                   className="w-full max-w-xs sm:max-w-sm object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.10))' }}
                 />
-              </div>
-              <div>
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
-                  Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.id bukan sekadar penyedia jasa digital, tetapi mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat.
-                </p>
               </div>
             </div>
           </div>

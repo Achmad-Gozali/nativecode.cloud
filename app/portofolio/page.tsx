@@ -58,7 +58,7 @@ export default async function PortofolioPage() {
         </section>
 
         {/* PORTOFOLIO GRID */}
-        <section className="relative bg-[#f1f5f9] pt-12 pb-16 sm:pt-20 sm:pb-24 overflow-hidden">
+        <section className="bg-[#f1f5f9] pt-12 pb-16 sm:pt-20 sm:pb-24">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {portofolioList.length === 0 ? (
               <div className="text-center py-20">
@@ -93,7 +93,6 @@ export default async function PortofolioPage() {
               </div>
             )}
           </div>
-          <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
       </main>
