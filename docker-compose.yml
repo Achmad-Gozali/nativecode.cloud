@@ -1,0 +1,22 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: nativecode-postgres-dev
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: nativecode
+      POSTGRES_PASSWORD: nativecode_dev_password
+      POSTGRES_DB: nativecode
+    ports:
+      - "5434:5432"
+    volumes:
+      - nativecode_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U nativecode"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  nativecode_postgres_data:
+    name: nativecode_postgres_data_dev

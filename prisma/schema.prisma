@@ -1,0 +1,52 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  nama         String
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  @@map("admins")
+}
+
+model Artikel {
+  id          String   @id @default(cuid())
+  judul       String
+  slug        String   @unique
+  ringkasan   String
+  konten      String
+  gambarUrl   String?
+  status      StatusArtikel @default(DRAFT)
+  penulis     String   @default("nativecode.id")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  publishedAt DateTime?
+
+  @@map("artikel")
+}
+
+enum StatusArtikel {
+  DRAFT
+  PUBLISHED
+}
+
+model Portofolio {
+  id          String   @id @default(cuid())
+  namaProyek  String
+  gambarUrl   String
+  deskripsi   String
+  linkWebsite String
+  urutan      Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("portofolio")
+}
