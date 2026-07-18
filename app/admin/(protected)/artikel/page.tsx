@@ -47,7 +47,7 @@ const inputCls = "w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-
 function ToolbarButton({ onClick, active, children, title }: { onClick: () => void; active?: boolean; children: React.ReactNode; title?: string }) {
   return (
     <button type="button" onClick={onClick} title={title}
-      className={`p-1.5 rounded-lg transition-all ${active ? 'bg-slate-200 text-slate-900' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'}`}>
+      className={`p-1.5 rounded-lg transition-all shrink-0 ${active ? 'bg-slate-200 text-slate-900' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'}`}>
       {children}
     </button>
   );
@@ -82,16 +82,16 @@ function TiptapEditor({ content, onChange }: { content: string; onChange: (html:
 
   return (
     <div className="border border-slate-200 rounded-xl overflow-hidden">
-      <div className="flex flex-wrap gap-0.5 px-3 py-2 bg-slate-50 border-b border-slate-200">
+      <div className="flex gap-0.5 px-3 py-2 bg-slate-50 border-b border-slate-200 overflow-x-auto">
         {TOOLBAR_ITEMS(editor).map((item, i) =>
           'divider' in item && item.divider
-            ? <div key={i} className="w-px bg-slate-200 mx-1" />
+            ? <div key={i} className="w-px bg-slate-200 mx-1 shrink-0" />
             : <ToolbarButton key={i} onClick={item.run} active={item.active} title={item.title}><item.icon className="w-3.5 h-3.5" /></ToolbarButton>
         )}
       </div>
       <EditorContent
         editor={editor}
-        className="prose prose-sm max-w-none px-4 py-3 min-h-[280px] text-slate-800 focus:outline-none [&_.ProseMirror]:outline-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)] [&_.ProseMirror_p.is-editor-empty:first-child::before]:text-slate-400 [&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left [&_.ProseMirror_p.is-editor-empty:first-child::before]:h-0"
+        className="prose prose-sm max-w-none px-3 sm:px-4 py-3 min-h-[240px] sm:min-h-[280px] text-slate-800 focus:outline-none [&_.ProseMirror]:outline-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)] [&_.ProseMirror_p.is-editor-empty:first-child::before]:text-slate-400 [&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left [&_.ProseMirror_p.is-editor-empty:first-child::before]:h-0"
       />
     </div>
   );
@@ -247,25 +247,25 @@ export default function ArtikelPage() {
 
   if (view === 'editor') {
     return (
-      <div className="p-4 sm:p-6 space-y-4">
-        <div className="flex items-center justify-between">
+      <div className="p-3 sm:p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <p className="text-sm font-bold text-slate-800">{editing ? 'Edit Artikel' : 'Artikel Baru'}</p>
-          <div className="flex gap-2">
-            <button onClick={() => setView('list')} className="px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-semibold rounded-xl transition-all">Batal</button>
-            <button onClick={() => handleSave('DRAFT')} disabled={loading || !form.judul.trim()} className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all disabled:opacity-40">Simpan Draft</button>
-            <button onClick={() => handleSave('PUBLISHED')} disabled={loading || !form.judul.trim()} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all disabled:opacity-40">
+          <div className="flex gap-2 flex-wrap">
+            <button onClick={() => setView('list')} className="px-3 sm:px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-semibold rounded-xl transition-all">Batal</button>
+            <button onClick={() => handleSave('DRAFT')} disabled={loading || !form.judul.trim()} className="px-3 sm:px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all disabled:opacity-40">Simpan Draft</button>
+            <button onClick={() => handleSave('PUBLISHED')} disabled={loading || !form.judul.trim()} className="px-3 sm:px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all disabled:opacity-40">
               {loading ? 'Menyimpan...' : 'Publish'}
             </button>
           </div>
         </div>
 
-        <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-4">
+        <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 space-y-4">
           <div>
             <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Judul</label>
             <input value={form.judul} onChange={e => setForm(f => ({ ...f, judul: e.target.value }))} placeholder="Judul artikel..." className={inputCls} />
           </div>
 
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Kategori</label>
               <input value={form.kategori} onChange={e => setForm(f => ({ ...f, kategori: e.target.value }))} placeholder="Contoh: Tips, Panduan, Berita..." className={inputCls} />
@@ -305,16 +305,16 @@ export default function ArtikelPage() {
   }
 
   return (
-    <div className="p-4 sm:p-6 space-y-4">
+    <div className="p-3 sm:p-6 space-y-4">
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-2xl font-black text-slate-900">Manajemen Artikel</h1>
+          <div className="flex items-center gap-2 flex-wrap">
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900">Manajemen Artikel</h1>
             <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">{artikelList.length} artikel</span>
           </div>
           <p className="text-sm text-slate-500 mt-0.5">Kelola konten artikel dan informasi di nativecode.cloud</p>
         </div>
-        <button onClick={openNew} className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all shrink-0">
+        <button onClick={openNew} className="flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all shrink-0">
           <Plus className="w-4 h-4" /> Artikel Baru
         </button>
       </div>
@@ -325,18 +325,20 @@ export default function ArtikelPage() {
           <input value={search} onChange={e => { setSearch(e.target.value); setPage(1); }} placeholder="Cari artikel berdasarkan judul atau kategori..."
             className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 transition-colors" />
         </div>
-        {[
-          { value: categoryFilter, set: setCategoryFilter, opts: [['', 'Semua Kategori'], ...categories.map(c => [c, c])] },
-          { value: statusFilter, set: setStatusFilter, opts: [['', 'Semua Status'], ['PUBLISHED', 'Published'], ['DRAFT', 'Draft']] },
-        ].map(({ value, set, opts }, i) => (
-          <div className="relative" key={i}>
-            <select value={value} onChange={e => { set(e.target.value); setPage(1); }}
-              className="appearance-none pl-3.5 pr-9 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 outline-none focus:border-emerald-400 transition-colors cursor-pointer">
-              {opts.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
-            </select>
-            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
-          </div>
-        ))}
+        <div className="flex gap-2">
+          {[
+            { value: categoryFilter, set: setCategoryFilter, opts: [['', 'Semua Kategori'], ...categories.map(c => [c, c])] },
+            { value: statusFilter, set: setStatusFilter, opts: [['', 'Semua Status'], ['PUBLISHED', 'Published'], ['DRAFT', 'Draft']] },
+          ].map(({ value, set, opts }, i) => (
+            <div className="relative flex-1 sm:flex-none" key={i}>
+              <select value={value} onChange={e => { set(e.target.value); setPage(1); }}
+                className="w-full appearance-none pl-3.5 pr-9 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 outline-none focus:border-emerald-400 transition-colors cursor-pointer">
+                {opts.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+              </select>
+              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+            </div>
+          ))}
+        </div>
       </div>
 
       <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
@@ -351,7 +353,7 @@ export default function ArtikelPage() {
           </div>
         ) : (
           <div className="overflow-x-auto">
-            <table className="w-full text-sm">
+            <table className="w-full text-sm min-w-[560px]">
               <thead>
                 <tr className="bg-slate-50 text-left">
                   <th className="px-4 py-3 font-bold text-slate-700 text-xs">Artikel</th>
@@ -413,7 +415,7 @@ export default function ArtikelPage() {
         )}
 
         {filtered.length > 0 && (
-          <div className="flex items-center justify-between px-4 py-3 border-t border-slate-100">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 px-4 py-3 border-t border-slate-100">
             <p className="text-xs text-slate-500">Menampilkan {(currentPage - 1) * PER_PAGE + 1} - {Math.min(currentPage * PER_PAGE, filtered.length)} dari {filtered.length} artikel</p>
             <div className="flex items-center gap-1.5">
               <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={currentPage === 1} className="w-7 h-7 flex items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-30 transition-colors"><ChevronLeft className="w-3.5 h-3.5" /></button>

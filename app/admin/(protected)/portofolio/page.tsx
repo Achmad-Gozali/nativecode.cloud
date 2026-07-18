@@ -1,59 +1,70 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import {
+  Plus, Pencil, Trash2, ExternalLink, Upload, X,
+  Search, ImageIcon,
+} from 'lucide-react';
 
-interface Portofolio {
+interface PortofolioItem {
   id: string;
   namaProyek: string;
   gambarUrl: string;
   deskripsi: string;
   linkWebsite: string;
+  urutan: number;
   createdAt: string;
 }
 
-const emptyForm = { namaProyek: '', gambarUrl: '', deskripsi: '', linkWebsite: '' };
+const inputCls = "w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50 outline-none transition-all";
 
-export default function AdminPortofolio() {
-  const [list, setList] = useState<Portofolio[]>([]);
+const emptyForm = { namaProyek: '', gambarUrl: '', deskripsi: '', linkWebsite: '', urutan: 0 };
+
+export default function PortofolioPage() {
+  const [items, setItems] = useState<PortofolioItem[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [view, setView] = useState<'list' | 'editor'>('list');
-  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editing, setEditing] = useState<PortofolioItem | null>(null);
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+
+  const [search, setSearch] = useState('');
   const [form, setForm] = useState(emptyForm);
 
-  const fetchPortofolio = useCallback(async () => {
+  const fetchItems = useCallback(async () => {
     try {
       const res = await fetch('/api/portofolio');
       const data = await res.json();
-      setList(data.data ?? []);
+      setItems(data.data ?? []);
     } finally {
       setLoaded(true);
     }
   }, []);
 
-  useEffect(() => {
-    fetchPortofolio();
-  }, [fetchPortofolio]);
+  useEffect(() => { fetchItems(); }, [fetchItems]);
 
-  const openNew = () => {
-    setEditingId(null);
-    setForm(emptyForm);
-    setView('editor');
-  };
+  const filtered = items.filter(i =>
+    i.namaProyek.toLowerCase().includes(search.toLowerCase())
+  );
 
-  const openEdit = (item: Portofolio) => {
-    setEditingId(item.id);
+  const openNew = () => { setEditing(null); setForm(emptyForm); setImagePreview(null); setView('editor'); };
+
+  const openEdit = (item: PortofolioItem) => {
+    setEditing(item);
     setForm({
       namaProyek: item.namaProyek,
       gambarUrl: item.gambarUrl,
       deskripsi: item.deskripsi,
       linkWebsite: item.linkWebsite,
+      urutan: item.urutan,
     });
+    setImagePreview(item.gambarUrl);
     setView('editor');
   };
 
-  const handleGambarUpload = async (file: File) => {
+  const handleImageUpload = async (file: File) => {
     setUploading(true);
     try {
       const fd = new FormData();
@@ -61,127 +72,99 @@ export default function AdminPortofolio() {
       fd.append('file', file);
       const res = await fetch('/api/upload', { method: 'POST', body: fd });
       const data = await res.json();
-      if (data.url) {
-        setForm((f) => ({ ...f, gambarUrl: data.url }));
-      } else {
-        alert(data.error || 'Gagal mengunggah gambar');
-      }
+      const url = data.url ?? data.data?.url;
+      if (url) { setForm(f => ({ ...f, gambarUrl: url })); setImagePreview(url); }
     } finally {
       setUploading(false);
     }
   };
 
   const handleSave = async () => {
-    if (!form.namaProyek.trim() || !form.gambarUrl || !form.linkWebsite.trim()) {
-      alert('Nama proyek, gambar, dan link website wajib diisi');
-      return;
-    }
+    if (!form.namaProyek.trim() || !form.gambarUrl || !form.linkWebsite.trim()) return;
     setLoading(true);
     try {
-      const url = editingId ? `/api/portofolio/${editingId}` : '/api/portofolio';
-      const method = editingId ? 'PUT' : 'POST';
+      const url = editing ? `/api/portofolio/${editing.id}` : '/api/portofolio';
       const res = await fetch(url, {
-        method,
+        method: editing ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
-        await fetchPortofolio();
-        setView('list');
-      } else {
-        const data = await res.json();
-        alert(data.error || 'Gagal menyimpan portofolio');
-      }
+      if (res.ok) { await fetchItems(); setView('list'); }
     } finally {
       setLoading(false);
     }
   };
 
   const handleDelete = async (id: string) => {
-    if (!confirm('Hapus item portofolio ini?')) return;
-    const res = await fetch(`/api/portofolio/${id}`, { method: 'DELETE' });
-    if (res.ok) {
-      setList((prev) => prev.filter((p) => p.id !== id));
+    if (!confirm('Hapus portofolio ini?')) return;
+    setDeleting(id);
+    try {
+      await fetch(`/api/portofolio/${id}`, { method: 'DELETE' });
+      setItems(prev => prev.filter(i => i.id !== id));
+    } finally {
+      setDeleting(null);
     }
   };
 
+  const isFormValid = form.namaProyek.trim() && form.gambarUrl && form.linkWebsite.trim();
+
   if (view === 'editor') {
     return (
-      <div className="py-8 px-4 sm:px-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-lg font-bold text-gray-900">{editingId ? 'Edit Portofolio' : 'Portofolio Baru'}</p>
-            <div className="flex gap-2">
-              <button onClick={() => setView('list')} className="px-4 py-2 text-gray-500 hover:text-gray-700 text-sm font-semibold rounded-xl transition-colors">
-                Batal
-              </button>
-              <button
-                onClick={handleSave}
-                disabled={loading}
-                className="px-4 py-2 text-white text-sm font-semibold rounded-xl transition-opacity hover:opacity-90 disabled:opacity-40"
-                style={{ background: '#3d8b5e' }}
-              >
-                {loading ? 'Menyimpan...' : 'Simpan'}
-              </button>
-            </div>
+      <div className="p-3 sm:p-6 space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <p className="text-sm font-bold text-slate-800">{editing ? 'Edit Portofolio' : 'Portofolio Baru'}</p>
+          <div className="flex gap-2 flex-wrap">
+            <button onClick={() => setView('list')} className="px-3 sm:px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-semibold rounded-xl transition-all">Batal</button>
+            <button onClick={handleSave} disabled={loading || !isFormValid} className="px-3 sm:px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all disabled:opacity-40">
+              {loading ? 'Menyimpan...' : 'Simpan'}
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-white border border-slate-200 rounded-xl p-4 sm:p-5 space-y-4">
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Nama Proyek</label>
+            <input value={form.namaProyek} onChange={e => setForm(f => ({ ...f, namaProyek: e.target.value }))} placeholder="Contoh: Toko Online Batik Nusantara" className={inputCls} />
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 space-y-4">
-            <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Nama Proyek</label>
-              <input
-                value={form.namaProyek}
-                onChange={(e) => setForm((f) => ({ ...f, namaProyek: e.target.value }))}
-                placeholder="Contoh: Toko Online Batik Nusantara"
-                className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#3d8b5e] focus:ring-2 focus:ring-[#3d8b5e]/10"
-              />
-            </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Gambar Screenshot Website</label>
+            {imagePreview ? (
+              <div className="relative w-full rounded-xl overflow-hidden border border-slate-200 bg-slate-50">
+                <img src={imagePreview} alt="preview" className="w-full h-40 sm:h-48 object-cover" />
+                <button type="button" onClick={() => { setImagePreview(null); setForm(f => ({ ...f, gambarUrl: '' })); }}
+                  className="absolute top-2 right-2 w-7 h-7 flex items-center justify-center bg-white/90 rounded-full text-slate-500 hover:text-red-500 transition-colors shadow-sm">
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            ) : (
+              <label className={`flex flex-col items-center justify-center gap-2 w-full h-32 sm:h-40 border-2 border-dashed border-slate-200 rounded-xl cursor-pointer hover:border-emerald-300 hover:bg-emerald-50/30 transition-all ${uploading ? 'opacity-60 pointer-events-none' : ''}`}>
+                {uploading ? (
+                  <span className="text-sm text-slate-400">Mengupload...</span>
+                ) : (
+                  <>
+                    <Upload className="w-5 h-5 text-slate-300" />
+                    <span className="text-sm text-slate-400">Pilih gambar screenshot website...</span>
+                  </>
+                )}
+                <input type="file" accept="image/jpeg,image/png" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) handleImageUpload(f); }} />
+              </label>
+            )}
+          </div>
 
-            <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Gambar</label>
-              {form.gambarUrl ? (
-                <div className="relative w-full rounded-xl overflow-hidden border border-gray-200 bg-gray-50">
-                  <img src={form.gambarUrl} alt="preview" className="w-full h-40 object-cover" />
-                  <button
-                    type="button"
-                    onClick={() => setForm((f) => ({ ...f, gambarUrl: '' }))}
-                    className="absolute top-2 right-2 bg-white/90 hover:bg-white text-red-500 text-xs font-semibold px-2.5 py-1 rounded-lg transition-colors"
-                  >
-                    Hapus
-                  </button>
-                </div>
-              ) : (
-                <label className={`flex items-center justify-center gap-2 px-3.5 py-6 border border-dashed border-gray-300 rounded-xl text-sm cursor-pointer ${uploading ? 'opacity-60 pointer-events-none' : ''}`}>
-                  <span className="text-gray-400">{uploading ? 'Mengunggah...' : 'Pilih gambar screenshot website...'}</span>
-                  <input
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp"
-                    className="hidden"
-                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleGambarUpload(f); }}
-                  />
-                </label>
-              )}
-            </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Deskripsi Singkat</label>
+            <textarea value={form.deskripsi} onChange={e => setForm(f => ({ ...f, deskripsi: e.target.value }))} placeholder="Deskripsi singkat proyek ini..." rows={3} className={`${inputCls} resize-none`} />
+          </div>
 
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Deskripsi Singkat</label>
-              <textarea
-                value={form.deskripsi}
-                onChange={(e) => setForm((f) => ({ ...f, deskripsi: e.target.value }))}
-                placeholder="Deskripsi singkat proyek ini..."
-                rows={3}
-                className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#3d8b5e] focus:ring-2 focus:ring-[#3d8b5e]/10 resize-none"
-              />
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Link Website</label>
+              <input value={form.linkWebsite} onChange={e => setForm(f => ({ ...f, linkWebsite: e.target.value }))} placeholder="https://contohwebsite.com" className={inputCls} />
             </div>
-
             <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Link Website</label>
-              <input
-                value={form.linkWebsite}
-                onChange={(e) => setForm((f) => ({ ...f, linkWebsite: e.target.value }))}
-                placeholder="https://contohwebsite.com"
-                className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#3d8b5e] focus:ring-2 focus:ring-[#3d8b5e]/10"
-              />
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Urutan Tampil</label>
+              <input type="number" value={form.urutan} onChange={e => setForm(f => ({ ...f, urutan: parseInt(e.target.value) || 0 }))} placeholder="0" className={inputCls} />
             </div>
           </div>
         </div>
@@ -190,49 +173,65 @@ export default function AdminPortofolio() {
   }
 
   return (
-    <div className="py-8 px-4 sm:px-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">Kelola Portofolio</h1>
-            <p className="text-sm text-gray-500 mt-0.5">{list.length} proyek</p>
+    <div className="p-3 sm:p-6 space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <div className="flex items-center gap-2 flex-wrap">
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900">Manajemen Portofolio</h1>
+            <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">{items.length} proyek</span>
           </div>
-          <button onClick={openNew} className="px-4 py-2.5 text-white text-sm font-semibold rounded-xl transition-opacity hover:opacity-90" style={{ background: '#3d8b5e' }}>
-            + Portofolio Baru
-          </button>
+          <p className="text-sm text-slate-500 mt-0.5">Kelola daftar proyek yang ditampilkan di halaman Portofolio</p>
         </div>
+        <button onClick={openNew} className="flex items-center justify-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all shrink-0">
+          <Plus className="w-4 h-4" /> Portofolio Baru
+        </button>
+      </div>
 
-        {!loaded ? (
-          <div className="py-16 text-center text-sm text-gray-400">Memuat...</div>
-        ) : list.length === 0 ? (
-          <div className="bg-white border border-gray-200 rounded-2xl py-16 text-center">
-            <p className="text-sm text-gray-400 mb-3">Belum ada portofolio.</p>
-            <button onClick={openNew} className="text-sm font-semibold text-[#3d8b5e] hover:opacity-80 transition-opacity">
-              Tambah portofolio pertama →
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {list.map((item) => (
-              <div key={item.id} className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
-                <img src={item.gambarUrl} alt={item.namaProyek} className="w-full h-36 object-cover bg-gray-100" />
-                <div className="p-4">
-                  <p className="font-semibold text-gray-900 text-sm line-clamp-1">{item.namaProyek}</p>
-                  <p className="text-xs text-gray-500 mt-1 line-clamp-2">{item.deskripsi}</p>
-                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
-                    <button onClick={() => openEdit(item)} className="text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors">
-                      Edit
-                    </button>
-                    <button onClick={() => handleDelete(item.id)} className="text-xs font-semibold text-gray-400 hover:text-red-500 transition-colors">
-                      Hapus
-                    </button>
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+        <input value={search} onChange={e => setSearch(e.target.value)} placeholder="Cari nama proyek..."
+          className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 transition-colors" />
+      </div>
+
+      {!loaded ? (
+        <div className="py-16 text-center text-sm text-slate-400 bg-white border border-slate-200 rounded-2xl">Memuat...</div>
+      ) : filtered.length === 0 ? (
+        <div className="py-16 text-center bg-white border border-slate-200 rounded-2xl">
+          <p className="text-sm text-slate-400 mb-3">{items.length === 0 ? 'Belum ada portofolio.' : 'Tidak ada portofolio ditemukan.'}</p>
+          {items.length === 0 && (
+            <button onClick={openNew} className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">Tambah portofolio pertama →</button>
+          )}
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filtered.map(item => (
+            <div key={item.id} className="bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+              <div className="relative w-full h-40 bg-slate-50">
+                {item.gambarUrl ? (
+                  <img src={item.gambarUrl} alt={item.namaProyek} className="w-full h-full object-cover" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center"><ImageIcon className="w-6 h-6 text-slate-300" /></div>
+                )}
+                <span className="absolute top-2 left-2 text-[10px] font-bold px-2 py-1 rounded-full bg-white/90 text-slate-500 shadow-sm">Urutan {item.urutan}</span>
+              </div>
+              <div className="p-4 flex flex-col flex-1">
+                <p className="text-sm font-semibold text-slate-900 line-clamp-1">{item.namaProyek}</p>
+                <p className="text-xs text-slate-500 mt-1 line-clamp-2 flex-1">{item.deskripsi || 'Tidak ada deskripsi.'}</p>
+                <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100">
+                  <a href={item.linkWebsite} target="_blank" rel="noopener noreferrer" title="Kunjungi website"
+                    className="flex items-center gap-1 text-xs font-medium text-slate-400 hover:text-emerald-600 transition-colors">
+                    <ExternalLink className="w-3.5 h-3.5" /> Kunjungi
+                  </a>
+                  <div className="flex items-center gap-1">
+                    <button onClick={() => openEdit(item)} title="Edit" className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-all"><Pencil className="w-4 h-4" /></button>
+                    <button onClick={() => handleDelete(item.id)} disabled={deleting === item.id} title="Hapus" className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all disabled:opacity-40"><Trash2 className="w-4 h-4" /></button>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        )}
-      </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
