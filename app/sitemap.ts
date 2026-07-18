@@ -3,6 +3,8 @@ import { prisma } from '@/lib/prisma';
 
 const BASE_URL = 'https://nativecode.cloud';
 
+export const dynamic = 'force-dynamic';
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [artikelList, portofolioList] = await Promise.all([
     prisma.artikel.findMany({
