@@ -42,7 +42,7 @@ export async function PUT(
 
   try {
     const body = await request.json();
-    const { judul, ringkasan, konten, gambarUrl, status } = body;
+    const { judul, ringkasan, konten, gambarUrl, kategori, status } = body;
 
     const artikelLama = await prisma.artikel.findUnique({ where: { id } });
     if (!artikelLama) {
@@ -59,6 +59,7 @@ export async function PUT(
         ...(ringkasan !== undefined && { ringkasan: ringkasan.trim() }),
         ...(konten !== undefined && { konten }),
         ...(gambarUrl !== undefined && { gambarUrl: gambarUrl || null }),
+        ...(kategori !== undefined && { kategori: kategori?.trim() || null }),
         status: statusArtikel,
         ...(baruDipublish && { publishedAt: new Date() }),
       },

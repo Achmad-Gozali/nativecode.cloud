@@ -24,6 +24,7 @@ export async function GET() {
       slug: true,
       ringkasan: true,
       gambarUrl: true,
+      kategori: true,
       status: true,
       publishedAt: true,
       createdAt: true,
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { judul, ringkasan, konten, gambarUrl, status } = body;
+    const { judul, ringkasan, konten, gambarUrl, kategori, status } = body;
 
     if (!judul || !judul.trim()) {
       return NextResponse.json({ error: 'Judul wajib diisi' }, { status: 400 });
@@ -61,6 +62,7 @@ export async function POST(request: NextRequest) {
         ringkasan: ringkasan?.trim() || '',
         konten: konten || '',
         gambarUrl: gambarUrl || null,
+        kategori: kategori?.trim() || null,
         status: statusArtikel,
         publishedAt: statusArtikel === 'PUBLISHED' ? new Date() : null,
       },

@@ -18,16 +18,17 @@ model Admin {
 }
 
 model Artikel {
-  id          String   @id @default(cuid())
+  id          String        @id @default(cuid())
   judul       String
-  slug        String   @unique
+  slug        String        @unique
   ringkasan   String
   konten      String
   gambarUrl   String?
+  kategori    String?
   status      StatusArtikel @default(DRAFT)
-  penulis     String   @default("nativecode.id")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  penulis     String        @default("nativecode.cloud")
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
   publishedAt DateTime?
 
   @@map("artikel")

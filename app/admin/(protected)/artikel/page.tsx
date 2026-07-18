@@ -1,43 +1,75 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useMemo, useRef, useEffect } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Placeholder from '@tiptap/extension-placeholder';
+import {
+  Plus, Pencil, Trash2, Eye,
+  Bold, Italic, List, ListOrdered, Heading2, Heading3, Quote, Minus, Upload, X,
+  Search, ChevronDown, MoreHorizontal, Calendar, FileText,
+  ChevronLeft, ChevronRight, Globe, PencilLine,
+} from 'lucide-react';
+
+const PER_PAGE = 8;
 
 interface Artikel {
   id: string;
   judul: string;
   slug: string;
-  ringkasan: string;
-  konten: string;
+  ringkasan: string | null;
   gambarUrl: string | null;
+  kategori: string | null;
   status: 'DRAFT' | 'PUBLISHED';
+  publishedAt: string | null;
   createdAt: string;
 }
+interface ArtikelFull extends Artikel { konten: string; }
 
-const emptyForm = { judul: '', ringkasan: '', konten: '', gambarUrl: '', status: 'DRAFT' as 'DRAFT' | 'PUBLISHED' };
+const fmtDate = (d: string) => {
+  try { return new Date(d).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' }); }
+  catch { return d; }
+};
 
-function fmtDate(d: string) {
-  try {
-    return new Date(d).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
-  } catch {
-    return d;
-  }
-}
+const CATEGORY_PALETTE = [
+  'bg-sky-50 text-sky-700 border-sky-200', 'bg-violet-50 text-violet-700 border-violet-200',
+  'bg-amber-50 text-amber-700 border-amber-200', 'bg-teal-50 text-teal-700 border-teal-200',
+  'bg-rose-50 text-rose-700 border-rose-200', 'bg-indigo-50 text-indigo-700 border-indigo-200',
+];
+const categoryClass = (cat: string) => {
+  let hash = 0;
+  for (const ch of cat) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  return CATEGORY_PALETTE[hash % CATEGORY_PALETTE.length];
+};
+
+const inputCls = "w-full px-3.5 py-2.5 bg-white border border-slate-200 rounded-xl text-sm text-slate-800 placeholder:text-slate-400 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50 outline-none transition-all";
 
 function ToolbarButton({ onClick, active, children, title }: { onClick: () => void; active?: boolean; children: React.ReactNode; title?: string }) {
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      title={title}
-      className={`px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${active ? 'bg-[#3d8b5e] text-white' : 'text-gray-600 hover:bg-gray-100'}`}
-    >
+    <button type="button" onClick={onClick} title={title}
+      className={`p-1.5 rounded-lg transition-all ${active ? 'bg-slate-200 text-slate-900' : 'text-slate-500 hover:bg-slate-100 hover:text-slate-800'}`}>
       {children}
     </button>
   );
 }
+
+type ToolbarItem =
+  | { divider: true }
+  | { divider?: false; icon: React.ElementType; title: string; active?: boolean; run: () => void };
+
+const TOOLBAR_ITEMS = (editor: any): ToolbarItem[] => [
+  { icon: Bold, title: 'Bold', active: editor.isActive('bold'), run: () => editor.chain().focus().toggleBold().run() },
+  { icon: Italic, title: 'Italic', active: editor.isActive('italic'), run: () => editor.chain().focus().toggleItalic().run() },
+  { divider: true },
+  { icon: Heading2, title: 'Heading 2', active: editor.isActive('heading', { level: 2 }), run: () => editor.chain().focus().toggleHeading({ level: 2 }).run() },
+  { icon: Heading3, title: 'Heading 3', active: editor.isActive('heading', { level: 3 }), run: () => editor.chain().focus().toggleHeading({ level: 3 }).run() },
+  { divider: true },
+  { icon: List, title: 'Bullet list', active: editor.isActive('bulletList'), run: () => editor.chain().focus().toggleBulletList().run() },
+  { icon: ListOrdered, title: 'Numbered list', active: editor.isActive('orderedList'), run: () => editor.chain().focus().toggleOrderedList().run() },
+  { icon: Quote, title: 'Quote', active: editor.isActive('blockquote'), run: () => editor.chain().focus().toggleBlockquote().run() },
+  { divider: true },
+  { icon: Minus, title: 'Divider', run: () => editor.chain().focus().setHorizontalRule().run() },
+];
 
 function TiptapEditor({ content, onChange }: { content: string; onChange: (html: string) => void }) {
   const editor = useEditor({
@@ -46,38 +78,68 @@ function TiptapEditor({ content, onChange }: { content: string; onChange: (html:
     immediatelyRender: false,
     onUpdate: ({ editor }) => onChange(editor.getHTML()),
   });
-
   if (!editor) return null;
 
   return (
-    <div className="border border-gray-200 rounded-xl overflow-hidden">
-      <div className="flex flex-wrap gap-0.5 px-3 py-2 bg-gray-50 border-b border-gray-200">
-        <ToolbarButton onClick={() => editor.chain().focus().toggleBold().run()} active={editor.isActive('bold')} title="Bold">B</ToolbarButton>
-        <ToolbarButton onClick={() => editor.chain().focus().toggleItalic().run()} active={editor.isActive('italic')} title="Italic"><em>I</em></ToolbarButton>
-        <div className="w-px bg-gray-200 mx-1" />
-        <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()} active={editor.isActive('heading', { level: 2 })} title="Heading 2">H2</ToolbarButton>
-        <ToolbarButton onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()} active={editor.isActive('heading', { level: 3 })} title="Heading 3">H3</ToolbarButton>
-        <div className="w-px bg-gray-200 mx-1" />
-        <ToolbarButton onClick={() => editor.chain().focus().toggleBulletList().run()} active={editor.isActive('bulletList')} title="Bullet list">•</ToolbarButton>
-        <ToolbarButton onClick={() => editor.chain().focus().toggleOrderedList().run()} active={editor.isActive('orderedList')} title="Numbered list">1.</ToolbarButton>
-        <ToolbarButton onClick={() => editor.chain().focus().toggleBlockquote().run()} active={editor.isActive('blockquote')} title="Quote">&quot;</ToolbarButton>
+    <div className="border border-slate-200 rounded-xl overflow-hidden">
+      <div className="flex flex-wrap gap-0.5 px-3 py-2 bg-slate-50 border-b border-slate-200">
+        {TOOLBAR_ITEMS(editor).map((item, i) =>
+          'divider' in item && item.divider
+            ? <div key={i} className="w-px bg-slate-200 mx-1" />
+            : <ToolbarButton key={i} onClick={item.run} active={item.active} title={item.title}><item.icon className="w-3.5 h-3.5" /></ToolbarButton>
+        )}
       </div>
       <EditorContent
         editor={editor}
-        className="prose prose-sm max-w-none px-4 py-3 min-h-[280px] text-gray-800 focus:outline-none [&_.ProseMirror]:outline-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)] [&_.ProseMirror_p.is-editor-empty:first-child::before]:text-gray-400 [&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left [&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none"
+        className="prose prose-sm max-w-none px-4 py-3 min-h-[280px] text-slate-800 focus:outline-none [&_.ProseMirror]:outline-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:content-[attr(data-placeholder)] [&_.ProseMirror_p.is-editor-empty:first-child::before]:text-slate-400 [&_.ProseMirror_p.is-editor-empty:first-child::before]:pointer-events-none [&_.ProseMirror_p.is-editor-empty:first-child::before]:float-left [&_.ProseMirror_p.is-editor-empty:first-child::before]:h-0"
       />
     </div>
   );
 }
 
-export default function AdminArtikel() {
+function StatusDropdown({ artikel, onTogglePublish }: { artikel: Artikel; onTogglePublish: () => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const close = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', close);
+    return () => document.removeEventListener('mousedown', close);
+  }, []);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button onClick={() => setOpen(o => !o)} className="w-8 h-8 flex items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 transition-colors">
+        <MoreHorizontal className="w-4 h-4" />
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full mt-1 w-44 bg-white border border-slate-200 rounded-xl shadow-lg py-1.5 z-20">
+          <button onClick={() => { onTogglePublish(); setOpen(false); }} className="w-full flex items-center gap-2 px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors">
+            {artikel.status === 'PUBLISHED'
+              ? <><PencilLine className="w-3.5 h-3.5 text-slate-400" /> Jadikan Draft</>
+              : <><Globe className="w-3.5 h-3.5 text-emerald-500" /> Publish</>}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+const emptyForm = { judul: '', ringkasan: '', konten: '', gambarUrl: '', kategori: '', status: 'DRAFT' as 'DRAFT' | 'PUBLISHED' };
+
+export default function ArtikelPage() {
   const [artikelList, setArtikelList] = useState<Artikel[]>([]);
   const [loaded, setLoaded] = useState(false);
   const [view, setView] = useState<'list' | 'editor'>('list');
-  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editing, setEditing] = useState<ArtikelFull | null>(null);
   const [loading, setLoading] = useState(false);
+  const [deleting, setDeleting] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [thumbnailPreview, setThumbnailPreview] = useState<string | null>(null);
+
+  const [search, setSearch] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('');
+  const [statusFilter, setStatusFilter] = useState('');
+  const [page, setPage] = useState(1);
   const [form, setForm] = useState(emptyForm);
 
   const fetchArtikel = useCallback(async () => {
@@ -90,24 +152,39 @@ export default function AdminArtikel() {
     }
   }, []);
 
-  useEffect(() => {
-    fetchArtikel();
-  }, [fetchArtikel]);
+  useEffect(() => { fetchArtikel(); }, [fetchArtikel]);
 
-  const openNew = () => {
-    setEditingId(null);
-    setForm(emptyForm);
-    setThumbnailPreview(null);
-    setView('editor');
-  };
+  const categories = useMemo(
+    () => Array.from(new Set(artikelList.map(a => a.kategori).filter((k): k is string => !!k))),
+    [artikelList]
+  );
+
+  const filtered = useMemo(() => artikelList.filter(a => {
+    const q = search.toLowerCase();
+    return (a.judul.toLowerCase().includes(q) || (a.kategori ?? '').toLowerCase().includes(q))
+      && (!categoryFilter || a.kategori === categoryFilter)
+      && (!statusFilter || a.status === statusFilter);
+  }), [artikelList, search, categoryFilter, statusFilter]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE));
+  const currentPage = Math.min(page, totalPages);
+  const paginated = filtered.slice((currentPage - 1) * PER_PAGE, currentPage * PER_PAGE);
+
+  const openNew = () => { setEditing(null); setForm(emptyForm); setThumbnailPreview(null); setView('editor'); };
 
   const openEdit = async (id: string) => {
     const res = await fetch(`/api/artikel/${id}`);
-    const data = await res.json();
-    const a: Artikel = data.data;
-    setEditingId(a.id);
-    setForm({ judul: a.judul, ringkasan: a.ringkasan, konten: a.konten, gambarUrl: a.gambarUrl ?? '', status: a.status });
-    setThumbnailPreview(a.gambarUrl);
+    const a = (await res.json()).data as ArtikelFull;
+    setEditing(a);
+    setForm({
+      judul: a.judul,
+      ringkasan: a.ringkasan ?? '',
+      konten: a.konten,
+      gambarUrl: a.gambarUrl ?? '',
+      kategori: a.kategori ?? '',
+      status: a.status,
+    });
+    setThumbnailPreview(a.gambarUrl ?? null);
     setView('editor');
   };
 
@@ -119,35 +196,24 @@ export default function AdminArtikel() {
       fd.append('file', file);
       const res = await fetch('/api/upload', { method: 'POST', body: fd });
       const data = await res.json();
-      if (data.url) {
-        setForm((f) => ({ ...f, gambarUrl: data.url }));
-        setThumbnailPreview(data.url);
-      } else {
-        alert(data.error || 'Gagal mengunggah gambar');
-      }
+      const url = data.url ?? data.data?.url;
+      if (url) { setForm(f => ({ ...f, gambarUrl: url })); setThumbnailPreview(url); }
     } finally {
       setUploading(false);
     }
   };
 
-  const handleSave = async (statusSimpan: 'DRAFT' | 'PUBLISHED') => {
+  const handleSave = async (saveStatus?: 'DRAFT' | 'PUBLISHED') => {
     if (!form.judul.trim()) return;
     setLoading(true);
     try {
-      const url = editingId ? `/api/artikel/${editingId}` : '/api/artikel';
-      const method = editingId ? 'PUT' : 'POST';
+      const url = editing ? `/api/artikel/${editing.id}` : '/api/artikel';
       const res = await fetch(url, {
-        method,
+        method: editing ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, status: statusSimpan }),
+        body: JSON.stringify({ ...form, status: saveStatus ?? form.status }),
       });
-      if (res.ok) {
-        await fetchArtikel();
-        setView('list');
-      } else {
-        const data = await res.json();
-        alert(data.error || 'Gagal menyimpan artikel');
-      }
+      if (res.ok) { await fetchArtikel(); setView('list'); }
     } finally {
       setLoading(false);
     }
@@ -155,93 +221,83 @@ export default function AdminArtikel() {
 
   const handleDelete = async (id: string) => {
     if (!confirm('Hapus artikel ini?')) return;
-    const res = await fetch(`/api/artikel/${id}`, { method: 'DELETE' });
-    if (res.ok) {
-      setArtikelList((prev) => prev.filter((a) => a.id !== id));
+    setDeleting(id);
+    try {
+      await fetch(`/api/artikel/${id}`, { method: 'DELETE' });
+      setArtikelList(prev => prev.filter(a => a.id !== id));
+    } finally {
+      setDeleting(null);
     }
+  };
+
+  const togglePublish = async (a: Artikel) => {
+    const newStatus = a.status === 'PUBLISHED' ? 'DRAFT' : 'PUBLISHED';
+    const res = await fetch(`/api/artikel/${a.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: newStatus }),
+    });
+    if (res.ok) setArtikelList(prev => prev.map(x => x.id === a.id ? { ...x, status: newStatus } : x));
+  };
+
+  const previewUrl = (a: Artikel) => {
+    if (a.status !== 'PUBLISHED') return null;
+    return `/artikel/${a.slug}`;
   };
 
   if (view === 'editor') {
     return (
-      <div className="py-8 px-4 sm:px-8">
-        <div className="max-w-3xl mx-auto">
-          <div className="flex items-center justify-between mb-4">
-            <p className="text-lg font-bold text-gray-900">{editingId ? 'Edit Artikel' : 'Artikel Baru'}</p>
-            <div className="flex gap-2">
-              <button onClick={() => setView('list')} className="px-4 py-2 text-gray-500 hover:text-gray-700 text-sm font-semibold rounded-xl transition-colors">
-                Batal
-              </button>
-              <button
-                onClick={() => handleSave('DRAFT')}
-                disabled={loading || !form.judul.trim()}
-                className="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-semibold rounded-xl transition-colors disabled:opacity-40"
-              >
-                Simpan Draft
-              </button>
-              <button
-                onClick={() => handleSave('PUBLISHED')}
-                disabled={loading || !form.judul.trim()}
-                className="px-4 py-2 text-white text-sm font-semibold rounded-xl transition-opacity hover:opacity-90 disabled:opacity-40"
-                style={{ background: '#3d8b5e' }}
-              >
-                {loading ? 'Menyimpan...' : 'Publish'}
-              </button>
-            </div>
+      <div className="p-4 sm:p-6 space-y-4">
+        <div className="flex items-center justify-between">
+          <p className="text-sm font-bold text-slate-800">{editing ? 'Edit Artikel' : 'Artikel Baru'}</p>
+          <div className="flex gap-2">
+            <button onClick={() => setView('list')} className="px-4 py-2 text-slate-500 hover:text-slate-700 text-sm font-semibold rounded-xl transition-all">Batal</button>
+            <button onClick={() => handleSave('DRAFT')} disabled={loading || !form.judul.trim()} className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-semibold rounded-xl transition-all disabled:opacity-40">Simpan Draft</button>
+            <button onClick={() => handleSave('PUBLISHED')} disabled={loading || !form.judul.trim()} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all disabled:opacity-40">
+              {loading ? 'Menyimpan...' : 'Publish'}
+            </button>
+          </div>
+        </div>
+
+        <div className="bg-white border border-slate-200 rounded-xl p-5 space-y-4">
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Judul</label>
+            <input value={form.judul} onChange={e => setForm(f => ({ ...f, judul: e.target.value }))} placeholder="Judul artikel..." className={inputCls} />
           </div>
 
-          <div className="bg-white border border-gray-200 rounded-2xl p-5 space-y-4">
+          <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Judul</label>
-              <input
-                value={form.judul}
-                onChange={(e) => setForm((f) => ({ ...f, judul: e.target.value }))}
-                placeholder="Judul artikel..."
-                className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#3d8b5e] focus:ring-2 focus:ring-[#3d8b5e]/10"
-              />
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Kategori</label>
+              <input value={form.kategori} onChange={e => setForm(f => ({ ...f, kategori: e.target.value }))} placeholder="Contoh: Tips, Panduan, Berita..." className={inputCls} />
             </div>
-
             <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Thumbnail</label>
+              <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Thumbnail</label>
               {thumbnailPreview ? (
-                <div className="relative w-full h-10 rounded-xl overflow-hidden border border-gray-200 bg-gray-50 flex items-center px-3 gap-3">
+                <div className="relative w-full h-10 rounded-xl overflow-hidden border border-slate-200 bg-slate-50 flex items-center px-3 gap-3">
                   <img src={thumbnailPreview} alt="preview" className="h-7 w-12 object-cover rounded-lg shrink-0" />
-                  <span className="text-xs text-gray-500 truncate flex-1">Thumbnail terpilih</span>
-                  <button
-                    type="button"
-                    onClick={() => { setThumbnailPreview(null); setForm((f) => ({ ...f, gambarUrl: '' })); }}
-                    className="shrink-0 text-gray-400 hover:text-red-500 transition-colors text-sm"
-                  >
-                    Hapus
+                  <span className="text-xs text-slate-500 truncate flex-1">Thumbnail terpilih</span>
+                  <button type="button" onClick={() => { setThumbnailPreview(null); setForm(f => ({ ...f, gambarUrl: '' })); }} className="shrink-0 text-slate-400 hover:text-red-500 transition-colors">
+                    <X className="w-4 h-4" />
                   </button>
                 </div>
               ) : (
-                <label className={`flex items-center gap-2 px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm cursor-pointer ${uploading ? 'opacity-60 pointer-events-none' : ''}`}>
-                  <span className="text-gray-400">{uploading ? 'Mengunggah...' : 'Pilih gambar thumbnail...'}</span>
-                  <input
-                    type="file"
-                    accept="image/jpeg,image/png,image/webp"
-                    className="hidden"
-                    onChange={(e) => { const f = e.target.files?.[0]; if (f) handleThumbnailUpload(f); }}
-                  />
+                <label className={`${inputCls} flex items-center gap-2 cursor-pointer ${uploading ? 'opacity-60 pointer-events-none' : ''}`}>
+                  <Upload className="w-4 h-4 text-slate-400 shrink-0" />
+                  <span className="text-slate-400 text-sm">{uploading ? 'Mengupload...' : 'Upload gambar...'}</span>
+                  <input type="file" accept="image/jpeg,image/png" className="hidden" onChange={e => { const f = e.target.files?.[0]; if (f) handleThumbnailUpload(f); }} />
                 </label>
               )}
             </div>
+          </div>
 
-            <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Ringkasan</label>
-              <textarea
-                value={form.ringkasan}
-                onChange={(e) => setForm((f) => ({ ...f, ringkasan: e.target.value }))}
-                placeholder="Ringkasan singkat artikel..."
-                rows={2}
-                className="w-full px-3.5 py-2.5 border border-gray-200 rounded-xl text-sm outline-none focus:border-[#3d8b5e] focus:ring-2 focus:ring-[#3d8b5e]/10 resize-none"
-              />
-            </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Ringkasan</label>
+            <textarea value={form.ringkasan} onChange={e => setForm(f => ({ ...f, ringkasan: e.target.value }))} placeholder="Ringkasan singkat artikel..." rows={2} className={`${inputCls} resize-none`} />
+          </div>
 
-            <div>
-              <label className="text-xs font-bold text-gray-400 uppercase tracking-wide block mb-1.5">Konten</label>
-              <TiptapEditor content={form.konten} onChange={(konten) => setForm((f) => ({ ...f, konten }))} />
-            </div>
+          <div>
+            <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block mb-1.5">Konten</label>
+            <TiptapEditor content={form.konten} onChange={konten => setForm(f => ({ ...f, konten }))} />
           </div>
         </div>
       </div>
@@ -249,75 +305,125 @@ export default function AdminArtikel() {
   }
 
   return (
-    <div className="py-8 px-4 sm:px-8">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mb-6">
-          <div>
-            <h1 className="text-xl font-bold text-gray-900">Kelola Artikel</h1>
-            <p className="text-sm text-gray-500 mt-0.5">{artikelList.length} artikel</p>
+    <div className="p-4 sm:p-6 space-y-4">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <div>
+          <div className="flex items-center gap-2">
+            <h1 className="text-2xl font-black text-slate-900">Manajemen Artikel</h1>
+            <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">{artikelList.length} artikel</span>
           </div>
-          <button onClick={openNew} className="px-4 py-2.5 text-white text-sm font-semibold rounded-xl transition-opacity hover:opacity-90" style={{ background: '#3d8b5e' }}>
-            + Artikel Baru
-          </button>
+          <p className="text-sm text-slate-500 mt-0.5">Kelola konten artikel dan informasi di nativecode.cloud</p>
         </div>
+        <button onClick={openNew} className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-semibold rounded-xl transition-all shrink-0">
+          <Plus className="w-4 h-4" /> Artikel Baru
+        </button>
+      </div>
 
-        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
-          {!loaded ? (
-            <div className="py-16 text-center text-sm text-gray-400">Memuat...</div>
-          ) : artikelList.length === 0 ? (
-            <div className="py-16 text-center">
-              <p className="text-sm text-gray-400 mb-3">Belum ada artikel.</p>
-              <button onClick={openNew} className="text-sm font-semibold text-[#3d8b5e] hover:opacity-80 transition-opacity">
-                Buat artikel pertama →
-              </button>
-            </div>
-          ) : (
+      <div className="flex flex-col sm:flex-row gap-2">
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <input value={search} onChange={e => { setSearch(e.target.value); setPage(1); }} placeholder="Cari artikel berdasarkan judul atau kategori..."
+            className="w-full pl-9 pr-4 py-2.5 bg-white border border-slate-200 rounded-xl text-sm outline-none focus:border-emerald-400 transition-colors" />
+        </div>
+        {[
+          { value: categoryFilter, set: setCategoryFilter, opts: [['', 'Semua Kategori'], ...categories.map(c => [c, c])] },
+          { value: statusFilter, set: setStatusFilter, opts: [['', 'Semua Status'], ['PUBLISHED', 'Published'], ['DRAFT', 'Draft']] },
+        ].map(({ value, set, opts }, i) => (
+          <div className="relative" key={i}>
+            <select value={value} onChange={e => { set(e.target.value); setPage(1); }}
+              className="appearance-none pl-3.5 pr-9 py-2.5 bg-white border border-slate-200 rounded-xl text-sm font-medium text-slate-700 outline-none focus:border-emerald-400 transition-colors cursor-pointer">
+              {opts.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
+            </select>
+            <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-slate-400 pointer-events-none" />
+          </div>
+        ))}
+      </div>
+
+      <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden">
+        {!loaded ? (
+          <div className="py-16 text-center text-sm text-slate-400">Memuat...</div>
+        ) : paginated.length === 0 ? (
+          <div className="py-16 text-center">
+            <p className="text-sm text-slate-400 mb-3">{artikelList.length === 0 ? 'Belum ada artikel.' : 'Tidak ada artikel ditemukan.'}</p>
+            {artikelList.length === 0 && (
+              <button onClick={openNew} className="text-sm font-semibold text-emerald-600 hover:text-emerald-700 transition-colors">Buat artikel pertama →</button>
+            )}
+          </div>
+        ) : (
+          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
-                <tr className="bg-gray-50 text-left">
-                  <th className="px-4 py-3 font-bold text-gray-600 text-xs">Artikel</th>
-                  <th className="px-4 py-3 font-bold text-gray-600 text-xs hidden sm:table-cell">Tanggal</th>
-                  <th className="px-4 py-3 font-bold text-gray-600 text-xs">Status</th>
-                  <th className="px-4 py-3 font-bold text-gray-600 text-xs text-right">Aksi</th>
+                <tr className="bg-slate-50 text-left">
+                  <th className="px-4 py-3 font-bold text-slate-700 text-xs">Artikel</th>
+                  <th className="px-4 py-3 font-bold text-slate-700 text-xs hidden md:table-cell">Kategori</th>
+                  <th className="px-4 py-3 font-bold text-slate-700 text-xs hidden sm:table-cell">Tanggal</th>
+                  <th className="px-4 py-3 font-bold text-slate-700 text-xs">Status</th>
+                  <th className="px-4 py-3 font-bold text-slate-700 text-xs text-right">Aksi</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-100">
-                {artikelList.map((a) => (
-                  <tr key={a.id} className="hover:bg-gray-50/60 transition-colors">
-                    <td className="px-4 py-3">
-                      <div className="flex items-center gap-3">
-                        {a.gambarUrl ? (
-                          <img src={a.gambarUrl} alt={a.judul} className="w-12 h-12 rounded-lg object-cover shrink-0 bg-gray-100" />
-                        ) : (
-                          <div className="w-12 h-12 rounded-lg bg-gray-50 border border-gray-100 shrink-0" />
-                        )}
-                        <p className="font-semibold text-gray-900 line-clamp-2">{a.judul}</p>
-                      </div>
-                    </td>
-                    <td className="px-4 py-3 hidden sm:table-cell text-gray-500 text-xs">{fmtDate(a.createdAt)}</td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-full border ${a.status === 'PUBLISHED' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-gray-50 text-gray-500 border-gray-200'}`}
-                      >
-                        {a.status === 'PUBLISHED' ? 'Published' : 'Draft'}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <div className="flex items-center justify-end gap-2">
-                        <button onClick={() => openEdit(a.id)} className="text-xs font-semibold text-gray-500 hover:text-gray-800 transition-colors">
-                          Edit
-                        </button>
-                        <button onClick={() => handleDelete(a.id)} className="text-xs font-semibold text-gray-400 hover:text-red-500 transition-colors">
-                          Hapus
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+              <tbody className="divide-y divide-slate-100">
+                {paginated.map(a => {
+                  const preview = previewUrl(a);
+                  return (
+                    <tr key={a.id} className="hover:bg-slate-50/60 transition-colors align-top">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          {a.gambarUrl ? (
+                            <div className="w-12 h-12 rounded-lg overflow-hidden shrink-0 bg-slate-100"><img src={a.gambarUrl} alt={a.judul} className="w-full h-full object-cover" /></div>
+                          ) : (
+                            <div className="w-12 h-12 rounded-lg shrink-0 bg-slate-50 border border-slate-100 flex items-center justify-center"><FileText className="w-4 h-4 text-slate-300" /></div>
+                          )}
+                          <div className="min-w-0">
+                            <p className="text-sm font-semibold text-slate-900 line-clamp-2">{a.judul}</p>
+                            <div className="flex items-center gap-1.5 mt-0.5 text-[11px] text-slate-400 md:hidden">
+                              {a.kategori && <><span>{a.kategori}</span><span>·</span></>}
+                              <span>{fmtDate(a.createdAt)}</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 hidden md:table-cell">
+                        {a.kategori ? <span className={`text-[11px] font-semibold px-2.5 py-1 rounded-full border ${categoryClass(a.kategori)}`}>{a.kategori}</span> : <span className="text-xs text-slate-300">—</span>}
+                      </td>
+                      <td className="px-4 py-3 hidden sm:table-cell"><div className="flex items-center gap-1.5 text-xs text-slate-500 whitespace-nowrap"><Calendar className="w-3 h-3 text-slate-400 shrink-0" />{fmtDate(a.createdAt)}</div></td>
+                      <td className="px-4 py-3">
+                        <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-1 rounded-full border ${a.status === 'PUBLISHED' ? 'bg-emerald-50 text-emerald-700 border-emerald-200' : 'bg-slate-50 text-slate-500 border-slate-200'}`}>
+                          <span className={`w-1.5 h-1.5 rounded-full ${a.status === 'PUBLISHED' ? 'bg-emerald-500' : 'bg-slate-400'}`} />
+                          {a.status === 'PUBLISHED' ? 'Published' : 'Draft'}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center justify-end gap-1">
+                          {preview ? (
+                            <a href={preview} target="_blank" rel="noopener noreferrer" title="Preview" className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 rounded-lg transition-all"><Eye className="w-4 h-4" /></a>
+                          ) : (
+                            <span title="Publish dulu untuk bisa preview" className="w-8 h-8 flex items-center justify-center text-slate-200 cursor-not-allowed"><Eye className="w-4 h-4" /></span>
+                          )}
+                          <button onClick={() => openEdit(a.id)} title="Edit" className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg transition-all"><Pencil className="w-4 h-4" /></button>
+                          <button onClick={() => handleDelete(a.id)} disabled={deleting === a.id} title="Hapus" className="w-8 h-8 flex items-center justify-center text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all disabled:opacity-40"><Trash2 className="w-4 h-4" /></button>
+                          <StatusDropdown artikel={a} onTogglePublish={() => togglePublish(a)} />
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
-          )}
-        </div>
+          </div>
+        )}
+
+        {filtered.length > 0 && (
+          <div className="flex items-center justify-between px-4 py-3 border-t border-slate-100">
+            <p className="text-xs text-slate-500">Menampilkan {(currentPage - 1) * PER_PAGE + 1} - {Math.min(currentPage * PER_PAGE, filtered.length)} dari {filtered.length} artikel</p>
+            <div className="flex items-center gap-1.5">
+              <button onClick={() => setPage(p => Math.max(1, p - 1))} disabled={currentPage === 1} className="w-7 h-7 flex items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-30 transition-colors"><ChevronLeft className="w-3.5 h-3.5" /></button>
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(n => (
+                <button key={n} onClick={() => setPage(n)} className={`w-7 h-7 flex items-center justify-center rounded-lg text-xs font-bold transition-colors ${n === currentPage ? 'bg-emerald-600 text-white' : 'text-slate-500 border border-slate-200 hover:bg-slate-50'}`}>{n}</button>
+              ))}
+              <button onClick={() => setPage(p => Math.min(totalPages, p + 1))} disabled={currentPage === totalPages} className="w-7 h-7 flex items-center justify-center rounded-lg border border-slate-200 text-slate-500 hover:bg-slate-50 disabled:opacity-30 transition-colors"><ChevronRight className="w-3.5 h-3.5" /></button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
