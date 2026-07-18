@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
@@ -52,48 +52,6 @@ function Counter({ target }: { target: number }) {
   return <div ref={ref} className="text-4xl sm:text-5xl font-bold text-gray-900">{val.toLocaleString()}</div>;
 }
 
-const IconLogoDesign = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-    <path d="M2 17l10 5 10-5"/>
-    <path d="M2 12l10 5 10-5"/>
-  </svg>
-);
-
-const IconArticle = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-    <polyline points="14 2 14 8 20 8"/>
-    <line x1="16" y1="13" x2="8" y2="13"/>
-    <line x1="16" y1="17" x2="8" y2="17"/>
-    <line x1="10" y1="9" x2="8" y2="9"/>
-  </svg>
-);
-
-const IconSupport = () => (
-  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M12 2a7 7 0 0 0-7 7v3a2 2 0 0 0 2 2h1v-6a4 4 0 0 1 8 0v6h1a2 2 0 0 0 2-2v-3a7 7 0 0 0-7-7z"/>
-    <path d="M5 21a2 2 0 0 1-2-2v-3h3v3a2 2 0 0 1-1 2z"/>
-    <path d="M19 21a2 2 0 0 0 2-2v-3h-3v3a2 2 0 0 0 1 2z"/>
-  </svg>
-);
-
-function FeatureCard({ title, desc, icon }: {
-  title: string;
-  desc: string;
-  icon: React.ReactNode;
-}) {
-  return (
-    <div className="feature-card bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex flex-col">
-      <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 flex-shrink-0" style={{ background: '#c96a1a' }}>
-        {icon}
-      </div>
-      <h3 className="font-bold text-gray-900 mb-2 text-base">{title}</h3>
-      <p className="text-gray-500 text-sm leading-relaxed flex-1">{desc}</p>
-    </div>
-  );
-}
-
 const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }> = {
   Silver: {
     deskDetail: 'Paket ini cocok untuk Anda yang baru memulai dan membutuhkan website sederhana, praktis, dan mudah diakses — landing page atau profil singkat.',
@@ -121,9 +79,9 @@ const paketList = [
 ];
 
 const featureList = [
-  { title: 'Free Logo & Banner', desc: 'Desain logo dan banner kreatif yang memperkuat identitas bisnis Anda. Termasuk revisi hingga puas.', icon: <IconLogoDesign /> },
-  { title: 'Free 3 Artikel', desc: 'Konten original & SEO-friendly oleh tim ahli untuk mendukung peringkat website Anda. 3 artikel 500-700 kata siap publish.', icon: <IconArticle /> },
-  { title: 'Free Support Pengerjaan', desc: 'Pendampingan penuh selama proses pembuatan website hingga selesai dan siap digunakan.', icon: <IconSupport /> },
+  { title: 'Free Logo & Banner', desc: 'Desain logo dan banner kreatif yang memperkuat identitas bisnis Anda. Termasuk revisi hingga puas.' },
+  { title: 'Free 3 Artikel', desc: 'Konten original & SEO-friendly oleh tim ahli untuk mendukung peringkat website Anda. 3 artikel 500-700 kata siap publish.' },
+  { title: 'Free Support Pengerjaan', desc: 'Pendampingan penuh selama proses pembuatan website hingga selesai dan siap digunakan.' },
 ];
 
 export default function Home() {
@@ -151,7 +109,7 @@ export default function Home() {
               </p>
               <div className="hero-btns flex flex-wrap gap-3">
                 <a
-                  href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.id.+Mohon+bantuannya+%F0%9F%99%8F"
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm"
                   style={{ background: '#3d8b5e' }}
@@ -173,7 +131,7 @@ export default function Home() {
             <div className="hero-img flex-1 flex items-center justify-center lg:justify-end">
               <img
                 src="/images/beranda/hero-utama.png"
-                alt="nativecode.id tampil di berbagai device"
+                alt="nativecode.cloud tampil di berbagai device"
                 className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain"
                 style={{ mixBlendMode: 'multiply' }}
               />
@@ -185,7 +143,7 @@ export default function Home() {
         {/* Hero Stats + About, satu blok slate-100 */}
         <section className="relative bg-[#f1f5f9] pt-12 pb-12 sm:pt-20 sm:pb-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="fade-up text-center text-gray-500 text-sm mb-2">Selamat Datang di nativecode.id</p>
+            <p className="fade-up text-center text-gray-500 text-sm mb-2">Selamat Datang di nativecode.cloud</p>
             <h2 className="fade-up stagger-1 text-2xl sm:text-4xl font-bold text-center text-gray-900 mb-10 sm:mb-14 px-2">
               Jasa Pembuatan <span style={{ color: '#3d8b5e' }}>Website Profesional</span> &amp; <span style={{ color: '#c96a1a' }}>SEO Bergaransi</span>
             </h2>
@@ -198,7 +156,7 @@ export default function Home() {
                 <div className="absolute w-72 h-72 rounded-full z-0" style={{ background: 'radial-gradient(circle, #c8e6c9 0%, #e8f5e9 55%, transparent 75%)' }} />
                 <img
                   src="/images/beranda/hero-statistik.png"
-                  alt="nativecode.id developer"
+                  alt="nativecode.cloud developer"
                   className="relative z-10 w-60 sm:w-64 object-contain"
                   style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
                 />
@@ -218,26 +176,26 @@ export default function Home() {
               </div>
               <div className="fade-up stagger-4 stat-card bg-white border border-gray-100 rounded-2xl shadow-sm p-6 sm:p-8 text-center">
                 <Counter target={20} />
-                <p className="text-gray-500 text-sm mt-2">Klien menggunakan layanan nativecode.id</p>
+                <p className="text-gray-500 text-sm mt-2">Klien menggunakan layanan nativecode.cloud</p>
               </div>
             </div>
 
-            {/* About nativecode.id */}
+            {/* About nativecode.cloud */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-16 items-center">
               <div className="fade-left">
-                <h3 className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: '#c96a1a' }}>nativecode.id</h3>
+                <h3 className="text-2xl sm:text-3xl font-bold mb-1" style={{ color: '#c96a1a' }}>nativecode.cloud</h3>
                 <p className="font-bold text-gray-800 mb-4 sm:mb-6">Experience by the Best</p>
                 <div className="flex items-center gap-2 mb-6 sm:mb-8">
                   <div className="w-8 h-0.5 rounded" style={{ background: '#c96a1a' }} />
                   <div className="w-4 h-0.5 rounded" style={{ background: '#3d8b5e' }} />
                 </div>
                 <div className="flex items-center justify-center">
-                  <img src="/images/beranda/about-laptop.png" alt="nativecode.id" className="w-full max-w-sm object-contain" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }} />
+                  <img src="/images/beranda/about-laptop.png" alt="nativecode.cloud" className="w-full max-w-sm object-contain" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }} />
                 </div>
               </div>
               <div className="fade-right space-y-4 sm:space-y-5">
                 <p className="text-gray-600 leading-relaxed text-justify text-sm sm:text-base">
-                  <strong className="text-gray-900">nativecode.id</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra untuk kebutuhan website Anda — dari landing page, company profile, hingga website sekolah, lengkap dengan optimasi SEO.
+                  <strong className="text-gray-900">nativecode.cloud</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra untuk kebutuhan website Anda — dari landing page, company profile, hingga website sekolah, lengkap dengan optimasi SEO.
                 </p>
                 <p className="text-gray-600 leading-relaxed text-justify text-sm sm:text-base">
                   Dengan tim yang berpengalaman dan pendekatan berbasis data, kami memastikan setiap website yang kami hadirkan benar-benar memberikan dampak nyata bagi kehadiran digital Anda. Lebih dari <strong>20 website</strong> telah kami bangun dan <strong>20+ klien</strong> telah mempercayakan kebutuhan digital mereka kepada kami.
@@ -261,16 +219,16 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="fade-left hidden lg:flex items-center justify-center">
-                <img src="/images/beranda/promo-web-desain.png" alt="Web Design nativecode.id" className="w-full max-w-lg object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
+                <img src="/images/beranda/promo-web-desain.png" alt="Web Design nativecode.cloud" className="w-full max-w-lg object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
               </div>
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Mau Buat Website?</h2>
-                <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-4">nativecode.id – Solusi jasa pembuatan website profesional di Indonesia</h3>
+                <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-4">nativecode.cloud – Solusi jasa pembuatan website profesional di Indonesia</h3>
                 <p className="text-gray-600 leading-relaxed mb-3 text-sm sm:text-base">Kami menghadirkan website dengan desain menarik, mudah diakses, dan responsif di semua perangkat.</p>
                 <p className="text-gray-600 leading-relaxed mb-6 text-sm sm:text-base">Dari landing page, company profile, hingga website sekolah — semua kami kerjakan dengan standar profesional dan proses yang transparan.</p>
 
                 <a
-                  href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.id.+Mohon+bantuannya+%F0%9F%99%8F"
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                   style={{ background: '#c96a1a' }}
@@ -306,7 +264,7 @@ export default function Home() {
                       <p className="text-xs text-gray-400 mb-4">Perpanjangan {p.perp}</p>
 
                       <a
-                        href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.id.+Mohon+bantuannya+%F0%9F%99%8F"
+                        href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
                         target="_blank" rel="noopener noreferrer"
                         className={`w-full py-2.5 rounded-full border text-sm font-semibold flex items-center justify-center gap-2 mb-4 transition-colors ${p.best ? 'border-[#3d8b5e] text-[#3d8b5e] hover:bg-[#3d8b5e] hover:text-white' : 'border-[#c96a1a] text-[#c96a1a] hover:bg-[#c96a1a] hover:text-white'}`}
                       >
@@ -352,16 +310,17 @@ export default function Home() {
           <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,50 L1440,60 L0,60 Z" />
         </section>
 
-        {/* Fitur Unggulan */}
+        {/* Fitur Unggulan - plain, tanpa card */}
         <section className="bg-white py-12 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Fitur Unggulan</h2>
             <p className="fade-up stagger-1 text-center font-semibold text-gray-700 mb-2 text-sm sm:text-base">Dapatkan Semua Fitur Ini Secara Gratis!</p>
-            <p className="fade-up stagger-2 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base">Inilah yang Anda dapatkan dari Jasa Pembuatan Website nativecode.id</p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6 mb-10 sm:mb-24" style={{ alignItems: 'stretch' }}>
+            <p className="fade-up stagger-2 text-center text-gray-500 mb-10 sm:mb-24 text-sm sm:text-base">Inilah yang Anda dapatkan dari Jasa Pembuatan Website nativecode.cloud</p>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-10 gap-y-8 mb-10 sm:mb-24">
               {featureList.map((f, i) => (
-                <div key={i} className={`fade-up stagger-${i + 1} flex`}>
-                  <FeatureCard {...f} />
+                <div key={i} className={`fade-up stagger-${i + 1}`}>
+                  <h3 className="font-bold text-gray-900 mb-2 text-base">{f.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>
@@ -401,12 +360,13 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="fade-left hidden lg:flex items-center justify-center">
-                <img src="/images/beranda/layanan-lainnya.png" alt="Tim nativecode.id" className="w-80 sm:w-96 object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
+                <img src="/images/beranda/layanan-lainnya.png" alt="Tim nativecode.cloud" className="w-80 sm:w-96 object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
               </div>
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Layanan Lainnya</h2>
                 <div className="space-y-3">
                   {[
+                    { title: 'Jasa Pembuatan Website', desc: 'Website profesional dan responsif untuk bisnis, sekolah, dan instansi Anda, lengkap dengan optimasi SEO dasar.', href: '/layanan/pembuatan-website' },
                     { title: 'Jasa SEO Optimization', desc: 'Naikkan peringkat website Anda di Google dengan strategi SEO aman, terukur, dan bergaransi hasil.', href: '/layanan/seo' },
                     { title: 'Jasa Pembuatan Aplikasi', desc: 'Wujudkan ide digital Anda menjadi aplikasi berbasis web atau mobile yang fungsional.', href: '/layanan/pembuatan-aplikasi' },
                   ].map((s, i) => (
@@ -435,7 +395,7 @@ export default function Home() {
               <span className="flex-1 text-sm text-gray-400">Dapatkan Harga Spesial Sekarang</span>
 
               <a
-                href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.id.+Mohon+bantuannya+%F0%9F%99%8F"
+                href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
                 target="_blank" rel="noopener noreferrer"
                 className="w-full sm:w-auto text-center text-white px-8 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
                 style={{ background: '#3d8b5e' }}

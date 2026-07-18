@@ -43,7 +43,7 @@ export async function generateMetadata({
   if (!artikel) return { title: 'Artikel tidak ditemukan' };
 
   return {
-    title: `${artikel.judul} — nativecode.id`,
+    title: `${artikel.judul} — nativecode.cloud`,
     description: artikel.ringkasan || undefined,
     openGraph: { images: artikel.gambarUrl ? [artikel.gambarUrl] : [] },
   };
@@ -70,7 +70,7 @@ export default async function ArtikelDetailPage({
     dateModified: artikel.updatedAt,
     publisher: {
       '@type': 'Organization',
-      name: 'nativecode.id',
+      name: 'nativecode.cloud',
     },
   };
 

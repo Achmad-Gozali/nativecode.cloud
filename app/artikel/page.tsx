@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { prisma } from '@/lib/prisma';
@@ -6,8 +6,8 @@ import { prisma } from '@/lib/prisma';
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-  title: 'Artikel — nativecode.id',
-  description: 'Tips seputar website, SEO, dan pengembangan aplikasi dari nativecode.id.',
+  title: 'Artikel — nativecode.cloud',
+  description: 'Tips seputar website, SEO, dan pengembangan aplikasi dari nativecode.cloud.',
 };
 
 function formatDateID(d: Date | string) {

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -53,16 +53,16 @@ export default function Navigasi() {
       <div className="fixed top-0 left-0 right-0 z-40">
         <nav className={`bg-white border-b-2 border-[#5D9C76] transition-shadow duration-300
           ${scrolled ? 'shadow-md' : 'shadow-none'}`}>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-20">
 
-              {/* Logo */}
-              <Link href="/" className="flex-shrink-0">
-                <img src="/images/logo/logo-navbar.png" alt="nativecode.id" className="h-20 w-auto" />
+              {/* Logo - tetap kiri */}
+              <Link href="/" className="flex-shrink-0 relative z-10">
+                <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-20 w-auto" />
               </Link>
 
-              {/* Desktop Nav */}
-              <div className="hidden md:flex flex-1 justify-center items-center space-x-6">
+              {/* Desktop Nav - center absolut terhadap seluruh navbar */}
+              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-6">
                 <Link href="/" className={navLinkClass(pathname === '/')}>BERANDA</Link>
                 <Link href="/tentang-kami" className={navLinkClass(pathname === '/tentang-kami')}>TENTANG KAMI</Link>
 
@@ -95,7 +95,7 @@ export default function Navigasi() {
 
               {/* Hamburger */}
               <button
-                className="md:hidden p-2 mr-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
+                className="md:hidden p-2 mr-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors relative z-10"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
@@ -111,7 +111,7 @@ export default function Navigasi() {
           ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-            <img src="/images/logo/logo-navbar.png" alt="nativecode.id" className="h-12 w-auto" />
+            <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-12 w-auto" />
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 transition-colors">
               <X className="h-5 w-5" />
             </button>

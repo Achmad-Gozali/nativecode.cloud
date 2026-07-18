@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: 'nativecode - Jasa Website Profesional Jakarta Utara',
     description: 'Solusi digital lengkap untuk wujudkan bisnismu lebih cepat.',
     url: 'https://nativecode.vercel.app',
-    siteName: 'nativecode.id',
+    siteName: 'nativecode.cloud',
     locale: 'id_ID',
     type: 'website',
   },
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
         {/* Floating WhatsApp Button */}
         <a
-          href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode"
+          href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 left-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors z-50 flex items-center justify-center cursor-pointer"

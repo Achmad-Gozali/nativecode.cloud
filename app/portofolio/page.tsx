@@ -1,11 +1,11 @@
-import Navigasi from '@/komponen/Navigasi';
+﻿import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { prisma } from '@/lib/prisma';
 
 export const dynamic = 'force-dynamic';
 
 export const metadata = {
-  title: 'Portofolio — nativecode.id',
+  title: 'Portofolio — nativecode.cloud',
   description: 'Kumpulan website yang telah kami bangun untuk berbagai klien.',
 };
 
@@ -30,7 +30,7 @@ async function getPortofolio() {
 export default async function PortofolioPage() {
   const portofolioList = await getPortofolio();
 
-  const whatsappLink = `https://wa.me/6282249244647?text=Halo%20nativecode.id%2C%20saya%20tertarik%20dengan%20layanan%20pembuatan%20website%20profesional%20dan%20SEO%20bergaransi.%20Mohon%20informasi%20lebih%20lanjut.`;
+  const whatsappLink = `https://wa.me/6282249244647?text=Halo%20nativecode.cloud%2C%20saya%20tertarik%20dengan%20layanan%20pembuatan%20website%20profesional%20dan%20SEO%20bergaransi.%20Mohon%20informasi%20lebih%20lanjut.`;
 
   return (
     <>
@@ -40,7 +40,7 @@ export default async function PortofolioPage() {
         {/* HERO */}
         <section className="relative bg-white pt-16 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
           <h1 className="text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Portofolio</h1>
-          <p className="text-gray-500 mb-3 text-sm">www.nativecode.id</p>
+          <p className="text-gray-500 mb-3 text-sm">www.nativecode.cloud</p>
           <p className="text-sm sm:text-lg text-gray-600 mb-8">
             Jasa Pembuatan <span className="text-[#c96a1a] font-semibold">Website Profesional</span> dan{' '}
             <span className="text-[#3d8b5e] font-semibold">SEO Bergaransi</span>

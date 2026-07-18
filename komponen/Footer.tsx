@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import Link from 'next/link';
 
 export default function Footer() {
@@ -26,7 +26,7 @@ export default function Footer() {
             <h4 className="font-bold text-lg mb-4 text-white">Kontak</h4>
             <ul className="space-y-2 text-sm text-gray-400">
               <li>082249244647</li>
-              <li>cs@nativecode.id</li>
+              <li>cs@nativecode.cloud</li>
               <li>Jakarta, Indonesia</li>
             </ul>
           </div>

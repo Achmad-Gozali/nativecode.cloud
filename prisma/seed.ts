@@ -3,7 +3,7 @@ import { prisma } from '../lib/prisma';
 import bcrypt from 'bcryptjs';
 
 async function main() {
-  const email = 'admin@nativecode.id';
+  const email = 'admin@nativecode.cloud';
   const passwordPlain = 'nativecode123';
   const passwordHash = await bcrypt.hash(passwordPlain, 10);
 
@@ -13,7 +13,7 @@ async function main() {
     create: {
       email,
       passwordHash,
-      nama: 'Admin nativecode.id',
+      nama: 'Admin nativecode.cloud',
     },
   });
 

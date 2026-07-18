@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
@@ -52,67 +52,26 @@ const fiturUnggulan = [
   {
     title: 'Domain & Hosting Termasuk',
     desc: 'Setiap paket sudah termasuk domain dan hosting 1 tahun pertama, langsung online tanpa biaya tambahan di awal.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-        <path d="M9 22V12h6v10"/>
-        <path d="M12 7v.01"/>
-      </svg>
-    ),
   },
   {
     title: 'Sertifikat SSL Gratis',
     desc: 'Website aman dan terpercaya dengan SSL (https) gratis untuk semua paket.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-      </svg>
-    ),
   },
   {
     title: 'Responsif di Semua Perangkat',
     desc: 'Website tampil sempurna di desktop, tablet, hingga smartphone.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <rect x="2" y="7" width="6" height="10" rx="1"/>
-        <rect x="16" y="7" width="6" height="10" rx="1"/>
-        <line x1="12" y1="18" x2="12.01" y2="18"/>
-      </svg>
-    ),
   },
   {
     title: 'SEO Friendly',
     desc: 'Struktur dan konten website dirancang agar mudah ditemukan di Google.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-      </svg>
-    ),
   },
   {
     title: 'Desain Modern & Kekinian',
     desc: 'Kami selalu mengikuti tren desain terbaru agar tampilan website Anda terlihat profesional.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="13.5" cy="6.5" r=".5" fill="white"/>
-        <circle cx="17.5" cy="10.5" r=".5" fill="white"/>
-        <circle cx="8.5" cy="7.5" r=".5" fill="white"/>
-        <circle cx="6.5" cy="12.5" r=".5" fill="white"/>
-        <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
-      </svg>
-    ),
   },
   {
     title: 'Ide Konten & Copywriting',
     desc: 'Tim kami siap bantu buatkan konten yang persuasif dan menarik untuk bisnis Anda.',
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
-        <path d="M15 5l4 4"/>
-      </svg>
-    ),
   },
 ];
 
@@ -136,14 +95,14 @@ export default function PembuatanWebsite() {
         {/* Hero */}
         <section className="relative bg-white pt-14 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
           <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Jasa Pembuatan Website</h1>
-          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.id</p>
+          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.cloud</p>
           <p className="fade-up stagger-2 text-sm sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
             Jasa Pembuatan <span className="text-[#c96a1a] font-semibold">Website Profesional</span> dan{' '}
             <span className="text-[#3d8b5e] font-semibold">SEO Bergaransi</span>
           </p>
           <div className="fade-up stagger-3">
             <a
-              href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
+              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base"
               style={{ background: '#c96a1a' }}
@@ -170,7 +129,7 @@ export default function PembuatanWebsite() {
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
-                    href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
+                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
                     target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm"
                     style={{ background: '#c96a1a' }}
@@ -188,8 +147,8 @@ export default function PembuatanWebsite() {
               </div>
               <div className="fade-right hidden lg:flex items-center justify-center">
                 <img
-                  src="/images/beranda/promo-web-desain.png"
-                  alt="Web Design nativecode.id"
+                  src="/images/layanan-website/pembuatan-website-hero.png"
+                  alt="Web Design nativecode.cloud"
                   className="w-full max-w-md object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
                 />
@@ -223,7 +182,7 @@ export default function PembuatanWebsite() {
                       <p className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#3d8b5e' }}>{p.harga}</p>
                       <p className="text-xs text-gray-400 mb-4">Perpanjangan {p.perp}</p>
                       <a
-                        href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
+                        href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
                         target="_blank" rel="noopener noreferrer"
                         className={`w-full py-2.5 rounded-full border font-semibold text-sm mb-4 flex items-center justify-center gap-2 transition-colors ${p.best ? 'border-[#3d8b5e] text-[#3d8b5e] hover:bg-[#3d8b5e] hover:text-white' : 'border-[#c96a1a] text-[#c96a1a] hover:bg-[#c96a1a] hover:text-white'}`}
                       >
@@ -269,20 +228,18 @@ export default function PembuatanWebsite() {
           <SectionCurve fill="#f1f5f9" path="M0,20 C360,60 1080,0 1440,50 L1440,60 L0,60 Z" />
         </section>
 
-        {/* Fitur Unggulan */}
+        {/* Fitur Unggulan - plain, tanpa card/icon/nomor */}
         <section className="bg-[#f1f5f9] py-12 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Fitur Unggulan</h2>
             <p className="fade-up stagger-1 text-center font-semibold text-gray-700 mb-2 text-sm sm:text-base">Dapatkan Semua Fitur Ini Secara Gratis!</p>
-            <p className="fade-up stagger-2 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base">Inilah yang Anda dapatkan dari Jasa Pembuatan Website nativecode.id</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <p className="fade-up stagger-2 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base">Inilah yang Anda dapatkan dari Jasa Pembuatan Website nativecode.cloud</p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
               {fiturUnggulan.map((f, i) => (
-                <div key={i} className={`fade-up stagger-${(i % 3) + 1} bg-white border border-gray-100 rounded-2xl p-5 sm:p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-3`}>
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: '#c96a1a' }}>
-                    {f.icon}
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-base">{f.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{f.desc}</p>
+                <div key={i} className={`fade-up stagger-${(i % 4) + 1}`}>
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">{f.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { useScrollAnim } from '@/hooks/use-scroll-anim';
@@ -35,7 +35,7 @@ const alasan = [
       </svg>
     ),
     title: 'Pengalaman & Kredibilitas',
-    desc: 'Dengan pengalaman yang terus berkembang dan lebih dari 300 website yang telah kami bangun, nativecode.id menjadi mitra terpercaya bagi banyak bisnis. Kami selalu fokus memberikan hasil terbaik dan memuaskan.',
+    desc: 'Dengan pengalaman yang terus berkembang dan lebih dari 300 website yang telah kami bangun, nativecode.cloud menjadi mitra terpercaya bagi banyak bisnis. Kami selalu fokus memberikan hasil terbaik dan memuaskan.',
   },
   {
     icon: (
@@ -70,7 +70,7 @@ export default function TentangKami() {
 
         {/* HERO */}
         <section className="relative bg-white pt-16 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
-          <p className="fade-up text-sm text-gray-500 mb-2">www.nativecode.id</p>
+          <p className="fade-up text-sm text-gray-500 mb-2">www.nativecode.cloud</p>
           <h1 className="fade-up stagger-1 text-2xl sm:text-5xl font-bold text-gray-900 mb-4">Tentang Kami</h1>
           <p className="fade-up stagger-2 text-sm sm:text-lg text-gray-600 mb-8 px-2">
             Jasa Pembuatan{' '}
@@ -80,7 +80,7 @@ export default function TentangKami() {
           </p>
           <div className="fade-up stagger-3">
             <a
-              href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.id.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#D17B36] text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:bg-[#c26f2f] transition-colors shadow-md text-sm sm:text-base"
             >
               <HeadphonesIcon size={18} />
@@ -107,7 +107,7 @@ export default function TentangKami() {
                 <div className="flex items-center justify-center">
                   <img
                     src="/images/beranda/about-laptop.png"
-                    alt="Tim developer nativecode.id"
+                    alt="Tim developer nativecode.cloud"
                     className="w-full max-w-xs sm:max-w-sm object-contain"
                     style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
                   />
@@ -116,10 +116,10 @@ export default function TentangKami() {
 
               <div className="fade-right flex flex-col justify-center h-full pt-0 lg:pt-24 space-y-6 text-gray-600 leading-relaxed">
                 <p className="text-justify text-sm sm:text-base">
-                  <strong className="text-gray-900">nativecode.id</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra yang membantu Anda tampil lebih profesional dan menjangkau audiens lebih luas melalui website yang tepat guna. Dengan pengalaman dalam pembuatan website dan SEO bergaransi, kami menghadirkan layanan yang terintegrasi untuk memperkuat kehadiran online setiap klien.
+                  <strong className="text-gray-900">nativecode.cloud</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra yang membantu Anda tampil lebih profesional dan menjangkau audiens lebih luas melalui website yang tepat guna. Dengan pengalaman dalam pembuatan website dan SEO bergaransi, kami menghadirkan layanan yang terintegrasi untuk memperkuat kehadiran online setiap klien.
                 </p>
                 <p className="text-justify text-sm sm:text-base">
-                  Kami percaya bahwa setiap bisnis memiliki cerita dan kebutuhan unik yang perlu ditampilkan dengan cara yang menarik dan relevan. Karena itu, setiap proyek di <strong className="text-gray-900">nativecode.id</strong> dikerjakan dengan pendekatan yang cermat, agar hasilnya tidak hanya terlihat menarik, tetapi juga memberikan dampak nyata terhadap kehadiran digital bisnis Anda.
+                  Kami percaya bahwa setiap bisnis memiliki cerita dan kebutuhan unik yang perlu ditampilkan dengan cara yang menarik dan relevan. Karena itu, setiap proyek di <strong className="text-gray-900">nativecode.cloud</strong> dikerjakan dengan pendekatan yang cermat, agar hasilnya tidak hanya terlihat menarik, tetapi juga memberikan dampak nyata terhadap kehadiran digital bisnis Anda.
                 </p>
               </div>
 
@@ -134,13 +134,13 @@ export default function TentangKami() {
             <div className="fade-up grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
-                  Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.id bukan sekadar penyedia jasa digital, tetapi mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat.
+                  Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.cloud bukan sekadar penyedia jasa digital, tetapi mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat.
                 </p>
               </div>
               <div className="order-1 lg:order-2 flex items-center justify-center">
                 <img
                   src="/images/tentang-kami/ilustrasi-komitmen.png"
-                  alt="Komitmen nativecode.id"
+                  alt="Komitmen nativecode.cloud"
                   className="w-full max-w-xs sm:max-w-sm object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.10))' }}
                 />

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
@@ -29,46 +29,18 @@ const fitur = [
   {
     title: 'Pengembangan Aplikasi Android dan iOS',
     desc: 'Kami menawarkan layanan pengembangan aplikasi mobile untuk platform Android dan iOS, yang dirancang untuk memberikan pengalaman pengguna yang mulus dan intuitif. Tim pengembang kami menguasai teknologi terbaru dan memiliki pengalaman luas dalam menciptakan aplikasi yang menarik dan fungsional.',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-        <line x1="12" y1="18" x2="12.01" y2="18"/>
-        <path d="M9 7h6M9 11h4"/>
-      </svg>
-    ),
   },
   {
     title: 'Publikasi di Play Store dan App Store',
     desc: 'Kami tidak hanya mengembangkan aplikasi Anda, tetapi juga memastikan aplikasi tersebut siap untuk diluncurkan di Play Store dan App Store. Kami menangani seluruh proses pengiriman dan persetujuan, sehingga Anda dapat fokus pada aspek lain dari bisnis Anda.',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-        <path d="M2 17l10 5 10-5"/>
-        <path d="M2 12l10 5 10-5"/>
-      </svg>
-    ),
   },
   {
     title: 'Desain Antarmuka Pengguna (UI/UX) Kustom',
     desc: 'Setiap aplikasi yang kami buat dirancang dengan mempertimbangkan pengalaman pengguna yang optimal. Kami mengutamakan desain UI/UX yang menarik dan mudah digunakan, memastikan aplikasi Anda tidak hanya terlihat hebat tetapi juga memberikan nilai tambah bagi pengguna.',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 19l7-7 3 3-7 7-3-3z"/>
-        <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>
-        <path d="M2 2l7.586 7.586"/>
-        <circle cx="11" cy="11" r="2"/>
-      </svg>
-    ),
   },
   {
     title: 'Integrasi Fitur Khusus',
     desc: 'Apakah bisnis Anda memerlukan integrasi pembayaran, notifikasi push, geolokasi, atau fitur khusus lainnya? Kami dapat menyesuaikan aplikasi Anda dengan fitur yang relevan dan fungsional, membantu Anda memenuhi kebutuhan spesifik pelanggan Anda.',
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-      </svg>
-    ),
   },
 ];
 
@@ -119,7 +91,7 @@ export default function PembuatanAplikasi() {
         {/* HERO */}
         <section className="relative bg-white pt-14 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
           <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Jasa Pembuatan Aplikasi</h1>
-          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.id</p>
+          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.cloud</p>
           <p className="fade-up stagger-2 text-sm sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
             Wujudkan{' '}
             <span className="text-[#c96a1a] font-semibold">Aplikasi Mobile</span>{' '}
@@ -128,7 +100,7 @@ export default function PembuatanAplikasi() {
           </p>
           <div className="fade-up stagger-3">
             <a
-              href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base"
               style={{ background: '#c96a1a' }}
             >
@@ -158,7 +130,7 @@ export default function PembuatanAplikasi() {
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
-                    href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                     style={{ background: '#c96a1a' }}
                   >
@@ -175,7 +147,7 @@ export default function PembuatanAplikasi() {
               </div>
               <div className="fade-right flex items-center justify-center">
                 <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-lg" style={{ aspectRatio: '1/1' }}>
-                  <Image src="/images/layanan-aplikasi/ilustrasi-aplikasi.png" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
+                  <Image src="/images/layanan-aplikasi/pembuatan-aplikasi-hero.png" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
                 </div>
               </div>
             </div>
@@ -183,16 +155,15 @@ export default function PembuatanAplikasi() {
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
-        {/* APA YANG KAMI TAWARKAN */}
+        {/* APA YANG KAMI TAWARKAN - plain, tanpa card/icon */}
         <section className="relative bg-white py-12 sm:py-20 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8 sm:mb-12">Apa yang kami tawarkan?</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-10 sm:mb-16">Apa yang kami tawarkan?</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
               {fitur.map((f, i) => (
-                <div key={i} className={`fade-up stagger-${(i % 2) + 1} bg-white border border-gray-100 rounded-2xl p-6 sm:p-8 shadow-sm hover:shadow-md transition-shadow flex flex-col gap-4`}>
-                  <h3 className="font-bold text-gray-900 text-base sm:text-lg">{f.title}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed flex-1">{f.desc}</p>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: '#c96a1a' }}>{f.icon}</div>
+                <div key={i} className={`fade-up stagger-${(i % 2) + 1}`}>
+                  <h3 className="font-bold text-gray-900 text-lg mb-2">{f.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>
@@ -230,7 +201,7 @@ export default function PembuatanAplikasi() {
                         {p.nama === 'Enterprise' && <span className="text-base font-normal text-gray-500 block mt-1">Hubungi Kami</span>}
                       </p>
                       <a
-                        href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+                        href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
                         className={`w-full py-2 sm:py-2.5 rounded-full border font-semibold text-sm mb-4 flex items-center justify-center gap-2 transition-colors ${p.bestSeller ? 'border-[#3d8b5e] text-[#3d8b5e] hover:bg-[#3d8b5e] hover:text-white' : 'border-[#c96a1a] text-[#c96a1a] hover:bg-[#c96a1a] hover:text-white'}`}
                       >
                         {p.nama === 'Enterprise' ? 'Konsultasi Gratis' : 'Pesan Sekarang'}
@@ -279,12 +250,12 @@ export default function PembuatanAplikasi() {
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Tidak yakin paket mana yang cocok?</h3>
                 <p className="text-white opacity-90 text-sm sm:text-base leading-relaxed">
-                  Konsultasikan kebutuhan aplikasi Anda gratis bersama tim nativecode.id. Kami akan bantu pilihkan solusi terbaik sesuai budget dan target bisnis Anda.
+                  Konsultasikan kebutuhan aplikasi Anda gratis bersama tim nativecode.cloud. Kami akan bantu pilihkan solusi terbaik sesuai budget dan target bisnis Anda.
                 </p>
               </div>
               <div className="flex lg:justify-end">
                 <a
-                  href="https://wa.me/6282249244647?text=Halo+nativecode.id%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                   style={{ background: '#c96a1a' }}
                 >

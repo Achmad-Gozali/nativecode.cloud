@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -40,7 +40,7 @@ export default function AdminLogin() {
   return (
     <main className="min-h-screen bg-[#f1f5f9] flex items-center justify-center px-4">
       <div className="w-full max-w-sm bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
-        <h1 className="text-xl font-bold text-gray-900 mb-1 text-center">Admin nativecode.id</h1>
+        <h1 className="text-xl font-bold text-gray-900 mb-1 text-center">Admin nativecode.cloud</h1>
         <p className="text-sm text-gray-500 mb-6 text-center">Masuk untuk mengelola artikel</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -52,7 +52,7 @@ export default function AdminLogin() {
               onChange={(e) => setEmail(e.target.value)}
               required
               className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#3d8b5e] focus:border-transparent"
-              placeholder="admin@nativecode.id"
+              placeholder="admin@nativecode.cloud"
             />
           </div>
           <div>
