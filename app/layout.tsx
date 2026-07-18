@@ -13,6 +13,9 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: 'nativecode - Jasa Website Profesional Jakarta Utara',
   description: 'Solusi digital lengkap untuk wujudkan bisnismu lebih cepat.',
+  verification: {
+    google: '0Dnp4kNVr6B5se14JaK1H36HyMeG5M28vP0H15Gy8HE',
+  },
   icons: {
     icon: [
       { url: '/icon.png', sizes: '32x32', type: 'image/png' },
@@ -21,11 +24,11 @@ export const metadata: Metadata = {
     ],
     apple: '/icon.png',
   },
-  metadataBase: new URL('https://nativecode.vercel.app'),
+  metadataBase: new URL('https://nativecode.cloud'),
   openGraph: {
     title: 'nativecode - Jasa Website Profesional Jakarta Utara',
     description: 'Solusi digital lengkap untuk wujudkan bisnismu lebih cepat.',
-    url: 'https://nativecode.vercel.app',
+    url: 'https://nativecode.cloud',
     siteName: 'nativecode.cloud',
     locale: 'id_ID',
     type: 'website',
