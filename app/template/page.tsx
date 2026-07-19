@@ -84,7 +84,28 @@ export default function TemplatePublikPage() {
             {!loaded ? (
               <div className="py-20 text-center text-gray-400 text-sm">Memuat koleksi template...</div>
             ) : filtered.length === 0 ? (
-              <div className="py-20 text-center text-gray-400 text-sm">Belum ada template untuk kategori ini.</div>
+              <div className="py-20 text-center max-w-md mx-auto">
+                <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ background: '#eaf3ee' }}>
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3d8b5e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                  </svg>
+                </div>
+                <p className="font-bold text-gray-900 text-base sm:text-lg mb-2">Koleksi Template Segera Hadir</p>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                  Kami sedang menyiapkan berbagai pilihan desain template untuk mempermudah Anda memilih tampilan website. Sementara menunggu, tim kami siap membantu Anda langsung lewat konsultasi.
+                </p>
+                <a
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+pilihan+template+website+yang+sesuai+dengan+kebutuhan+saya.+Mohon+bantuannya+%F0%9F%99%8F"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity"
+                  style={{ background: '#3d8b5e' }}
+                >
+                  Konsultasi Sekarang
+                </a>
+              </div>
             ) : (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filtered.map(item => (
