@@ -3,11 +3,12 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { FileText, FolderKanban, LogOut, Menu, X } from 'lucide-react';
+import { FileText, FolderKanban, LayoutTemplate, LogOut, Menu, X } from 'lucide-react';
 
 const menuItems = [
   { href: '/admin/artikel', label: 'Artikel', icon: FileText },
   { href: '/admin/portofolio', label: 'Portofolio', icon: FolderKanban },
+  { href: '/admin/template', label: 'Template', icon: LayoutTemplate },
 ];
 
 export default function AdminSidebar() {
