@@ -41,6 +41,7 @@ export default function TemplatePublikPage() {
 
   const kategoriList = ['Semua', ...Array.from(new Set(items.map(i => i.kategori)))];
   const filtered = kategoriAktif === 'Semua' ? items : items.filter(i => i.kategori === kategoriAktif);
+  const isEmpty = loaded && filtered.length === 0;
 
   return (
     <>
@@ -83,7 +84,7 @@ export default function TemplatePublikPage() {
 
             {!loaded ? (
               <div className="py-20 text-center text-gray-400 text-sm">Memuat koleksi template...</div>
-            ) : filtered.length === 0 ? (
+            ) : isEmpty ? (
               <div className="py-20 text-center max-w-md mx-auto">
                 <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5" style={{ background: '#eaf3ee' }}>
                   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3d8b5e" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -148,25 +149,27 @@ export default function TemplatePublikPage() {
           </div>
         </section>
 
-        {/* CTA penutup */}
-        <section className="bg-white pb-16 sm:pb-24">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" style={{ background: '#f1f5f9' }}>
-              <div>
-                <p className="font-bold text-gray-900 text-base sm:text-lg mb-1">Belum menemukan desain yang sesuai?</p>
-                <p className="text-sm text-gray-500">Tim kami siap membantu Anda memilih template terbaik sesuai kebutuhan bisnis, atau membuatkan desain custom bila diperlukan.</p>
+        {/* CTA penutup - hanya tampil kalau ada template */}
+        {!isEmpty && (
+          <section className="bg-white pb-16 sm:pb-24">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" style={{ background: '#f1f5f9' }}>
+                <div>
+                  <p className="font-bold text-gray-900 text-base sm:text-lg mb-1">Belum menemukan desain yang sesuai?</p>
+                  <p className="text-sm text-gray-500">Tim kami siap membantu Anda memilih template terbaik sesuai kebutuhan bisnis, atau membuatkan desain custom bila diperlukan.</p>
+                </div>
+                <a
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+pilihan+template+website+yang+sesuai+dengan+kebutuhan+saya.+Mohon+bantuannya+%F0%9F%99%8F"
+                  target="_blank" rel="noopener noreferrer"
+                  className="w-full sm:w-auto text-center text-white px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+                  style={{ background: '#3d8b5e' }}
+                >
+                  Konsultasi Gratis
+                </a>
               </div>
-              <a
-                href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+pilihan+template+website+yang+sesuai+dengan+kebutuhan+saya.+Mohon+bantuannya+%F0%9F%99%8F"
-                target="_blank" rel="noopener noreferrer"
-                className="w-full sm:w-auto text-center text-white px-6 py-3 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
-                style={{ background: '#3d8b5e' }}
-              >
-                Konsultasi Gratis
-              </a>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
       </main>
       <Footer />
     </>
