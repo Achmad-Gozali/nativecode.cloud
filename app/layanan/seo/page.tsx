@@ -33,7 +33,7 @@ const paketSEO = [
       poin: [
         'Optimasi untuk 5 kata kunci sesuai target pasar Anda, ditambah kata kunci bonus.',
         'Biaya SEO Bergaransi Rp600.000/bulan, ditagih sesuai jadwal yang disepakati.',
-        'Jika pembayaran tertunggak, layanan optimasi akan dihentikan sementara hingga pembayaran diselesaikan; website tetap aktif namun performa pencarian tidak dijamin selama periode tersebut.',
+        'Jika pembayaran tertunggak, layanan optimasi akan dihentikan sementara hingga pembayaran diselesaikan. Website tetap aktif namun performa pencarian tidak dijamin selama periode tersebut.',
         'Mendapatkan laporan resmi menggunakan tool premium Rank Tracker untuk memantau posisi kata kunci secara akurat.',
       ],
       isFitur: false,
@@ -47,7 +47,7 @@ const paketSEO = [
       poin: [
         'Optimasi untuk 5 kata kunci sesuai target pasar Anda, ditambah kata kunci bonus.',
         'Biaya SEO Reguler Rp950.000/bulan, ditagih sesuai jadwal yang disepakati.',
-        'Jika pembayaran tertunggak, layanan optimasi akan dihentikan sementara hingga pembayaran diselesaikan; website tetap aktif namun performa pencarian tidak dijamin selama periode tersebut.',
+        'Jika pembayaran tertunggak, layanan optimasi akan dihentikan sementara hingga pembayaran diselesaikan. Website tetap aktif namun performa pencarian tidak dijamin selama periode tersebut.',
         'Mendapatkan laporan resmi menggunakan tool premium Rank Tracker untuk memantau posisi kata kunci secara akurat.',
       ],
       isFitur: false,
@@ -65,12 +65,12 @@ const paketSEO = [
 ];
 
 const faq = [
-  { q: 'Apa itu SEO dan kenapa penting untuk bisnis saya?', a: 'SEO (Search Engine Optimization) adalah proses mengoptimalkan website agar muncul di posisi teratas hasil pencarian Google secara organik (tanpa bayar per klik). Dengan SEO, bisnis Anda bisa ditemukan oleh calon pelanggan yang sedang aktif mencari produk atau jasa Anda — menghasilkan traffic berkualitas tinggi secara konsisten dan jangka panjang.' },
-  { q: 'Berapa lama hasil SEO mulai terlihat?', a: 'SEO adalah investasi jangka panjang. Umumnya hasil awal mulai terlihat dalam 1-3 bulan, tergantung tingkat persaingan kata kunci dan kondisi website. Itulah kenapa kami menetapkan kontrak minimal 1 tahun — agar optimasi bisa dilakukan secara menyeluruh dan hasilnya stabil di pencarian Google.' },
-  { q: 'Apa bedanya paket SEO Bergaransi dengan SEO Reguler?', a: 'Paket SEO Bergaransi khusus untuk website yang dibuat melalui nativecode.cloud, dengan harga lebih terjangkau karena kami sudah familiar dengan struktur websitenya. Paket SEO Reguler berlaku untuk website luar atau website yang tidak dibuat oleh nativecode.cloud. Keduanya mendapatkan layanan optimasi yang sama berkualitasnya.' },
+  { q: 'Apa itu SEO dan kenapa penting untuk bisnis saya?', a: 'SEO (Search Engine Optimization) adalah proses mengoptimalkan website agar muncul di posisi teratas hasil pencarian Google secara organik, tanpa perlu membayar per klik. Dengan SEO, bisnis Anda bisa ditemukan oleh calon pelanggan yang sedang aktif mencari produk atau jasa Anda, sehingga menghasilkan traffic berkualitas tinggi secara konsisten dan jangka panjang.' },
+  { q: 'Berapa lama hasil SEO mulai terlihat?', a: 'SEO adalah investasi jangka panjang. Umumnya hasil awal mulai terlihat dalam 1-3 bulan, tergantung tingkat persaingan kata kunci dan kondisi website. Itulah kenapa kami menetapkan kontrak minimal 1 tahun, agar optimasi bisa dilakukan secara menyeluruh dan hasilnya stabil di pencarian Google.' },
+  { q: 'Apa bedanya paket SEO Bergaransi dengan SEO Reguler?', a: 'Paket SEO Bergaransi khusus untuk website yang dibuat melalui nativecode.cloud, dengan harga lebih terjangkau karena kami sudah familiar dengan struktur websitenya. Paket SEO Reguler berlaku untuk website luar atau website yang tidak dibuat oleh nativecode.cloud. Keduanya mendapatkan layanan optimasi yang sama kualitasnya.' },
   { q: 'Apa yang terjadi jika saya berhenti membayar di tengah kontrak?', a: 'Jika pembayaran tidak dilanjutkan, layanan optimasi (SEO) akan kami hentikan sementara. Website akan tetap aktif, namun kami tidak bertanggung jawab atas penurunan peringkat atau traffic karena tidak adanya pemeliharaan rutin selama periode tersebut.' },
   { q: 'Berapa banyak kata kunci yang dioptimasi?', a: 'Setiap paket SEO mencakup optimasi untuk 5 kata kunci utama sesuai target pasar bisnis Anda, ditambah kata kunci bonus. Pemilihan kata kunci dilakukan melalui riset mendalam untuk memastikan kata kunci yang dipilih memiliki volume pencarian tinggi dan relevan dengan bisnis Anda.' },
-  { q: 'Apakah saya mendapatkan laporan perkembangan SEO?', a: 'Ya. Setiap klien mendapatkan laporan resmi menggunakan tool premium Rank Tracker — tool SEO berbayar yang melacak peringkat website, traffic, dan performa kata kunci secara akurat. Laporan ini diberikan secara berkala agar Anda bisa memantau perkembangan SEO website Anda secara transparan.' },
+  { q: 'Apakah saya mendapatkan laporan perkembangan SEO?', a: 'Ya. Setiap klien mendapatkan laporan resmi menggunakan tool premium Rank Tracker, yaitu tool SEO berbayar yang melacak peringkat website, traffic, dan performa kata kunci secara akurat. Laporan ini diberikan secara berkala agar Anda bisa memantau perkembangan SEO website Anda secara transparan.' },
 ];
 
 export default function SEOBergaransi() {
@@ -93,12 +93,17 @@ export default function SEOBergaransi() {
         {/* HERO */}
         <section className="relative bg-white pt-14 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
           <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Optimasi SEO Bergaransi</h1>
-          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.cloud</p>
+          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm sm:text-base">www.nativecode.cloud</p>
           <p className="fade-up stagger-2 text-sm sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
             Jasa Pembuatan <span className="text-[#c96a1a] font-semibold">Website Profesional</span> dan <span className="text-[#3d8b5e] font-semibold">SEO Bergaransi</span>
           </p>
           <div className="fade-up stagger-3">
-            <a href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base" style={{ background: '#c96a1a' }}>
+            <a
+              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F"
+              target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base"
+              style={{ background: '#c96a1a' }}
+            >
               <HeadphonesIcon size={18} />Konsultasi
             </a>
           </div>
@@ -113,15 +118,23 @@ export default function SEOBergaransi() {
                 <h2 className="text-2xl sm:text-3xl font-bold mb-1">
                   <span className="text-[#c96a1a]">nativecode</span><span className="text-[#3d8b5e]">.id</span>
                 </h2>
-                <p className="font-semibold text-gray-800 text-base sm:text-lg mb-4">Tingkatkan Peringkat Website Anda dan Raih Lebih Banyak Pelanggan!</p>
+                <p className="font-semibold text-gray-800 text-base sm:text-lg mb-4">Tingkatkan Peringkat Website Anda dan Raih Lebih Banyak Pelanggan</p>
                 <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
                   Di nativecode.cloud, kami membantu bisnis Anda tampil di halaman teratas Google dengan strategi SEO yang terbukti efektif. Dengan teknik terbaru dan optimasi menyeluruh, website Anda akan lebih mudah ditemukan, dikunjungi, dan menghasilkan konversi nyata.
                 </p>
                 <div className="flex gap-3 flex-wrap">
-                  <a href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base" style={{ background: '#c96a1a' }}>
+                  <a
+                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F"
+                    target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
+                    style={{ background: '#c96a1a' }}
+                  >
                     <HeadphonesIcon size={16} />Konsultasi
                   </a>
-                  <a href="#paket" className="inline-flex items-center gap-2 border border-[#3d8b5e] text-[#3d8b5e] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-[#3d8b5e] hover:text-white transition-colors text-sm sm:text-base">
+                  <a
+                    href="#paket"
+                    className="inline-flex items-center gap-2 border border-[#3d8b5e] text-[#3d8b5e] px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:bg-[#3d8b5e] hover:text-white transition-colors text-sm sm:text-base"
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
                     Lihat Paket
                   </a>
@@ -140,7 +153,7 @@ export default function SEOBergaransi() {
           <div className="max-w-7xl mx-auto">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Paket SEO Bergaransi</h2>
             <p className="fade-up stagger-1 text-center text-gray-600 mb-8 sm:mb-12 text-sm sm:text-base px-2">
-              Tingkatkan peringkat bisnis Anda dan <strong>muncul di halaman pertama Google</strong> bersama nativecode.cloud
+              Tingkatkan peringkat bisnis Anda dan <strong>muncul di halaman pertama Google</strong> bersama nativecode.cloud.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 items-start">
               {paketSEO.map((p, i) => {
@@ -150,8 +163,8 @@ export default function SEOBergaransi() {
                   <div key={key} className="fade-up bg-white rounded-2xl border border-gray-200 shadow-sm flex flex-col overflow-hidden">
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <h3 className="text-xl sm:text-2xl font-bold text-center mb-1" style={{ color: '#3d8b5e' }}>{p.nama}</h3>
-                      <p className="text-xs text-gray-400 text-center mb-4">{p.sub}</p>
-                      <p className="text-xs text-gray-400 text-center">Start From</p>
+                      <p className="text-xs sm:text-sm text-gray-400 text-center mb-4">{p.sub}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 text-center">Start From</p>
                       <p className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-1">
                         {p.harga}{p.satuan && <span className="text-base font-normal text-gray-500"> {p.satuan}</span>}
                       </p>
@@ -171,9 +184,19 @@ export default function SEOBergaransi() {
                         <div className="mt-4 border-t border-gray-100 pt-4 text-sm text-gray-600 leading-relaxed">
                           {p.detail.deskripsi && <p className="mb-3 text-gray-500">{p.detail.deskripsi}</p>}
                           {p.detail.isFitur ? (
-                            <ul className="space-y-2">{p.detail.poin.map((poin, idx) => (<li key={idx} className="flex items-start gap-2"><span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />{poin}</li>))}</ul>
+                            <ul className="space-y-2">
+                              {p.detail.poin.map((poin, idx) => (
+                                <li key={idx} className="flex items-start gap-2">
+                                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-gray-400 flex-shrink-0" />{poin}
+                                </li>
+                              ))}
+                            </ul>
                           ) : (
-                            <ol className="space-y-2 list-decimal list-inside">{p.detail.poin.map((poin, idx) => (<li key={idx}>{poin}</li>))}</ol>
+                            <ol className="space-y-2 list-decimal list-inside">
+                              {p.detail.poin.map((poin, idx) => (
+                                <li key={idx}>{poin}</li>
+                              ))}
+                            </ol>
                           )}
                         </div>
                       )}
@@ -205,7 +228,7 @@ export default function SEOBergaransi() {
                     {isOpen && (
                       <div className="px-5 sm:px-6 pb-5">
                         <div className="w-full h-px bg-gray-100 mb-4" />
-                        <p className="text-gray-600 text-sm leading-relaxed">{item.a}</p>
+                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{item.a}</p>
                       </div>
                     )}
                   </div>
@@ -213,8 +236,13 @@ export default function SEOBergaransi() {
               })}
             </div>
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 bg-white border border-gray-200 rounded-2xl shadow-sm px-5 sm:px-6 py-4">
-              <p className="flex-1 text-sm text-gray-500 text-center sm:text-left">Masih ada pertanyaan tentang SEO? Konsultasikan langsung dengan tim kami.</p>
-              <a href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap" style={{ background: '#c96a1a' }}>
+              <p className="flex-1 text-sm sm:text-base text-gray-500 text-center sm:text-left">Masih ada pertanyaan tentang SEO? Konsultasikan langsung dengan tim kami.</p>
+              <a
+                href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F"
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
+                style={{ background: '#c96a1a' }}
+              >
                 <HeadphonesIcon size={14} />Tanya Sekarang
               </a>
             </div>

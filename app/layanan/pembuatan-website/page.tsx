@@ -24,7 +24,7 @@ function SectionCurve({ fill, path }: { fill: string; path: string }) {
 
 const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }> = {
   Silver: {
-    deskDetail: 'Paket ini cocok untuk Anda yang baru memulai dan membutuhkan website sederhana, praktis, dan mudah diakses — landing page atau profil singkat.',
+    deskDetail: 'Paket ini cocok untuk Anda yang baru memulai dan membutuhkan website sederhana, praktis, dan mudah diakses, cocok untuk landing page atau profil singkat.',
     fiturDetail: ['3 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Template Disesuaikan', 'Integrasi Sosial Media', 'Website SSL', 'Tombol WhatsApp', 'Responsive di Semua Perangkat', 'Free Support Pengerjaan'],
   },
   Gold: {
@@ -36,7 +36,7 @@ const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }>
     fiturDetail: ['7-8 Menu Halaman', 'Domain .com / .co.id 1 Tahun', 'Hosting 1 Tahun', 'Full Custom Design', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
   Platinum: {
-    deskDetail: 'Paket desain website ini cocok untuk institusi atau bisnis yang membutuhkan website dengan halaman terlengkap, desain khusus, dan fitur tambahan sesuai kebutuhan — termasuk website sekolah.',
+    deskDetail: 'Paket desain website ini cocok untuk institusi atau bisnis yang membutuhkan website dengan halaman terlengkap, desain khusus, dan fitur tambahan sesuai kebutuhan, termasuk website sekolah.',
     fiturDetail: ['10-12 Menu Halaman', 'Domain .com / .id / .co.id / .sch.id', 'Hosting 1 Tahun', 'Full Custom Design', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Free 1 Email Bisnis', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
 };
@@ -51,27 +51,27 @@ const paketList = [
 const fiturUnggulan = [
   {
     title: 'Domain & Hosting Termasuk',
-    desc: 'Setiap paket sudah termasuk domain dan hosting 1 tahun pertama, langsung online tanpa biaya tambahan di awal.',
+    desc: 'Setiap paket sudah termasuk domain dan hosting 1 tahun pertama, sehingga website Anda bisa langsung online tanpa biaya tambahan di awal.',
   },
   {
     title: 'Sertifikat SSL Gratis',
-    desc: 'Website aman dan terpercaya dengan SSL (https) gratis untuk semua paket.',
+    desc: 'Website Anda tampil aman dan terpercaya dengan sertifikat SSL (https) gratis yang disertakan pada semua paket.',
   },
   {
     title: 'Responsif di Semua Perangkat',
-    desc: 'Website tampil sempurna di desktop, tablet, hingga smartphone.',
+    desc: 'Tampilan website menyesuaikan secara otomatis di desktop, tablet, hingga smartphone tanpa mengurangi kualitas visual.',
   },
   {
     title: 'SEO Friendly',
-    desc: 'Struktur dan konten website dirancang agar mudah ditemukan di Google.',
+    desc: 'Struktur dan konten website kami rancang agar mudah diindeks dan ditemukan melalui pencarian Google.',
   },
   {
     title: 'Desain Modern & Kekinian',
-    desc: 'Kami selalu mengikuti tren desain terbaru agar tampilan website Anda terlihat profesional.',
+    desc: 'Kami selalu mengikuti tren desain terbaru agar tampilan website Anda terlihat profesional dan relevan dengan target audiens.',
   },
   {
     title: 'Ide Konten & Copywriting',
-    desc: 'Tim kami siap bantu buatkan konten yang persuasif dan menarik untuk bisnis Anda.',
+    desc: 'Tim kami siap membantu menyusun konten yang persuasif dan mudah dipahami untuk mendukung tujuan bisnis Anda.',
   },
 ];
 
@@ -95,8 +95,8 @@ export default function PembuatanWebsite() {
         {/* Hero */}
         <section className="relative bg-white pt-14 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
           <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Jasa Pembuatan Website</h1>
-          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.cloud</p>
-          <p className="fade-up stagger-2 text-sm sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
+          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm sm:text-base">www.nativecode.cloud</p>
+          <p className="fade-up stagger-2 text-base sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
             Jasa Pembuatan <span className="text-[#c96a1a] font-semibold">Website Profesional</span> dan{' '}
             <span className="text-[#3d8b5e] font-semibold">SEO Bergaransi</span>
           </p>
@@ -122,10 +122,10 @@ export default function PembuatanWebsite() {
                   <span className="text-[#c96a1a]">nativecode</span><span className="text-[#3d8b5e]">.id</span>
                 </h2>
                 <p className="font-semibold text-gray-800 text-base sm:text-lg mb-4">
-                  Tampil lebih profesional. Ditemukan lebih cepat. Dikenal lebih luas
+                  Tampil lebih profesional. Ditemukan lebih cepat. Dikenal lebih luas.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
-                  Kami menghadirkan website yang menarik, responsif, dan fungsional, dirancang khusus untuk mencerminkan identitas brand Anda.
+                  Kami menghadirkan website yang menarik secara visual, responsif di semua perangkat, dan fungsional, dirancang khusus untuk mencerminkan identitas brand Anda secara utuh.
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
@@ -162,7 +162,7 @@ export default function PembuatanWebsite() {
         <section id="paket" className="relative bg-white pt-12 pb-12 sm:pt-20 sm:pb-20 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Paket Website</h2>
-            <p className="fade-up stagger-1 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base">Konsultasikan dan pilih paket website Anda sekarang juga!</p>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base">Konsultasikan kebutuhan Anda dan pilih paket website yang paling sesuai sekarang juga.</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-start">
               {paketList.map((p, idx) => {
                 const isOpen = openSet.has(p.nama);
@@ -180,7 +180,7 @@ export default function PembuatanWebsite() {
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-3">{p.nama}</p>
                       <p className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#3d8b5e' }}>{p.harga}</p>
-                      <p className="text-xs text-gray-400 mb-4">Perpanjangan {p.perp}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 mb-4">Perpanjangan {p.perp}</p>
                       <a
                         href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
                         target="_blank" rel="noopener noreferrer"
@@ -238,8 +238,8 @@ export default function PembuatanWebsite() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
               {fiturUnggulan.map((f, i) => (
                 <div key={i} className={`fade-up stagger-${(i % 4) + 1}`}>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">{f.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl mb-2">{f.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>

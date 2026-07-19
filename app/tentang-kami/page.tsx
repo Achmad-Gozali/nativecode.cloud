@@ -35,7 +35,7 @@ const alasan = [
       </svg>
     ),
     title: 'Pengalaman & Kredibilitas',
-    desc: 'Dengan pengalaman yang terus berkembang dan lebih dari 300 website yang telah kami bangun, nativecode.cloud menjadi mitra terpercaya bagi banyak bisnis. Kami selalu fokus memberikan hasil terbaik dan memuaskan.',
+    desc: 'Dengan pengalaman yang terus berkembang dan lebih dari 300 website yang telah kami bangun, nativecode.cloud menjadi mitra terpercaya bagi banyak bisnis dari berbagai sektor. Kami selalu fokus memberikan hasil terbaik yang mampu menjawab kebutuhan digital klien secara nyata.',
   },
   {
     icon: (
@@ -46,7 +46,7 @@ const alasan = [
       </svg>
     ),
     title: 'Layanan Terintegrasi',
-    desc: 'Kami menyediakan solusi digital lengkap, mulai dari jasa pembuatan website hingga optimasi SEO. Semua kami tangani secara terintegrasi agar kehadiran online Anda berfungsi secara optimal.',
+    desc: 'Kami menyediakan solusi digital yang lengkap, mulai dari jasa pembuatan website hingga optimasi SEO. Seluruh proses kami tangani secara terintegrasi agar kehadiran online Anda dapat berjalan optimal tanpa perlu melibatkan banyak vendor berbeda.',
   },
   {
     icon: (
@@ -56,7 +56,7 @@ const alasan = [
       </svg>
     ),
     title: 'Garansi Kualitas',
-    desc: 'Setiap layanan SEO kami dilengkapi garansi hasil. Kepuasan Anda adalah prioritas utama bagi kami — investasi digital Anda aman, efektif, dan memberikan hasil yang nyata.',
+    desc: 'Setiap layanan SEO kami dilengkapi dengan garansi hasil. Kepuasan Anda adalah prioritas utama bagi kami, sehingga investasi digital yang Anda tanamkan bersama kami senantiasa aman, efektif, dan memberikan hasil yang terukur.',
   },
 ];
 
@@ -116,10 +116,13 @@ export default function TentangKami() {
 
               <div className="fade-right flex flex-col justify-center h-full pt-0 lg:pt-24 space-y-6 text-gray-600 leading-relaxed">
                 <p className="text-justify text-sm sm:text-base">
-                  <strong className="text-gray-900">nativecode.cloud</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra yang membantu Anda tampil lebih profesional dan menjangkau audiens lebih luas melalui website yang tepat guna. Dengan pengalaman dalam pembuatan website dan SEO bergaransi, kami menghadirkan layanan yang terintegrasi untuk memperkuat kehadiran online setiap klien.
+                  <strong className="text-gray-900">nativecode.cloud</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra yang membantu Anda tampil lebih profesional dan menjangkau audiens yang lebih luas melalui website yang tepat guna. Dengan pengalaman dalam pembuatan website dan SEO bergaransi, kami menghadirkan layanan yang terintegrasi untuk memperkuat kehadiran online setiap klien.
                 </p>
                 <p className="text-justify text-sm sm:text-base">
                   Kami percaya bahwa setiap bisnis memiliki cerita dan kebutuhan unik yang perlu ditampilkan dengan cara yang menarik dan relevan. Karena itu, setiap proyek di <strong className="text-gray-900">nativecode.cloud</strong> dikerjakan dengan pendekatan yang cermat, agar hasilnya tidak hanya terlihat menarik, tetapi juga memberikan dampak nyata terhadap kehadiran digital bisnis Anda.
+                </p>
+                <p className="text-justify text-sm sm:text-base">
+                  Setiap proses kerja kami dilandasi oleh komunikasi yang terbuka dengan klien, sehingga setiap kebutuhan dan masukan dapat kami akomodasi dengan baik sejak tahap perencanaan hingga peluncuran website.
                 </p>
               </div>
 
@@ -128,13 +131,13 @@ export default function TentangKami() {
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
-        {/* KOMITMEN SECTION — teks kiri, gambar kanan */}
+        {/* KOMITMEN SECTION - teks kiri, gambar kanan */}
         <section className="relative bg-white py-12 sm:py-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="fade-up grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
                 <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
-                  Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.cloud bukan sekadar penyedia jasa digital, tetapi mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat.
+                  Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.cloud bukan sekadar penyedia jasa digital, melainkan mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat dan berkelanjutan.
                 </p>
               </div>
               <div className="order-1 lg:order-2 flex items-center justify-center">

@@ -89,6 +89,7 @@ export default function Navigasi() {
                   </div>
                 </div>
 
+                <Link href="/template" className={navLinkClass(pathname === '/template')}>TEMPLATE</Link>
                 <Link href="/portofolio" className={navLinkClass(pathname === '/portofolio')}>PORTOFOLIO</Link>
                 <Link href="/artikel" className={navLinkClass(pathname === '/artikel')}>ARTIKEL</Link>
               </div>
@@ -149,6 +150,10 @@ export default function Navigasi() {
               </div>
             </div>
 
+            <Link href="/template" className={`block px-4 py-3 font-semibold text-sm rounded-xl transition-colors
+              ${pathname === '/template' ? 'bg-[#fff3e8] text-[#D17B36]' : 'text-gray-700 hover:bg-gray-50 hover:text-[#5D9C76]'}`}>
+              TEMPLATE
+            </Link>
             <Link href="/portofolio" className={`block px-4 py-3 font-semibold text-sm rounded-xl transition-colors
               ${pathname === '/portofolio' ? 'bg-[#fff3e8] text-[#D17B36]' : 'text-gray-700 hover:bg-gray-50 hover:text-[#5D9C76]'}`}>
               PORTOFOLIO

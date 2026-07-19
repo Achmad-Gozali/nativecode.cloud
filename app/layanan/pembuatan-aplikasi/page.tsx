@@ -91,7 +91,7 @@ export default function PembuatanAplikasi() {
         {/* HERO */}
         <section className="relative bg-white pt-14 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
           <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Jasa Pembuatan Aplikasi</h1>
-          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm">www.nativecode.cloud</p>
+          <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm sm:text-base">www.nativecode.cloud</p>
           <p className="fade-up stagger-2 text-sm sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
             Wujudkan{' '}
             <span className="text-[#c96a1a] font-semibold">Aplikasi Mobile</span>{' '}
@@ -100,7 +100,8 @@ export default function PembuatanAplikasi() {
           </p>
           <div className="fade-up stagger-3">
             <a
-              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+              target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base"
               style={{ background: '#c96a1a' }}
             >
@@ -126,11 +127,12 @@ export default function PembuatanAplikasi() {
                   Paket jasa pembuatan aplikasi mobile, siap publikasi ke Play Store dan App Store, untuk berbagai kebutuhan bisnis Anda.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
-                  Jika Anda memiliki preferensi khusus atau ingin menambahkan detail tertentu, silakan beri tahu kami!
+                  Jika Anda memiliki preferensi khusus atau ingin menambahkan detail tertentu, silakan beri tahu kami.
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
-                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+                    target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                     style={{ background: '#c96a1a' }}
                   >
@@ -162,8 +164,8 @@ export default function PembuatanAplikasi() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
               {fitur.map((f, i) => (
                 <div key={i} className={`fade-up stagger-${(i % 2) + 1}`}>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">{f.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl mb-2">{f.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{f.desc}</p>
                 </div>
               ))}
             </div>
@@ -194,14 +196,15 @@ export default function PembuatanAplikasi() {
                         <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }} />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-1">{p.nama}</p>
-                      <p className="text-center text-xs text-gray-400 mb-3 leading-relaxed">{p.deskripsi}</p>
-                      <p className="text-xs text-gray-400 text-center">Start From</p>
+                      <p className="text-center text-xs sm:text-sm text-gray-400 mb-3 leading-relaxed">{p.deskripsi}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 text-center">Start From</p>
                       <p className="text-3xl sm:text-4xl font-bold mb-4 text-center" style={{ color: '#3d8b5e' }}>
                         {p.harga}
                         {p.nama === 'Enterprise' && <span className="text-base font-normal text-gray-500 block mt-1">Hubungi Kami</span>}
                       </p>
                       <a
-                        href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+                        href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+                        target="_blank" rel="noopener noreferrer"
                         className={`w-full py-2 sm:py-2.5 rounded-full border font-semibold text-sm mb-4 flex items-center justify-center gap-2 transition-colors ${p.bestSeller ? 'border-[#3d8b5e] text-[#3d8b5e] hover:bg-[#3d8b5e] hover:text-white' : 'border-[#c96a1a] text-[#c96a1a] hover:bg-[#c96a1a] hover:text-white'}`}
                       >
                         {p.nama === 'Enterprise' ? 'Konsultasi Gratis' : 'Pesan Sekarang'}
@@ -250,12 +253,13 @@ export default function PembuatanAplikasi() {
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Tidak yakin paket mana yang cocok?</h3>
                 <p className="text-white opacity-90 text-sm sm:text-base leading-relaxed">
-                  Konsultasikan kebutuhan aplikasi Anda gratis bersama tim nativecode.cloud. Kami akan bantu pilihkan solusi terbaik sesuai budget dan target bisnis Anda.
+                  Konsultasikan kebutuhan aplikasi Anda secara gratis bersama tim nativecode.cloud. Kami akan membantu memilihkan solusi terbaik sesuai dengan budget dan target bisnis Anda.
                 </p>
               </div>
               <div className="flex lg:justify-end">
                 <a
-                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F" target="_blank" rel="noopener noreferrer"
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+                  target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                   style={{ background: '#c96a1a' }}
                 >
