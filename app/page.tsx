@@ -175,7 +175,7 @@ export default function Home() {
                 <div className="float3 absolute bottom-4 left-1/2 -translate-x-1/2 z-20 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg whitespace-nowrap" style={{ background: '#3d8b5e' }}>Website Sekolah</div>
               </div>
               <div className="fade-up stagger-4 stat-card bg-white border border-gray-100 rounded-2xl shadow-sm p-6 sm:p-8 text-center">
-                <Counter target={20} />
+                <Counter target={24} />
                 <p className="text-gray-500 text-base mt-2">Klien menggunakan layanan nativecode.cloud</p>
               </div>
             </div>
@@ -198,7 +198,7 @@ export default function Home() {
                   <strong className="text-gray-900">nativecode.cloud</strong> adalah penyedia jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional dan terpercaya. Kami hadir sebagai mitra jangka panjang untuk kebutuhan website Anda, mulai dari landing page, company profile, hingga website sekolah, lengkap dengan optimasi SEO yang mendukung pertumbuhan digital berkelanjutan.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-justify text-base sm:text-lg">
-                  Dengan tim yang berpengalaman dan pendekatan berbasis data, kami memastikan setiap website yang kami hadirkan benar-benar memberikan dampak nyata bagi kehadiran digital Anda. Hingga saat ini, lebih dari <strong>20 website</strong> telah kami bangun dan <strong>20+ klien</strong> dari berbagai sektor telah mempercayakan kebutuhan digital mereka kepada kami, sebuah kepercayaan yang terus kami jaga melalui kualitas kerja yang konsisten.
+                  Dengan tim yang berpengalaman dan pendekatan berbasis data, kami memastikan setiap website yang kami hadirkan benar-benar memberikan dampak nyata bagi kehadiran digital Anda. Hingga saat ini, lebih dari <strong>20 website</strong> telah kami bangun dan <strong>24 klien</strong> dari berbagai sektor telah mempercayakan kebutuhan digital mereka kepada kami, sebuah kepercayaan yang terus kami jaga melalui kualitas kerja yang konsisten.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-justify text-base sm:text-lg">
                   Kami tidak sekadar membuat website. Kami memastikan setiap detail, mulai dari desain yang menarik, performa yang cepat, hingga struktur konten yang ramah mesin pencari, dirancang untuk mendukung tujuan bisnis Anda secara menyeluruh.
