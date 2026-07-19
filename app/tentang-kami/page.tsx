@@ -97,7 +97,7 @@ export default function TentangKami() {
 
               <div className="fade-left">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-2">
-                  About <span className="text-[#D17B36]">native</span><span className="text-[#5D9C76]">code.id</span>
+                  About <span className="text-[#D17B36]">native</span><span className="text-[#5D9C76]">code.cloud</span>
                 </h2>
                 <p className="text-gray-500 font-medium mb-6">Experience by the Best</p>
                 <div className="flex items-center gap-2 mb-8">
