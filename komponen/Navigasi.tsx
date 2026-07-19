@@ -94,14 +94,24 @@ export default function Navigasi() {
                 <Link href="/artikel" className={navLinkClass(pathname === '/artikel')}>ARTIKEL</Link>
               </div>
 
-              {/* Hamburger */}
-              <button
-                className="md:hidden p-2 mr-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors relative z-10"
-                onClick={() => setMobileOpen(!mobileOpen)}
-                aria-label="Toggle menu"
-              >
-                {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
+              {/* Kanan: tombol Kontak desktop + hamburger mobile */}
+              <div className="flex items-center gap-2 relative z-10">
+                <Link
+                  href="/kontak"
+                  className="hidden md:inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-opacity hover:opacity-90"
+                  style={{ background: '#3d8b5e' }}
+                >
+                  Hubungi Kami
+                </Link>
+
+                <button
+                  className="md:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
+                  onClick={() => setMobileOpen(!mobileOpen)}
+                  aria-label="Toggle menu"
+                >
+                  {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                </button>
+              </div>
             </div>
           </div>
         </nav>
@@ -161,6 +171,15 @@ export default function Navigasi() {
             <Link href="/artikel" className={`block px-4 py-3 font-semibold text-sm rounded-xl transition-colors
               ${pathname === '/artikel' ? 'bg-[#fff3e8] text-[#c96a1a]' : 'text-gray-700 hover:bg-gray-50 hover:text-[#3d8b5e]'}`}>
               ARTIKEL
+            </Link>
+
+            <Link
+              href="/kontak"
+              className={`block text-center px-4 py-3 rounded-xl font-semibold text-sm mt-3 transition-colors text-white
+                ${pathname === '/kontak' ? 'opacity-90' : 'hover:opacity-90'}`}
+              style={{ background: '#3d8b5e' }}
+            >
+              Kontak
             </Link>
           </div>
         </div>
