@@ -26,7 +26,7 @@ export default function Navigasi() {
   const isLayanan = pathname.startsWith('/layanan');
 
   const navLinkClass = (active: boolean) =>
-    `relative flex items-center gap-1 font-semibold text-sm transition-all duration-200 py-1
+    `relative flex items-center gap-1 font-semibold text-xs xl:text-sm transition-all duration-200 py-1 whitespace-nowrap
      ${active ? 'text-[#D17B36]' : 'text-gray-700 hover:text-[#5D9C76]'}
      after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:transition-all after:duration-200
      ${active ? 'after:bg-[#D17B36]' : 'after:bg-transparent hover:after:bg-[#5D9C76]'}`;
@@ -45,7 +45,7 @@ export default function Navigasi() {
     <>
       {/* Mobile overlay */}
       <div
-        className={`fixed inset-0 z-30 bg-black/40 transition-opacity duration-300 md:hidden
+        className={`fixed inset-0 z-30 bg-black/40 transition-opacity duration-300 lg:hidden
           ${mobileOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setMobileOpen(false)}
       />
@@ -54,15 +54,15 @@ export default function Navigasi() {
         <nav className={`bg-white border-b-2 border-[#5D9C76] transition-shadow duration-300
           ${scrolled ? 'shadow-md' : 'shadow-none'}`}>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-20">
+            <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[minmax(180px,auto)_1fr_minmax(180px,auto)] items-center h-20 lg:h-24 gap-4">
 
-              {/* Logo - tetap kiri */}
-              <Link href="/" className="flex-shrink-0 relative z-10">
-                <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-20 w-auto" />
+              {/* Logo - kolom kiri */}
+              <Link href="/" className="flex-shrink-0 relative z-10 justify-self-start">
+                <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-16 sm:h-20 lg:h-24 w-auto" />
               </Link>
 
-              {/* Desktop Nav - center absolut terhadap seluruh navbar */}
-              <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center space-x-6">
+              {/* Desktop Nav - kolom tengah, benar-benar center karena kolom kiri-kanan lebar minimum sama */}
+              <div className="hidden lg:flex items-center justify-center gap-4 xl:gap-7 min-w-0">
                 <Link href="/" className={navLinkClass(pathname === '/')}>BERANDA</Link>
                 <Link href="/tentang-kami" className={navLinkClass(pathname === '/tentang-kami')}>TENTANG KAMI</Link>
 
@@ -94,18 +94,18 @@ export default function Navigasi() {
                 <Link href="/artikel" className={navLinkClass(pathname === '/artikel')}>ARTIKEL</Link>
               </div>
 
-              {/* Kanan: tombol Kontak desktop + hamburger mobile */}
-              <div className="flex items-center gap-2 relative z-10">
+              {/* Kanan - kolom kanan */}
+              <div className="flex items-center gap-2 relative z-10 justify-self-end">
                 <Link
                   href="/kontak"
-                  className="hidden md:inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-full font-semibold text-sm transition-opacity hover:opacity-90"
+                  className="hidden lg:inline-flex items-center gap-2 text-white px-4 xl:px-5 py-2.5 rounded-full font-semibold text-xs xl:text-sm transition-opacity hover:opacity-90 whitespace-nowrap"
                   style={{ background: '#3d8b5e' }}
                 >
                   Hubungi Kami
                 </Link>
 
                 <button
-                  className="md:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
+                  className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
                   onClick={() => setMobileOpen(!mobileOpen)}
                   aria-label="Toggle menu"
                 >
@@ -116,13 +116,13 @@ export default function Navigasi() {
           </div>
         </nav>
 
-        {/* Mobile Drawer */}
-        <div className={`md:hidden fixed top-0 right-0 h-full w-[82%] max-w-sm z-50
+        {/* Mobile/Tablet Drawer */}
+        <div className={`lg:hidden fixed top-0 right-0 h-full w-[82%] max-w-sm z-50
           bg-white shadow-2xl transition-transform duration-300 ease-in-out
           ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-            <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-12 w-auto" />
+            <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-14 w-auto" />
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 transition-colors">
               <X className="h-5 w-5" />
             </button>
