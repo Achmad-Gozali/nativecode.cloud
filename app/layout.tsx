@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 // @ts-ignore
 import './globals.css';
 import ScrollToTop from '../komponen/ScrollToTop';
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </a>
 
         <ScrollToTop />
+        <GoogleAnalytics gaId="G-3PKLNMQHPH" />
       </body>
     </html>
   );
