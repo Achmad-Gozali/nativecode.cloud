@@ -179,7 +179,7 @@ export default function Navigasi() {
                 ${pathname === '/kontak' ? 'opacity-90' : 'hover:opacity-90'}`}
               style={{ background: '#3d8b5e' }}
             >
-              Kontak
+              Hubungi Kami
             </Link>
           </div>
         </div>
