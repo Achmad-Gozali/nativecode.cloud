@@ -58,7 +58,7 @@ export default function Navigasi() {
 
               {/* Logo - kolom kiri */}
               <Link href="/" className="flex-shrink-0 relative z-10 justify-self-start">
-                <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-16 sm:h-20 lg:h-24 w-auto" />
+                <img src="/images/logo/logo-navbar.webp" alt="nativecode.cloud" className="h-16 sm:h-20 lg:h-24 w-auto" />
               </Link>
 
               {/* Desktop Nav - kolom tengah, benar-benar center karena kolom kiri-kanan lebar minimum sama */}
@@ -122,7 +122,7 @@ export default function Navigasi() {
           ${mobileOpen ? 'translate-x-0' : 'translate-x-full'}`}>
 
           <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-            <img src="/images/logo/logo-navbar.png" alt="nativecode.cloud" className="h-14 w-auto" />
+            <img src="/images/logo/logo-navbar.webp" alt="nativecode.cloud" className="h-14 w-auto" />
             <button onClick={() => setMobileOpen(false)} className="p-2 rounded-xl text-gray-500 hover:bg-gray-100 transition-colors">
               <X className="h-5 w-5" />
             </button>

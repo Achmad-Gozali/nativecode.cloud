@@ -141,7 +141,7 @@ export default function SEOBergaransi() {
                 </div>
               </div>
               <div className="fade-right hidden lg:flex items-center justify-center">
-                <img src="/images/layanan-seo/ilustrasi-ranking-seo.png" alt="SEO Bergaransi nativecode.cloud" className="w-full max-w-sm lg:max-w-lg object-contain" />
+                <img src="/images/layanan-seo/ilustrasi-ranking-seo.webp" alt="SEO Bergaransi nativecode.cloud" className="w-full max-w-sm lg:max-w-lg object-contain" />
               </div>
             </div>
           </div>

@@ -106,7 +106,7 @@ export default function TentangKami() {
                 </div>
                 <div className="flex items-center justify-center">
                   <img
-                    src="/images/beranda/about-laptop.png"
+                    src="/images/beranda/about-laptop.webp"
                     alt="Tim developer nativecode.cloud"
                     className="w-full max-w-xs sm:max-w-sm object-contain"
                     style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
@@ -142,7 +142,7 @@ export default function TentangKami() {
               </div>
               <div className="order-1 lg:order-2 flex items-center justify-center">
                 <img
-                  src="/images/tentang-kami/ilustrasi-komitmen.png"
+                  src="/images/tentang-kami/ilustrasi-komitmen.webp"
                   alt="Komitmen nativecode.cloud"
                   className="w-full max-w-xs sm:max-w-sm object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.10))' }}

@@ -42,10 +42,10 @@ const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }>
 };
 
 const paketList = [
-  { nama: 'Silver', medal: '/images/paket/silver.png', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
-  { nama: 'Gold', medal: '/images/paket/gold.png', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Desain Semi Custom'] },
-  { nama: 'Diamond', medal: '/images/paket/diamond.png', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
-  { nama: 'Platinum', medal: '/images/paket/platinum.png', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
+  { nama: 'Silver', medal: '/images/paket/silver.webp', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
+  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Desain Semi Custom'] },
+  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
+  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
 ];
 
 const fiturUnggulan = [
@@ -147,7 +147,7 @@ export default function PembuatanWebsite() {
               </div>
               <div className="fade-right hidden lg:flex items-center justify-center">
                 <img
-                  src="/images/layanan-website/pembuatan-website-hero.png"
+                  src="/images/layanan-website/pembuatan-website-hero.webp"
                   alt="Web Design nativecode.cloud"
                   className="w-full max-w-md object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}

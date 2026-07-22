@@ -46,25 +46,25 @@ const fitur = [
 
 const paket = [
   {
-    nama: 'Starter', medal: '/images/paket/silver.png', harga: '750K', bestSeller: false,
+    nama: 'Starter', medal: '/images/paket/silver.webp', harga: '750K', bestSeller: false,
     deskripsi: 'Cocok untuk UMKM atau individu yang baru ingin memiliki aplikasi mobile sederhana dan fungsional.',
     fitur: ['1 Platform (Android atau iOS)', 'UI/UX Design Standar', 'Fitur Login & Register', 'Maksimal 5 Halaman/Screen', 'Free Revisi 1x', 'Publikasi ke Play Store / App Store'],
     detail: ['Konsultasi kebutuhan aplikasi', 'Desain UI standar berbasis template', 'Integrasi database dasar', 'Testing sebelum publish', 'Garansi bug fix 1 bulan setelah launch', 'Source code tidak termasuk'],
   },
   {
-    nama: 'Pro', medal: '/images/paket/gold.png', harga: '2 Jt', bestSeller: true,
+    nama: 'Pro', medal: '/images/paket/gold.webp', harga: '2 Jt', bestSeller: true,
     deskripsi: 'Cocok untuk bisnis yang sudah berjalan dan ingin hadir di dua platform sekaligus dengan tampilan yang lebih profesional.',
     fitur: ['2 Platform (Android + iOS)', 'UI/UX Design Custom', 'Fitur Login, Register & Profil', 'Maksimal 10 Halaman/Screen', 'Push Notification', 'Free Revisi 2x', 'Publikasi ke Play Store & App Store'],
     detail: ['Konsultasi mendalam kebutuhan bisnis', 'Desain UI/UX custom sesuai brand', 'Integrasi API pihak ketiga (max 2)', 'Integrasi media sosial (login with Google/FB)', 'Testing menyeluruh sebelum publish', 'Garansi bug fix 2 bulan setelah launch', 'Source code tidak termasuk'],
   },
   {
-    nama: 'Business', medal: '/images/paket/diamond.png', harga: '5 Jt', bestSeller: false,
+    nama: 'Business', medal: '/images/paket/diamond.webp', harga: '5 Jt', bestSeller: false,
     deskripsi: 'Cocok untuk bisnis skala menengah yang butuh fitur lebih kompleks termasuk payment gateway dan dashboard admin.',
     fitur: ['2 Platform (Android + iOS)', 'UI/UX Design Premium', 'Fitur Lengkap + Payment Gateway', 'Admin Dashboard Web', 'Push Notification & Analytics', 'Maksimal 20 Halaman/Screen', 'Free Revisi 3x', 'Publikasi ke Play Store & App Store'],
     detail: ['Konsultasi mendalam + wireframe', 'Desain UI/UX premium custom branding', 'Integrasi payment gateway (Midtrans/Xendit)', 'Admin dashboard berbasis web', 'Integrasi API pihak ketiga (max 5)', 'Push notification & in-app analytics', 'Testing QA menyeluruh', 'Garansi bug fix 3 bulan setelah launch', 'Source code tidak termasuk'],
   },
   {
-    nama: 'Enterprise', medal: '/images/paket/platinum.png', harga: 'Custom', bestSeller: false,
+    nama: 'Enterprise', medal: '/images/paket/platinum.webp', harga: 'Custom', bestSeller: false,
     deskripsi: 'Solusi aplikasi skala enterprise dengan fitur kompleks, integrasi sistem penuh, dan maintenance berkelanjutan.',
     fitur: ['Multi Platform (Android, iOS, Web)', 'UI/UX Design Full Custom', 'Fitur Kompleks & Integrasi Penuh', 'Admin Dashboard + CMS', 'API Development Custom', 'Halaman/Screen Tidak Terbatas', 'Revisi Tidak Terbatas', 'Maintenance & Support Ongoing'],
     detail: ['Konsultasi mendalam + business analysis', 'Wireframe & prototype interaktif', 'Desain UI/UX full custom premium', 'Pengembangan API backend custom', 'Integrasi sistem internal perusahaan', 'Admin dashboard + CMS lengkap', 'Multi bahasa (opsional)', 'Security audit & penetration testing', 'Training penggunaan sistem', 'Maintenance & support ongoing (kontrak)', 'Source code included'],
@@ -149,7 +149,7 @@ export default function PembuatanAplikasi() {
               </div>
               <div className="fade-right flex items-center justify-center">
                 <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-lg" style={{ aspectRatio: '1/1' }}>
-                  <Image src="/images/layanan-aplikasi/pembuatan-aplikasi-hero.png" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
+                  <Image src="/images/layanan-aplikasi/pembuatan-aplikasi-hero.webp" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
                 </div>
               </div>
             </div>

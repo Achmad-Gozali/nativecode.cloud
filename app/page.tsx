@@ -72,10 +72,10 @@ const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }>
 };
 
 const paketList = [
-  { nama: 'Silver', medal: '/images/paket/silver.png', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
-  { nama: 'Gold', medal: '/images/paket/gold.png', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Desain Semi Custom'] },
-  { nama: 'Diamond', medal: '/images/paket/diamond.png', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
-  { nama: 'Platinum', medal: '/images/paket/platinum.png', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
+  { nama: 'Silver', medal: '/images/paket/silver.webp', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
+  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Desain Semi Custom'] },
+  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
+  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
 ];
 
 const featureList = [
@@ -155,7 +155,7 @@ export default function Home() {
               <div className="fade-in stagger-3 hidden lg:flex relative items-center justify-center" style={{ minHeight: '420px' }}>
                 <div className="absolute w-72 h-72 rounded-full z-0" style={{ background: 'radial-gradient(circle, #c8e6c9 0%, #e8f5e9 55%, transparent 75%)' }} />
                 <img
-                  src="/images/beranda/hero-statistik.png"
+                  src="/images/beranda/hero-statistik.webp"
                   alt="nativecode.cloud developer"
                   className="relative z-10 w-60 sm:w-64 object-contain"
                   style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
@@ -190,7 +190,7 @@ export default function Home() {
                   <div className="w-4 h-0.5 rounded" style={{ background: '#3d8b5e' }} />
                 </div>
                 <div className="flex items-center justify-center">
-                  <img src="/images/beranda/about-laptop.png" alt="nativecode.cloud" className="w-full max-w-sm object-contain" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }} />
+                  <img src="/images/beranda/about-laptop.webp" alt="nativecode.cloud" className="w-full max-w-sm object-contain" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }} />
                 </div>
               </div>
               <div className="fade-right space-y-4 sm:space-y-5">
@@ -219,7 +219,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="fade-left hidden lg:flex items-center justify-center">
-                <img src="/images/beranda/promo-web-desain.png" alt="Web Design nativecode.cloud" className="w-full max-w-lg object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
+                <img src="/images/beranda/promo-web-desain.webp" alt="Web Design nativecode.cloud" className="w-full max-w-lg object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
               </div>
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Mau Buat Website?</h2>
@@ -326,12 +326,12 @@ export default function Home() {
             </div>
 
             {/* Server stats banner */}
-            <div className="fade-up relative">
-              <div className="absolute left-1/2 -translate-x-1/2 -top-20 z-10 float-rocket hidden sm:block">
+            <div className="fade-up relative mt-16 sm:mt-20">
+              <div className="absolute left-1/2 -translate-x-1/2 -top-14 sm:-top-16 z-10 float-rocket hidden sm:block pointer-events-none">
                 <img
-                  src="/images/beranda/roket-server.png"
+                  src="/images/beranda/roket-server.webp"
                   alt="Roket"
-                  className="w-32 object-contain"
+                  className="w-20 sm:w-24 object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.15))' }}
                 />
               </div>
@@ -360,7 +360,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="fade-left hidden lg:flex items-center justify-center">
-                <img src="/images/beranda/layanan-lainnya.png" alt="Tim nativecode.cloud" className="w-80 sm:w-96 object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
+                <img src="/images/beranda/layanan-lainnya.webp" alt="Tim nativecode.cloud" className="w-80 sm:w-96 object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
               </div>
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Layanan Lainnya</h2>
