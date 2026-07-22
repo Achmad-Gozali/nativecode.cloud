@@ -1,5 +1,6 @@
 ﻿'use client';
 
+import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { useEffect, useRef, useState } from 'react';
@@ -128,11 +129,14 @@ export default function Home() {
                 </a>
               </div>
             </div>
-            <div className="hero-img flex-1 flex items-center justify-center lg:justify-end">
-              <img
-                src="/images/beranda/hero-utama.png"
+            <div className="hero-img flex-1 flex items-center justify-center lg:justify-end w-full max-w-sm sm:max-w-md lg:max-w-xl">
+              <Image
+                src="/images/beranda/hero-utama.webp"
                 alt="nativecode.cloud tampil di berbagai device"
-                className="w-full max-w-sm sm:max-w-md lg:max-w-xl object-contain"
+                width={665}
+                height={443}
+                priority
+                className="w-full h-auto object-contain"
                 style={{ mixBlendMode: 'multiply' }}
               />
             </div>
@@ -154,10 +158,12 @@ export default function Home() {
               </div>
               <div className="fade-in stagger-3 hidden lg:flex relative items-center justify-center" style={{ minHeight: '420px' }}>
                 <div className="absolute w-72 h-72 rounded-full z-0" style={{ background: 'radial-gradient(circle, #c8e6c9 0%, #e8f5e9 55%, transparent 75%)' }} />
-                <img
+                <Image
                   src="/images/beranda/hero-statistik.webp"
                   alt="nativecode.cloud developer"
-                  className="relative z-10 w-60 sm:w-64 object-contain"
+                  width={256}
+                  height={320}
+                  className="relative z-10 w-60 sm:w-64 h-auto object-contain"
                   style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
                 />
                 <div className="float1 absolute left-0 top-1/3 z-20 w-14 h-14 rounded-full shadow-lg flex items-center justify-center" style={{ background: '#3d8b5e' }}>
@@ -168,7 +174,7 @@ export default function Home() {
                   </svg>
                 </div>
                 <div className="float2 absolute right-0 top-1/2 z-20 w-14 h-14 rounded-full shadow-lg flex items-center justify-center" style={{ background: '#3d8b5e' }}>
-                  <img src="https://cdn.simpleicons.org/wordpress/white" alt="WordPress" width="26" height="26" />
+                  <Image src="https://cdn.simpleicons.org/wordpress/white" alt="WordPress" width={26} height={26} unoptimized />
                 </div>
                 <div className="float1 absolute bottom-16 left-4 z-20 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg" style={{ background: '#c96a1a' }}>Website Design</div>
                 <div className="float2 absolute bottom-24 right-4 z-20 text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-lg" style={{ background: '#c96a1a' }}>SEO Optimization</div>
@@ -190,7 +196,14 @@ export default function Home() {
                   <div className="w-4 h-0.5 rounded" style={{ background: '#3d8b5e' }} />
                 </div>
                 <div className="flex items-center justify-center">
-                  <img src="/images/beranda/about-laptop.webp" alt="nativecode.cloud" className="w-full max-w-sm object-contain" style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }} />
+                  <Image
+                    src="/images/beranda/about-laptop.webp"
+                    alt="nativecode.cloud"
+                    width={384}
+                    height={384}
+                    className="w-full max-w-sm h-auto object-contain"
+                    style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
+                  />
                 </div>
               </div>
               <div className="fade-right space-y-4 sm:space-y-5">
@@ -219,7 +232,14 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="fade-left hidden lg:flex items-center justify-center">
-                <img src="/images/beranda/promo-web-desain.webp" alt="Web Design nativecode.cloud" className="w-full max-w-lg object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
+                <Image
+                  src="/images/beranda/promo-web-desain.webp"
+                  alt="Web Design nativecode.cloud"
+                  width={512}
+                  height={384}
+                  className="w-full max-w-lg h-auto object-contain"
+                  style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
+                />
               </div>
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Mau Buat Website?</h2>
@@ -257,7 +277,14 @@ export default function Home() {
                     {p.best && <div className="text-white text-xs font-bold text-center py-1.5 tracking-wide" style={{ background: '#3d8b5e' }}>BEST SELLER !</div>}
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex justify-center mb-3">
-                        <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }} />
+                        <Image
+                          src={p.medal}
+                          alt={`${p.nama} package`}
+                          width={96}
+                          height={96}
+                          className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                          style={{ filter: 'drop-shadow(0 4px 8px rgba(0,0,0,0.15))' }}
+                        />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-lg sm:text-xl mb-3">{p.nama}</p>
                       <p className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#3d8b5e' }}>{p.harga}</p>
@@ -328,10 +355,12 @@ export default function Home() {
             {/* Server stats banner */}
             <div className="fade-up relative mt-16 sm:mt-20">
               <div className="absolute left-1/2 -translate-x-1/2 -top-14 sm:-top-16 z-10 float-rocket hidden sm:block pointer-events-none">
-                <img
+                <Image
                   src="/images/beranda/roket-server.webp"
                   alt="Roket"
-                  className="w-20 sm:w-24 object-contain"
+                  width={96}
+                  height={96}
+                  className="w-20 sm:w-24 h-auto object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.15))' }}
                 />
               </div>
@@ -360,7 +389,14 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
               <div className="fade-left hidden lg:flex items-center justify-center">
-                <img src="/images/beranda/layanan-lainnya.webp" alt="Tim nativecode.cloud" className="w-80 sm:w-96 object-contain" style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }} />
+                <Image
+                  src="/images/beranda/layanan-lainnya.webp"
+                  alt="Tim nativecode.cloud"
+                  width={384}
+                  height={288}
+                  className="w-80 sm:w-96 h-auto object-contain"
+                  style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
+                />
               </div>
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Layanan Lainnya</h2>

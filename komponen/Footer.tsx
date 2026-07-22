@@ -1,4 +1,5 @@
 ﻿'use client';
+import Image from 'next/image';
 import Link from 'next/link';
 
 function FooterCurve() {
@@ -42,7 +43,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           <div className="sm:col-span-2 lg:col-span-1">
-            <img src="/images/logo/logo-navbar.webp" alt="nativecode.cloud" className="h-12 w-auto mb-4 brightness-0 invert" />
+            <Image
+              src="/images/logo/logo-navbar.webp"
+              alt="nativecode.cloud"
+              width={224}
+              height={112}
+              className="h-12 w-auto mb-4 brightness-0 invert"
+            />
             <p className="text-gray-300 text-sm leading-relaxed">
               Solusi jasa pembuatan website profesional di Indonesia. Kami menghadirkan website dengan desain menarik, mudah diakses, dan responsif.
             </p>

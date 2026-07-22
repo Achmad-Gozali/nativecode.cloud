@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 
@@ -112,8 +113,14 @@ export default function TemplatePublikPage() {
                 {filtered.map(item => (
                   <div key={item.id} className="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden flex flex-col hover:shadow-md transition-shadow">
                     <div className="relative w-full h-44 bg-gray-50">
-                      <img src={item.gambarUrl} alt={item.namaTemplate} className="w-full h-full object-cover" />
-                      <span className="absolute top-3 left-3 text-xs font-semibold px-3 py-1 rounded-full text-white" style={{ background: '#3d8b5e' }}>
+                      <Image
+                        src={item.gambarUrl}
+                        alt={item.namaTemplate}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                      <span className="absolute top-3 left-3 text-xs font-semibold px-3 py-1 rounded-full text-white z-10" style={{ background: '#3d8b5e' }}>
                         {item.kategori}
                       </span>
                     </div>

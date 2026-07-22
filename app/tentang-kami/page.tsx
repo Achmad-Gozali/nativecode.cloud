@@ -1,4 +1,5 @@
 ﻿'use client';
+import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { useScrollAnim } from '@/hooks/use-scroll-anim';
@@ -105,10 +106,12 @@ export default function TentangKami() {
                   <div className="w-4 h-0.5 bg-[#5D9C76] rounded" />
                 </div>
                 <div className="flex items-center justify-center">
-                  <img
+                  <Image
                     src="/images/beranda/about-laptop.webp"
                     alt="Tim developer nativecode.cloud"
-                    className="w-full max-w-xs sm:max-w-sm object-contain"
+                    width={384}
+                    height={384}
+                    className="w-full max-w-xs sm:max-w-sm h-auto object-contain"
                     style={{ filter: 'drop-shadow(0 10px 30px rgba(0,0,0,0.10))' }}
                   />
                 </div>
@@ -141,10 +144,12 @@ export default function TentangKami() {
                 </p>
               </div>
               <div className="order-1 lg:order-2 flex items-center justify-center">
-                <img
+                <Image
                   src="/images/tentang-kami/ilustrasi-komitmen.webp"
                   alt="Komitmen nativecode.cloud"
-                  className="w-full max-w-xs sm:max-w-sm object-contain"
+                  width={384}
+                  height={384}
+                  className="w-full max-w-xs sm:max-w-sm h-auto object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.10))' }}
                 />
               </div>

@@ -1,4 +1,5 @@
-﻿import Navigasi from '@/komponen/Navigasi';
+﻿import Image from 'next/image';
+import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { prisma } from '@/lib/prisma';
 
@@ -76,10 +77,12 @@ export default async function PortofolioPage() {
                     className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 block"
                   >
                     <div className="relative overflow-hidden bg-gray-100" style={{ height: '190px' }}>
-                      <img
+                      <Image
                         src={item.gambarUrl}
                         alt={item.namaProyek}
-                        className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="px-4 py-3">

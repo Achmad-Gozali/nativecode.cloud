@@ -1,5 +1,6 @@
 ﻿'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { useScrollAnim } from '@/hooks/use-scroll-anim';
@@ -146,10 +147,12 @@ export default function PembuatanWebsite() {
                 </div>
               </div>
               <div className="fade-right hidden lg:flex items-center justify-center">
-                <img
+                <Image
                   src="/images/layanan-website/pembuatan-website-hero.webp"
                   alt="Web Design nativecode.cloud"
-                  className="w-full max-w-md object-contain"
+                  width={448}
+                  height={336}
+                  className="w-full max-w-md h-auto object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
                 />
               </div>
@@ -176,7 +179,14 @@ export default function PembuatanWebsite() {
                     )}
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex justify-center mb-3">
-                        <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }} />
+                        <Image
+                          src={p.medal}
+                          alt={`${p.nama} package`}
+                          width={96}
+                          height={96}
+                          className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                          style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}
+                        />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-3">{p.nama}</p>
                       <p className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#3d8b5e' }}>{p.harga}</p>

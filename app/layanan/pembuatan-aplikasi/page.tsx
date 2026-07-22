@@ -193,7 +193,14 @@ export default function PembuatanAplikasi() {
                     )}
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex justify-center mb-3">
-                        <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }} />
+                        <Image
+                          src={p.medal}
+                          alt={`${p.nama} package`}
+                          width={96}
+                          height={96}
+                          className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
+                          style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}
+                        />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-1">{p.nama}</p>
                       <p className="text-center text-xs sm:text-sm text-gray-400 mb-3 leading-relaxed">{p.deskripsi}</p>

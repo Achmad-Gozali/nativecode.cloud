@@ -1,5 +1,6 @@
 ﻿'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { useScrollAnim } from '@/hooks/use-scroll-anim';
@@ -141,7 +142,13 @@ export default function SEOBergaransi() {
                 </div>
               </div>
               <div className="fade-right hidden lg:flex items-center justify-center">
-                <img src="/images/layanan-seo/ilustrasi-ranking-seo.webp" alt="SEO Bergaransi nativecode.cloud" className="w-full max-w-sm lg:max-w-lg object-contain" />
+                <Image
+                  src="/images/layanan-seo/ilustrasi-ranking-seo.webp"
+                  alt="SEO Bergaransi nativecode.cloud"
+                  width={512}
+                  height={384}
+                  className="w-full max-w-sm lg:max-w-lg h-auto object-contain"
+                />
               </div>
             </div>
           </div>

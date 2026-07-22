@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Navigasi from '@/komponen/Navigasi';
@@ -97,7 +98,14 @@ export default async function ArtikelDetailPage({
 
               {artikel.gambarUrl && (
                 <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden mb-8 bg-gray-100">
-                  <img src={artikel.gambarUrl} alt={artikel.judul} className="w-full h-full object-cover" />
+                  <Image
+                    src={artikel.gambarUrl}
+                    alt={artikel.judul}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 720px"
+                    priority
+                    className="object-cover"
+                  />
                 </div>
               )}
 
@@ -122,10 +130,12 @@ export default async function ArtikelDetailPage({
                       >
                         {a.gambarUrl ? (
                           <div className="relative w-full h-32 bg-gray-100 overflow-hidden">
-                            <img
+                            <Image
                               src={a.gambarUrl}
                               alt={a.judul}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              fill
+                              sizes="(max-width: 640px) 100vw, 33vw"
+                              className="object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                           </div>
                         ) : (
@@ -158,7 +168,7 @@ export default async function ArtikelDetailPage({
                     >
                       {a.gambarUrl ? (
                         <div className="relative w-16 h-16 shrink-0 rounded-lg overflow-hidden bg-gray-100">
-                          <img src={a.gambarUrl} alt={a.judul} className="w-full h-full object-cover" />
+                          <Image src={a.gambarUrl} alt={a.judul} fill sizes="64px" className="object-cover" />
                         </div>
                       ) : (
                         <div className="w-16 h-16 shrink-0 rounded-lg bg-gray-100 flex items-center justify-center">
