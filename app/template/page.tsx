@@ -156,8 +156,8 @@ export default function TemplatePublikPage() {
           </div>
         </section>
 
-        {/* CTA penutup - hanya tampil kalau ada template */}
-        {!isEmpty && (
+        {/* CTA penutup - hanya tampil setelah data selesai dimuat dan ada template */}
+        {loaded && !isEmpty && (
           <section className="bg-white pb-16 sm:pb-24">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6" style={{ background: '#f1f5f9' }}>
