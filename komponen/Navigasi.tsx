@@ -52,8 +52,8 @@ export default function Navigasi() {
       />
 
       <div className="fixed top-0 left-0 right-0 z-40">
-        <nav className={`bg-white border-b-2 border-[#5D9C76] transition-shadow duration-300
-          ${scrolled ? 'shadow-md' : 'shadow-none'}`}>
+        <nav className={`transition-all duration-300
+          ${scrolled ? 'bg-white shadow-md' : 'bg-transparent shadow-none'}`}>
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-[auto_1fr_auto] lg:grid-cols-[minmax(180px,auto)_1fr_minmax(180px,auto)] items-center h-20 lg:h-24 gap-4">
 
@@ -113,7 +113,7 @@ export default function Navigasi() {
                 </Link>
 
                 <button
-                  className="lg:hidden p-2 rounded-xl text-gray-600 hover:bg-gray-100 transition-colors"
+                  className="lg:hidden p-2 rounded-xl text-gray-700 hover:bg-black/5 transition-colors"
                   onClick={() => setMobileOpen(!mobileOpen)}
                   aria-label="Toggle menu"
                 >

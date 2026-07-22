@@ -137,7 +137,6 @@ export default function Home() {
                 height={443}
                 priority
                 className="w-full h-auto object-contain"
-                style={{ mixBlendMode: 'multiply' }}
               />
             </div>
           </div>
