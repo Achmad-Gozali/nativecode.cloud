@@ -9,9 +9,9 @@ import { useScrollAnim } from '@/hooks/use-scroll-anim';
 function SectionCurve({ fill, path }: { fill: string; path: string }) {
   return (
     <svg
-      viewBox="0 0 1440 60"
+      viewBox="0 0 1440 100"
       preserveAspectRatio="none"
-      className="absolute bottom-0 left-0 w-full h-8 sm:h-14 block pointer-events-none"
+      className="absolute bottom-0 left-0 w-full h-14 sm:h-24 block pointer-events-none"
     >
       <path d={path} fill={fill} />
     </svg>
@@ -140,7 +140,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <SectionCurve fill="#f1f5f9" path="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" />
+          <SectionCurve fill="#f1f5f9" path="M0,30 C360,90 1080,-10 1440,50 L1440,100 L0,100 Z" />
         </section>
 
         {/* Hero Stats + About, satu blok slate-100 */}
@@ -221,7 +221,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
+          <SectionCurve fill="#ffffff" path="M0,70 C360,-30 1080,110 1440,10 L1440,100 L0,100 Z" />
         </section>
 
         <Ticker />
@@ -260,7 +260,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
+          <SectionCurve fill="#f1f5f9" path="M0,80 L1440,20 L1440,100 L0,100 Z" />
         </section>
 
         {/* Paket Website */}
@@ -333,7 +333,7 @@ export default function Home() {
               })}
             </div>
           </div>
-          <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,50 L1440,60 L0,60 Z" />
+          <SectionCurve fill="#ffffff" path="M0,80 L1440,20 L1440,100 L0,100 Z" />
         </section>
 
         {/* Fitur Unggulan - plain, tanpa card */}
