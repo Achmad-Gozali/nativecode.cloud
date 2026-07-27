@@ -149,7 +149,7 @@ export default function PembuatanAplikasi() {
               </div>
               <div className="fade-right flex items-center justify-center">
                 <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-lg" style={{ aspectRatio: '1/1' }}>
-                  <Image src="/images/layanan-aplikasi/pembuatan-aplikasi1.webp" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
+                  <Image src="/images/layanan-aplikasi/pembuatan-apk.webp" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
                 </div>
               </div>
             </div>
