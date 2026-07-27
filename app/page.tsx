@@ -59,29 +59,29 @@ const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }>
     fiturDetail: ['3 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Template Disesuaikan', 'Integrasi Sosial Media', 'Website SSL', 'Tombol WhatsApp', 'Responsive di Semua Perangkat', 'Free Support Pengerjaan'],
   },
   Gold: {
-    deskDetail: 'Paket ini cocok untuk kebutuhan company profile dengan struktur halaman yang lebih lengkap dan desain yang disesuaikan lebih mendalam dengan identitas bisnis Anda.',
-    fiturDetail: ['5-6 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Desain Semi Custom', 'Free Logo dan Banner', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+    deskDetail: 'Paket ini cocok untuk kebutuhan company profile dengan struktur halaman yang lebih lengkap dan tampilan yang disesuaikan lebih mendalam dengan identitas bisnis Anda.',
+    fiturDetail: ['5-6 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Tampilan Disesuaikan Kebutuhan', 'Free Logo dan Banner', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
   Diamond: {
-    deskDetail: 'Paket ini cocok bagi Anda yang membutuhkan company profile lengkap sebagai representasi profesional bisnis, dengan pendekatan desain full custom yang disesuaikan sepenuhnya dengan kebutuhan Anda.',
-    fiturDetail: ['7-8 Menu Halaman', 'Domain .com / .co.id 1 Tahun', 'Hosting 1 Tahun', 'Full Custom Design', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+    deskDetail: 'Paket ini cocok bagi Anda yang membutuhkan company profile lengkap sebagai representasi profesional bisnis, dengan struktur, layout, dan tampilan yang disesuaikan sepenuhnya dengan kebutuhan Anda.',
+    fiturDetail: ['7-8 Menu Halaman', 'Domain .com / .co.id 1 Tahun', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
   Platinum: {
-    deskDetail: 'Paket ini cocok untuk institusi atau bisnis berskala lebih besar yang membutuhkan website dengan struktur halaman terlengkap, desain khusus, serta fitur tambahan sesuai kebutuhan spesifik, termasuk website sekolah dan instansi.',
-    fiturDetail: ['10-12 Menu Halaman', 'Domain .com / .id / .co.id / .sch.id', 'Hosting 1 Tahun', 'Full Custom Design', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Free 1 Email Bisnis', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+    deskDetail: 'Paket ini cocok untuk institusi atau bisnis berskala lebih besar yang membutuhkan website dengan struktur halaman terlengkap, tampilan khusus, serta fitur tambahan sesuai kebutuhan spesifik, termasuk website sekolah dan instansi.',
+    fiturDetail: ['10-12 Menu Halaman', 'Domain .com / .id / .co.id / .sch.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Free 1 Email Bisnis', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
 };
 
 const paketList = [
   { nama: 'Silver', medal: '/images/paket/silver.webp', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
-  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Desain Semi Custom'] },
-  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
-  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
+  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Tampilan Disesuaikan'] },
+  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh'] },
+  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh'] },
 ];
 
 const featureList = [
-  { title: 'Free Logo & Banner', desc: 'Desain logo dan banner kreatif yang memperkuat identitas visual bisnis Anda, lengkap dengan revisi hingga Anda benar-benar puas dengan hasilnya.' },
-  { title: 'Free 3 Artikel', desc: 'Konten original dan SEO-friendly yang disusun oleh tim ahli kami untuk mendukung peringkat pencarian website Anda. 3 artikel berkualitas sepanjang 500-700 kata, siap dipublikasikan.' },
+  { title: 'Free Logo & Banner', desc: 'Logo dan banner untuk kebutuhan awal bisnis Anda, disiapkan secara praktis dan cepat, lengkap dengan revisi hingga sesuai kebutuhan Anda.' },
+  { title: 'Free 3 Artikel', desc: 'Konten original dan SEO-friendly yang disusun oleh tim kami untuk mendukung peringkat pencarian website Anda. 3 artikel berkualitas sepanjang 500-700 kata, siap dipublikasikan.' },
   { title: 'Free Support Pengerjaan', desc: 'Pendampingan penuh dari awal hingga akhir proses pembuatan website, memastikan setiap kebutuhan Anda terpenuhi sebelum website resmi digunakan.' },
 ];
 
@@ -106,7 +106,7 @@ export default function Home() {
                 <span style={{ color: '#c96a1a' }}>SEO Bergaransi</span>
               </h1>
               <p className="hero-desc text-gray-600 leading-relaxed mb-8 text-base sm:text-lg max-w-lg">
-                Kami hadir sebagai mitra digital tepercaya untuk membantu bisnis, sekolah, dan instansi Anda tampil lebih profesional di dunia maya. Melalui pendekatan desain yang matang dan strategi SEO yang terukur, kami membantu meningkatkan visibilitas website Anda di Google serta menjangkau lebih banyak audiens yang relevan.
+                Kami hadir sebagai mitra digital tepercaya untuk membantu bisnis, sekolah, dan instansi Anda tampil lebih profesional di dunia maya. Melalui pendekatan pengembangan yang rapi dan terstruktur serta strategi SEO yang terukur, kami membantu meningkatkan visibilitas website Anda di Google serta menjangkau lebih banyak audiens yang relevan.
               </p>
               <div className="hero-btns flex flex-wrap gap-3">
                 <a
@@ -136,7 +136,7 @@ export default function Home() {
                 width={665}
                 height={443}
                 priority
-                className="w-full h-auto object-contain"
+                className="w-full h-auto object-contain drop-shadow-2xl"
               />
             </div>
           </div>
@@ -210,10 +210,10 @@ export default function Home() {
                   <strong className="text-gray-900">nativecode.cloud</strong> adalah penyedia jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional dan terpercaya. Kami hadir sebagai mitra jangka panjang untuk kebutuhan website Anda, mulai dari landing page, company profile, hingga website sekolah, lengkap dengan optimasi SEO yang mendukung pertumbuhan digital berkelanjutan.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-justify text-base sm:text-lg">
-                  Dengan tim yang berpengalaman dan pendekatan berbasis data, kami memastikan setiap website yang kami hadirkan benar-benar memberikan dampak nyata bagi kehadiran digital Anda. Hingga saat ini, lebih dari <strong>20 website</strong> telah kami bangun dan <strong>24 klien</strong> dari berbagai sektor telah mempercayakan kebutuhan digital mereka kepada kami, sebuah kepercayaan yang terus kami jaga melalui kualitas kerja yang konsisten.
+                  Dengan tim yang berpengalaman dalam pengembangan website dan pendekatan berbasis data, kami memastikan setiap website yang kami hadirkan benar-benar memberikan dampak nyata bagi kehadiran digital Anda. Hingga saat ini, lebih dari <strong>20 website</strong> telah kami bangun dan <strong>24 klien</strong> dari berbagai sektor telah mempercayakan kebutuhan digital mereka kepada kami, sebuah kepercayaan yang terus kami jaga melalui kualitas kerja yang konsisten.
                 </p>
                 <p className="text-gray-700 leading-relaxed text-justify text-base sm:text-lg">
-                  Kami tidak sekadar membuat website. Kami memastikan setiap detail, mulai dari desain yang menarik, performa yang cepat, hingga struktur konten yang ramah mesin pencari, dirancang untuk mendukung tujuan bisnis Anda secara menyeluruh.
+                  Kami tidak sekadar membuat website. Kami memastikan setiap detail, mulai dari struktur kode yang rapi, performa yang cepat, hingga konten yang ramah mesin pencari, dirancang untuk mendukung tujuan bisnis Anda secara menyeluruh.
                 </p>
                 <a href="/tentang-kami" className="inline-flex items-center gap-2 text-white px-7 py-3 rounded-full font-semibold transition-opacity hover:opacity-90 text-sm sm:text-base" style={{ background: '#3d8b5e' }}>
                   Selengkapnya
@@ -243,7 +243,7 @@ export default function Home() {
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Mau Buat Website?</h2>
                 <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4">nativecode.cloud – Solusi jasa pembuatan website profesional di Indonesia</h3>
-                <p className="text-gray-700 leading-relaxed mb-3 text-base sm:text-lg">Kami menghadirkan website dengan desain yang menarik secara visual, mudah diakses, dan responsif di semua jenis perangkat, mulai dari desktop, tablet, hingga smartphone.</p>
+                <p className="text-gray-700 leading-relaxed mb-3 text-base sm:text-lg">Kami membangun website yang cepat, fungsional, dan mudah digunakan, dengan tampilan yang bersih dan profesional, serta responsif di semua jenis perangkat, mulai dari desktop, tablet, hingga smartphone.</p>
                 <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">Mulai dari landing page, company profile, hingga website sekolah, seluruh proses kami kerjakan dengan standar profesional, komunikasi yang transparan, dan hasil akhir yang siap mendukung pertumbuhan bisnis Anda.</p>
 
                 <a
@@ -286,8 +286,9 @@ export default function Home() {
                         />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-lg sm:text-xl mb-3">{p.nama}</p>
-                      <p className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#3d8b5e' }}>{p.harga}</p>
-                      <p className="text-sm text-gray-400 mb-4">Perpanjangan {p.perp}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 text-center">Start From</p>
+                      <p className="text-3xl sm:text-4xl font-bold mb-1 text-center" style={{ color: '#3d8b5e' }}>{p.harga}</p>
+                      <p className="text-sm text-gray-400 mb-4 text-center">Perpanjangan {p.perp}</p>
 
                       <a
                         href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
@@ -401,7 +402,7 @@ export default function Home() {
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Layanan Lainnya</h2>
                 <div className="space-y-3">
                   {[
-                    { title: 'Jasa Pembuatan Website', desc: 'Website profesional dan responsif yang dirancang khusus untuk bisnis, sekolah, dan instansi Anda, lengkap dengan optimasi SEO dasar untuk mendukung visibilitas di mesin pencari.', href: '/layanan/pembuatan-website' },
+                    { title: 'Jasa Pembuatan Website', desc: 'Website yang dibangun dengan struktur rapi dan performa cepat, dirancang khusus untuk bisnis, sekolah, dan instansi Anda, lengkap dengan optimasi SEO dasar untuk mendukung visibilitas di mesin pencari.', href: '/layanan/pembuatan-website' },
                     { title: 'Jasa SEO Optimization', desc: 'Tingkatkan peringkat website Anda di Google melalui strategi SEO yang aman, terukur, dan bergaransi hasil, dikerjakan oleh tim yang memahami perkembangan algoritma pencarian terkini.', href: '/layanan/seo' },
                     { title: 'Jasa Pembuatan Aplikasi', desc: 'Wujudkan ide digital Anda menjadi aplikasi berbasis web atau mobile yang fungsional, andal, dan sesuai dengan kebutuhan operasional bisnis Anda.', href: '/layanan/pembuatan-aplikasi' },
                   ].map((s, i) => (

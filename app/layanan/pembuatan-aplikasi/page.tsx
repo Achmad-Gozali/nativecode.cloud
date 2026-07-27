@@ -28,15 +28,15 @@ function SectionCurve({ fill, path }: { fill: string; path: string }) {
 const fitur = [
   {
     title: 'Pengembangan Aplikasi Android dan iOS',
-    desc: 'Kami menawarkan layanan pengembangan aplikasi mobile untuk platform Android dan iOS, yang dirancang untuk memberikan pengalaman pengguna yang mulus dan intuitif. Tim pengembang kami menguasai teknologi terbaru dan memiliki pengalaman luas dalam menciptakan aplikasi yang menarik dan fungsional.',
+    desc: 'Kami menawarkan layanan pengembangan aplikasi mobile untuk platform Android dan iOS, yang dirancang untuk memberikan pengalaman pengguna yang mulus dan intuitif. Tim kami menguasai teknologi terkini dalam pengembangan aplikasi yang fungsional dan andal.',
   },
   {
     title: 'Publikasi di Play Store dan App Store',
     desc: 'Kami tidak hanya mengembangkan aplikasi Anda, tetapi juga memastikan aplikasi tersebut siap untuk diluncurkan di Play Store dan App Store. Kami menangani seluruh proses pengiriman dan persetujuan, sehingga Anda dapat fokus pada aspek lain dari bisnis Anda.',
   },
   {
-    title: 'Desain Antarmuka Pengguna (UI/UX) Kustom',
-    desc: 'Setiap aplikasi yang kami buat dirancang dengan mempertimbangkan pengalaman pengguna yang optimal. Kami mengutamakan desain UI/UX yang menarik dan mudah digunakan, memastikan aplikasi Anda tidak hanya terlihat hebat tetapi juga memberikan nilai tambah bagi pengguna.',
+    title: 'Tampilan Antarmuka yang Rapi dan Fungsional',
+    desc: 'Setiap aplikasi yang kami bangun dirancang dengan struktur yang jelas dan mudah digunakan. Kami mengutamakan kenyamanan navigasi dan fungsi yang bekerja dengan baik, memastikan aplikasi Anda memberikan pengalaman yang lancar bagi pengguna.',
   },
   {
     title: 'Integrasi Fitur Khusus',
@@ -48,26 +48,26 @@ const paket = [
   {
     nama: 'Starter', medal: '/images/paket/silver.webp', harga: '750K', bestSeller: false,
     deskripsi: 'Cocok untuk UMKM atau individu yang baru ingin memiliki aplikasi mobile sederhana dan fungsional.',
-    fitur: ['1 Platform (Android atau iOS)', 'UI/UX Design Standar', 'Fitur Login & Register', 'Maksimal 5 Halaman/Screen', 'Free Revisi 1x', 'Publikasi ke Play Store / App Store'],
-    detail: ['Konsultasi kebutuhan aplikasi', 'Desain UI standar berbasis template', 'Integrasi database dasar', 'Testing sebelum publish', 'Garansi bug fix 1 bulan setelah launch', 'Source code tidak termasuk'],
+    fitur: ['1 Platform (Android atau iOS)', 'Tampilan Antarmuka Standar', 'Fitur Login & Register', 'Maksimal 5 Halaman/Screen', 'Free Revisi 1x', 'Publikasi ke Play Store / App Store'],
+    detail: ['Konsultasi kebutuhan aplikasi', 'Tampilan antarmuka berbasis template standar', 'Integrasi database dasar', 'Testing sebelum publish', 'Garansi bug fix 1 bulan setelah launch', 'Source code tidak termasuk'],
   },
   {
     nama: 'Pro', medal: '/images/paket/gold.webp', harga: '2 Jt', bestSeller: true,
     deskripsi: 'Cocok untuk bisnis yang sudah berjalan dan ingin hadir di dua platform sekaligus dengan tampilan yang lebih profesional.',
-    fitur: ['2 Platform (Android + iOS)', 'UI/UX Design Custom', 'Fitur Login, Register & Profil', 'Maksimal 10 Halaman/Screen', 'Push Notification', 'Free Revisi 2x', 'Publikasi ke Play Store & App Store'],
-    detail: ['Konsultasi mendalam kebutuhan bisnis', 'Desain UI/UX custom sesuai brand', 'Integrasi API pihak ketiga (max 2)', 'Integrasi media sosial (login with Google/FB)', 'Testing menyeluruh sebelum publish', 'Garansi bug fix 2 bulan setelah launch', 'Source code tidak termasuk'],
+    fitur: ['2 Platform (Android + iOS)', 'Tampilan Antarmuka Disesuaikan', 'Fitur Login, Register & Profil', 'Maksimal 10 Halaman/Screen', 'Push Notification', 'Free Revisi 2x', 'Publikasi ke Play Store & App Store'],
+    detail: ['Konsultasi mendalam kebutuhan bisnis', 'Tampilan antarmuka disesuaikan dengan identitas brand', 'Integrasi API pihak ketiga (max 2)', 'Integrasi media sosial (login with Google/FB)', 'Testing menyeluruh sebelum publish', 'Garansi bug fix 2 bulan setelah launch', 'Source code tidak termasuk'],
   },
   {
     nama: 'Business', medal: '/images/paket/diamond.webp', harga: '5 Jt', bestSeller: false,
     deskripsi: 'Cocok untuk bisnis skala menengah yang butuh fitur lebih kompleks termasuk payment gateway dan dashboard admin.',
-    fitur: ['2 Platform (Android + iOS)', 'UI/UX Design Premium', 'Fitur Lengkap + Payment Gateway', 'Admin Dashboard Web', 'Push Notification & Analytics', 'Maksimal 20 Halaman/Screen', 'Free Revisi 3x', 'Publikasi ke Play Store & App Store'],
-    detail: ['Konsultasi mendalam + wireframe', 'Desain UI/UX premium custom branding', 'Integrasi payment gateway (Midtrans/Xendit)', 'Admin dashboard berbasis web', 'Integrasi API pihak ketiga (max 5)', 'Push notification & in-app analytics', 'Testing QA menyeluruh', 'Garansi bug fix 3 bulan setelah launch', 'Source code tidak termasuk'],
+    fitur: ['2 Platform (Android + iOS)', 'Tampilan Antarmuka Disesuaikan Penuh', 'Fitur Lengkap + Payment Gateway', 'Admin Dashboard Web', 'Push Notification & Analytics', 'Maksimal 20 Halaman/Screen', 'Free Revisi 3x', 'Publikasi ke Play Store & App Store'],
+    detail: ['Konsultasi mendalam + wireframe', 'Tampilan antarmuka disesuaikan penuh dengan branding', 'Integrasi payment gateway (Midtrans/Xendit)', 'Admin dashboard berbasis web', 'Integrasi API pihak ketiga (max 5)', 'Push notification & in-app analytics', 'Testing QA menyeluruh', 'Garansi bug fix 3 bulan setelah launch', 'Source code tidak termasuk'],
   },
   {
     nama: 'Enterprise', medal: '/images/paket/platinum.webp', harga: 'Custom', bestSeller: false,
     deskripsi: 'Solusi aplikasi skala enterprise dengan fitur kompleks, integrasi sistem penuh, dan maintenance berkelanjutan.',
-    fitur: ['Multi Platform (Android, iOS, Web)', 'UI/UX Design Full Custom', 'Fitur Kompleks & Integrasi Penuh', 'Admin Dashboard + CMS', 'API Development Custom', 'Halaman/Screen Tidak Terbatas', 'Revisi Tidak Terbatas', 'Maintenance & Support Ongoing'],
-    detail: ['Konsultasi mendalam + business analysis', 'Wireframe & prototype interaktif', 'Desain UI/UX full custom premium', 'Pengembangan API backend custom', 'Integrasi sistem internal perusahaan', 'Admin dashboard + CMS lengkap', 'Multi bahasa (opsional)', 'Security audit & penetration testing', 'Training penggunaan sistem', 'Maintenance & support ongoing (kontrak)', 'Source code included'],
+    fitur: ['Multi Platform (Android, iOS, Web)', 'Tampilan Antarmuka Disesuaikan Sepenuhnya', 'Fitur Kompleks & Integrasi Penuh', 'Admin Dashboard + CMS', 'API Development Custom', 'Halaman/Screen Tidak Terbatas', 'Revisi Tidak Terbatas', 'Maintenance & Support Ongoing'],
+    detail: ['Konsultasi mendalam + business analysis', 'Wireframe & prototype interaktif', 'Tampilan antarmuka disesuaikan sepenuhnya', 'Pengembangan API backend custom', 'Integrasi sistem internal perusahaan', 'Admin dashboard + CMS lengkap', 'Multi bahasa (opsional)', 'Security audit & penetration testing', 'Training penggunaan sistem', 'Maintenance & support ongoing (kontrak)', 'Source code included'],
   },
 ];
 
@@ -121,10 +121,10 @@ export default function PembuatanAplikasi() {
                   <span className="text-[#3d8b5e]">.id</span>
                 </h2>
                 <p className="font-semibold text-gray-800 text-base sm:text-lg mb-4">
-                  Custom Aplikasi Mobile, Play Store, Android dan iOS
+                  Aplikasi Mobile Custom, Siap Publikasi ke Play Store dan App Store
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-3 text-sm sm:text-base">
-                  Paket jasa pembuatan aplikasi mobile, siap publikasi ke Play Store dan App Store, untuk berbagai kebutuhan bisnis Anda.
+                  Paket jasa pembuatan aplikasi mobile, dibangun langsung melalui coding, siap publikasi ke Play Store dan App Store, untuk berbagai kebutuhan bisnis Anda.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
                   Jika Anda memiliki preferensi khusus atau ingin menambahkan detail tertentu, silakan beri tahu kami.
@@ -149,7 +149,7 @@ export default function PembuatanAplikasi() {
               </div>
               <div className="fade-right flex items-center justify-center">
                 <div className="relative w-full max-w-xs sm:max-w-sm lg:max-w-lg" style={{ aspectRatio: '1/1' }}>
-                  <Image src="/images/layanan-aplikasi/pembuatan-aplikasi-hero.webp" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
+                  <Image src="/images/layanan-aplikasi/pembuatan-aplikasi1.webp" alt="Pembuatan Aplikasi Illustration" fill className="object-contain" priority />
                 </div>
               </div>
             </div>
@@ -193,14 +193,7 @@ export default function PembuatanAplikasi() {
                     )}
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex justify-center mb-3">
-                        <Image
-                          src={p.medal}
-                          alt={`${p.nama} package`}
-                          width={96}
-                          height={96}
-                          className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
-                          style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}
-                        />
+                        <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }} />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-1">{p.nama}</p>
                       <p className="text-center text-xs sm:text-sm text-gray-400 mb-3 leading-relaxed">{p.deskripsi}</p>

@@ -1,6 +1,5 @@
 ﻿'use client';
 import { useState } from 'react';
-import Image from 'next/image';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
 import { useScrollAnim } from '@/hooks/use-scroll-anim';
@@ -29,24 +28,24 @@ const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }>
     fiturDetail: ['3 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Template Disesuaikan', 'Integrasi Sosial Media', 'Website SSL', 'Tombol WhatsApp', 'Responsive di Semua Perangkat', 'Free Support Pengerjaan'],
   },
   Gold: {
-    deskDetail: 'Paket ini cocok untuk company profile dengan kebutuhan halaman lebih lengkap dan desain yang lebih disesuaikan dengan identitas bisnis Anda.',
-    fiturDetail: ['5-6 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Desain Semi Custom', 'Free Logo dan Banner', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+    deskDetail: 'Paket ini cocok untuk company profile dengan kebutuhan halaman lebih lengkap dan tampilan yang lebih disesuaikan dengan identitas bisnis Anda.',
+    fiturDetail: ['5-6 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Tampilan Disesuaikan Kebutuhan', 'Free Logo dan Banner', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
   Diamond: {
-    deskDetail: 'Paket desain website ini cocok bagi Anda yang membutuhkan company profile lengkap sebagai representasi profesional bisnis, dengan desain full custom.',
-    fiturDetail: ['7-8 Menu Halaman', 'Domain .com / .co.id 1 Tahun', 'Hosting 1 Tahun', 'Full Custom Design', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+    deskDetail: 'Paket website ini cocok bagi Anda yang membutuhkan company profile lengkap sebagai representasi profesional bisnis, dengan struktur dan tampilan yang disesuaikan penuh.',
+    fiturDetail: ['7-8 Menu Halaman', 'Domain .com / .co.id 1 Tahun', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
   Platinum: {
-    deskDetail: 'Paket desain website ini cocok untuk institusi atau bisnis yang membutuhkan website dengan halaman terlengkap, desain khusus, dan fitur tambahan sesuai kebutuhan, termasuk website sekolah.',
-    fiturDetail: ['10-12 Menu Halaman', 'Domain .com / .id / .co.id / .sch.id', 'Hosting 1 Tahun', 'Full Custom Design', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Free 1 Email Bisnis', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+    deskDetail: 'Paket website ini cocok untuk institusi atau bisnis yang membutuhkan website dengan halaman terlengkap, tampilan khusus, dan fitur tambahan sesuai kebutuhan, termasuk website sekolah.',
+    fiturDetail: ['10-12 Menu Halaman', 'Domain .com / .id / .co.id / .sch.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Free 1 Email Bisnis', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
   },
 };
 
 const paketList = [
   { nama: 'Silver', medal: '/images/paket/silver.webp', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
-  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Desain Semi Custom'] },
-  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
-  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Full Custom Design'] },
+  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Tampilan Disesuaikan'] },
+  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh'] },
+  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh'] },
 ];
 
 const fiturUnggulan = [
@@ -67,8 +66,8 @@ const fiturUnggulan = [
     desc: 'Struktur dan konten website kami rancang agar mudah diindeks dan ditemukan melalui pencarian Google.',
   },
   {
-    title: 'Desain Modern & Kekinian',
-    desc: 'Kami selalu mengikuti tren desain terbaru agar tampilan website Anda terlihat profesional dan relevan dengan target audiens.',
+    title: 'Struktur Kode yang Rapi',
+    desc: 'Website dibangun dengan struktur kode yang bersih dan terorganisir, mendukung performa yang cepat dan mudah dikembangkan di masa depan.',
   },
   {
     title: 'Ide Konten & Copywriting',
@@ -126,7 +125,7 @@ export default function PembuatanWebsite() {
                   Tampil lebih profesional. Ditemukan lebih cepat. Dikenal lebih luas.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
-                  Kami menghadirkan website yang menarik secara visual, responsif di semua perangkat, dan fungsional, dirancang khusus untuk mencerminkan identitas brand Anda secara utuh.
+                  Kami membangun website yang cepat, fungsional, dan responsif di semua perangkat, dengan struktur yang disesuaikan untuk mencerminkan identitas brand Anda secara utuh.
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
@@ -147,12 +146,10 @@ export default function PembuatanWebsite() {
                 </div>
               </div>
               <div className="fade-right hidden lg:flex items-center justify-center">
-                <Image
+                <img
                   src="/images/layanan-website/pembuatan-website-hero.webp"
                   alt="Web Design nativecode.cloud"
-                  width={448}
-                  height={336}
-                  className="w-full max-w-md h-auto object-contain"
+                  className="w-full max-w-md object-contain"
                   style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
                 />
               </div>
@@ -179,18 +176,12 @@ export default function PembuatanWebsite() {
                     )}
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex justify-center mb-3">
-                        <Image
-                          src={p.medal}
-                          alt={`${p.nama} package`}
-                          width={96}
-                          height={96}
-                          className="w-20 h-20 sm:w-24 sm:h-24 object-contain"
-                          style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }}
-                        />
+                        <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }} />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-3">{p.nama}</p>
-                      <p className="text-3xl sm:text-4xl font-bold mb-1" style={{ color: '#3d8b5e' }}>{p.harga}</p>
-                      <p className="text-xs sm:text-sm text-gray-400 mb-4">Perpanjangan {p.perp}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 text-center">Start From</p>
+                      <p className="text-3xl sm:text-4xl font-bold mb-1 text-center" style={{ color: '#3d8b5e' }}>{p.harga}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 mb-4 text-center">Perpanjangan {p.perp}</p>
                       <a
                         href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F"
                         target="_blank" rel="noopener noreferrer"
