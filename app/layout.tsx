@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'nativecode - Jasa Website Profesional Jakarta Utara',
+  title: 'nativecode - Jasa Pembuatan Website Koja, Jakarta Utara',
   description: 'Solusi digital lengkap untuk wujudkan bisnismu lebih cepat.',
   verification: {
     google: '0Dnp4kNVr6B5se14JaK1H36HyMeG5M28vP0H15Gy8HE',
@@ -34,11 +34,20 @@ export const metadata: Metadata = {
     siteName: 'nativecode.cloud',
     locale: 'id_ID',
     type: 'website',
+    images: [
+      {
+        url: '/images/og/og-beranda.webp',
+        width: 1200,
+        height: 630,
+        alt: 'nativecode.cloud - Jasa Pembuatan Website Profesional dan SEO Bergaransi',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'nativecode - Jasa Website Profesional Jakarta Utara',
     description: 'Solusi digital lengkap untuk wujudkan bisnismu lebih cepat.',
+    images: ['/images/og/og-beranda.webp'],
   },
 };
 

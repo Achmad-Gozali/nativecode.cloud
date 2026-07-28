@@ -1,5 +1,6 @@
 ﻿'use client';
 import Link from 'next/link';
+import { MapEmbed } from './MapEmbed';
 
 function FooterCurve() {
   return (
@@ -71,7 +72,7 @@ export default function Footer() {
     <footer className="relative text-white pt-16 pb-10" style={{ background: '#1a2e22' }}>
       <FooterCurve />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10">
 
           <div className="sm:col-span-2 lg:col-span-1">
             <img
@@ -115,9 +116,9 @@ export default function Footer() {
                 <span className="text-[#5D9C76] flex-shrink-0"><IconMail /></span>
                 cs@nativecode.cloud
               </li>
-              <li className="flex items-center gap-2.5">
-                <span className="text-[#5D9C76] flex-shrink-0"><IconMapPin /></span>
-                Jakarta, Indonesia
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#5D9C76] flex-shrink-0 mt-0.5"><IconMapPin /></span>
+                <span>Jl. Fort Timur No.31, Koja, Jakarta Utara</span>
               </li>
             </ul>
 
@@ -136,6 +137,11 @@ export default function Footer() {
                 </a>
               ))}
             </div>
+          </div>
+
+          <div className="sm:col-span-2 lg:col-span-1">
+            <h4 className="font-bold text-lg mb-4 text-white">Lokasi</h4>
+            <MapEmbed height={160} className="border-white/10" />
           </div>
 
         </div>

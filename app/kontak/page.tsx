@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
+import { MapEmbed } from '@/komponen/MapEmbed';
 
 const IconPhone = ({ size = 18 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -111,7 +112,7 @@ export default function KontakPage() {
                       </span>
                       <div>
                         <p className="text-sm font-semibold text-gray-800">Lokasi</p>
-                        <p className="text-sm text-gray-500">Jakarta Utara, Indonesia</p>
+                        <p className="text-sm text-gray-500">Jl. Fort Timur No.31, Koja, Jakarta Utara 14220</p>
                       </div>
                     </div>
                   </div>
@@ -195,6 +196,19 @@ export default function KontakPage() {
             </div>
           </div>
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
+        </section>
+
+        {/* MAPS */}
+        <section className="relative bg-white py-12 sm:py-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">Lokasi Kami</h2>
+              <p className="text-gray-500 text-sm sm:text-base">
+                Jl. Fort Timur No.31, RT.3/RW.12, Koja, Kec. Koja, Jakarta Utara 14220
+              </p>
+            </div>
+            <MapEmbed height={400} className="shadow-sm" />
+          </div>
         </section>
 
       </main>
