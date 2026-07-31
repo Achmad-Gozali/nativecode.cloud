@@ -94,7 +94,7 @@ export default function TentangKami() {
         {/* ABOUT SECTION */}
         <section className="relative bg-[#f1f5f9] pt-12 pb-12 sm:pt-20 sm:pb-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
               <div className="fade-left">
                 <h2 className="text-3xl sm:text-4xl font-bold mb-2">
@@ -117,14 +117,14 @@ export default function TentangKami() {
                 </div>
               </div>
 
-              <div className="fade-right flex flex-col justify-center h-full pt-0 lg:pt-24 space-y-6 text-gray-600 leading-relaxed">
-                <p className="text-justify text-sm sm:text-base">
+              <div className="fade-right flex flex-col justify-center space-y-6 text-gray-600 leading-relaxed">
+                <p className="text-justify text-base sm:text-lg">
                   <strong className="text-gray-900">nativecode.cloud</strong> adalah jasa pembuatan website yang berfokus membantu bisnis, sekolah, dan instansi membangun identitas digital yang profesional. Kami hadir sebagai mitra yang membantu Anda tampil lebih profesional dan menjangkau audiens yang lebih luas melalui website yang tepat guna. Dengan pengalaman dalam pembuatan website dan SEO bergaransi, kami menghadirkan layanan yang terintegrasi untuk memperkuat kehadiran online setiap klien.
                 </p>
-                <p className="text-justify text-sm sm:text-base">
+                <p className="text-justify text-base sm:text-lg">
                   Kami percaya bahwa setiap bisnis memiliki cerita dan kebutuhan unik yang perlu ditampilkan dengan cara yang menarik dan relevan. Karena itu, setiap proyek di <strong className="text-gray-900">nativecode.cloud</strong> dikerjakan dengan pendekatan yang cermat, agar hasilnya tidak hanya terlihat menarik, tetapi juga memberikan dampak nyata terhadap kehadiran digital bisnis Anda.
                 </p>
-                <p className="text-justify text-sm sm:text-base">
+                <p className="text-justify text-base sm:text-lg">
                   Setiap proses kerja kami dilandasi oleh komunikasi yang terbuka dengan klien, sehingga setiap kebutuhan dan masukan dapat kami akomodasi dengan baik sejak tahap perencanaan hingga peluncuran website.
                 </p>
               </div>
@@ -134,12 +134,77 @@ export default function TentangKami() {
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
-        {/* KOMITMEN SECTION - teks kiri, gambar kanan */}
+        {/* FOUNDER */}
         <section className="relative bg-white py-12 sm:py-20 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="fade-up text-center mb-10 sm:mb-16">
+              <h2 className="text-2xl sm:text-4xl font-bold text-gray-900 mb-3">Kenalan dengan Founder Kami</h2>
+              <p className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto">
+                Sosok di balik pengembangan nativecode.cloud, yang bertanggung jawab langsung atas setiap proses teknis dan kualitas layanan yang Anda terima.
+              </p>
+            </div>
+
+            <div className="fade-up stagger-1 relative rounded-3xl bg-[#f1f5f9] overflow-hidden p-8 sm:p-16">
+
+              {/* Blob dekoratif */}
+              <div
+                className="blob-pulse absolute -right-16 -top-16 w-56 h-56 rounded-full pointer-events-none opacity-40"
+                style={{ background: 'radial-gradient(circle, #3d8b5e 0%, #c96a1a 70%, transparent 80%)' }}
+              />
+              <div
+                className="blob-pulse-2 absolute -left-10 -bottom-10 w-40 h-40 rounded-full pointer-events-none opacity-25"
+                style={{ background: 'radial-gradient(circle, #c96a1a 0%, #3d8b5e 70%, transparent 80%)' }}
+              />
+
+              <div className="relative grid grid-cols-1 sm:grid-cols-[360px_1fr] gap-10 sm:gap-14 items-center">
+                <div className="fade-left flex justify-center sm:justify-start">
+                  <div className="relative w-72 h-96 sm:w-full sm:h-[26rem] rounded-2xl overflow-hidden shadow-xl">
+                    <Image
+                      src="/images/tentang-kami/founder.webp"
+                      alt="Achmad Gozali, Founder & Developer nativecode.cloud"
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                </div>
+
+                <div className="fade-right stagger-1 text-center sm:text-left">
+                  <p className="text-xl sm:text-2xl font-semibold text-gray-800 leading-snug mb-8">
+                    Setiap website yang kami bangun bukan sekadar produk jadi, tapi fondasi digital yang harus benar-benar mendukung pertumbuhan bisnis klien kami.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Achmad Gozali</h3>
+                      <p className="text-base font-semibold" style={{ color: '#c96a1a' }}>Founder &amp; Developer</p>
+                    </div>
+                    <a
+                      href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
+                      target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-sm sm:text-base font-semibold px-5 py-2.5 rounded-full border transition-colors flex-shrink-0 self-center sm:self-auto"
+                      style={{ borderColor: '#3d8b5e', color: '#3d8b5e' }}
+                    >
+                      Hubungi Kami
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    </a>
+                  </div>
+
+                  <p className="mt-8 text-gray-600 text-base sm:text-lg leading-relaxed text-justify">
+                    Berangkat dari ketertarikan mendalam terhadap pengembangan website dan optimasi digital, Achmad mendirikan nativecode.cloud dengan tujuan menghadirkan solusi teknologi yang tidak hanya fungsional, tetapi juga relevan dengan kebutuhan bisnis di era digital.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
+        </section>
+
+        {/* KOMITMEN SECTION - teks kiri, gambar kanan */}
+        <section className="relative bg-[#f1f5f9] py-12 sm:py-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="fade-up grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="order-2 lg:order-1">
-                <p className="text-gray-700 leading-relaxed text-sm sm:text-base text-justify">
+                <p className="text-gray-700 leading-relaxed text-base sm:text-lg text-justify">
                   Dengan tim profesional yang berpengalaman dan responsif, kami berkomitmen memberikan pelayanan terbaik, mulai dari perencanaan, pengerjaan, hingga evaluasi hasil. nativecode.cloud bukan sekadar penyedia jasa digital, melainkan mitra yang tumbuh bersama klien menuju kehadiran online yang lebih kuat dan berkelanjutan.
                 </p>
               </div>
@@ -155,17 +220,17 @@ export default function TentangKami() {
               </div>
             </div>
           </div>
-          <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
+          <SectionCurve fill="#ffffff" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
         </section>
 
         {/* MENGAPA MEMILIH KAMI */}
-        <section className="bg-[#f1f5f9] py-12 sm:py-20">
+        <section className="relative bg-white py-12 sm:py-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="fade-up text-2xl sm:text-3xl font-bold mb-1">
+            <h2 className="fade-up text-2xl sm:text-4xl font-bold mb-1">
               <span className="text-[#D17B36]">nativecode</span>
               <span className="text-[#5D9C76]">.cloud</span>
             </h2>
-            <p className="fade-up stagger-1 text-gray-700 font-semibold mb-8 sm:mb-12 text-sm sm:text-base">
+            <p className="fade-up stagger-1 text-gray-700 font-semibold mb-8 sm:mb-12 text-base sm:text-lg">
               Jasa Pembuatan Website Profesional &amp; SEO Bergaransi
             </p>
 
@@ -173,12 +238,13 @@ export default function TentangKami() {
               {alasan.map((item, i) => (
                 <div key={i} className={`fade-up stagger-${i + 1} bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 hover:shadow-md transition-shadow`}>
                   <div className="mb-4">{item.icon}</div>
-                  <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-3">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
+          <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" />
         </section>
 
       </main>
