@@ -85,6 +85,13 @@ const featureList = [
   { title: 'Free Support Pengerjaan', desc: 'Pendampingan penuh dari awal hingga akhir proses pembuatan website, memastikan setiap kebutuhan Anda terpenuhi sebelum website resmi digunakan.' },
 ];
 
+const layananLainnya = [
+  { title: 'Jasa Pembuatan Website', desc: 'Website yang dibangun dengan struktur rapi dan performa cepat, dirancang khusus untuk bisnis, sekolah, dan instansi Anda, lengkap dengan optimasi SEO dasar untuk mendukung visibilitas di mesin pencari.', href: '/layanan/pembuatan-website' },
+  { title: 'Jasa SEO Optimization', desc: 'Tingkatkan peringkat website Anda di Google melalui strategi SEO yang aman, terukur, dan bergaransi hasil, dikerjakan oleh tim yang memahami perkembangan algoritma pencarian terkini.', href: '/layanan/seo' },
+  { title: 'Jasa Pembuatan Aplikasi', desc: 'Wujudkan ide digital Anda menjadi aplikasi berbasis web atau mobile yang fungsional, andal, dan sesuai dengan kebutuhan operasional bisnis Anda.', href: '/layanan/pembuatan-aplikasi' },
+  { title: 'Perbaikan & Redesain Website', desc: 'Benahi bug yang mengganggu atau tampilkan wajah baru untuk website lama Anda, tanpa perlu membangun ulang dari awal.', href: '/layanan/perbaikan-website', isNew: true },
+];
+
 export default function Home() {
   const [openPaket, setOpenPaket] = useState<string | null>(null);
   const togglePaket = (nama: string) => setOpenPaket(prev => prev === nama ? null : nama);
@@ -222,6 +229,44 @@ export default function Home() {
             </div>
           </div>
           <SectionCurve fill="#ffffff" path="M0,70 C360,-30 1080,110 1440,10 L1440,100 L0,100 Z" />
+        </section>
+
+        {/* Melayani Seluruh Indonesia */}
+        <section className="relative bg-white py-12 sm:py-20 overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+              <div className="fade-left flex items-center justify-center order-1 lg:order-2">
+                <Image
+                  src="/images/beranda/peta-indonesia.webp"
+                  alt="nativecode.cloud melayani seluruh Indonesia"
+                  width={640}
+                  height={400}
+                  className="w-full max-w-lg h-auto object-contain"
+                />
+              </div>
+              <div className="fade-right order-2 lg:order-1">
+                <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Melayani Seluruh Indonesia</h2>
+                <p className="text-gray-700 leading-relaxed mb-3 text-base sm:text-lg">
+                  Berbasis di Jakarta Utara, kami melayani klien dari berbagai kota di seluruh Indonesia secara online, mulai dari konsultasi, pengerjaan, hingga serah terima website.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-6 text-base sm:text-lg">
+                  Di manapun lokasi bisnis, sekolah, atau instansi Anda berada, tim kami siap membantu mewujudkan kehadiran digital yang profesional tanpa perlu bertatap muka langsung.
+                </p>
+                <a
+                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+nativecode.cloud.+Mohon+bantuannya+%F0%9F%99%8F"
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white px-7 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
+                  style={{ background: '#3d8b5e' }}
+                >
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16.92z"/>
+                  </svg>
+                  Konsultasi Sekarang
+                </a>
+              </div>
+            </div>
+          </div>
+          <SectionCurve fill="#f1f5f9" path="M0,80 L1440,20 L1440,100 L0,100 Z" />
         </section>
 
         <Ticker />
@@ -401,14 +446,20 @@ export default function Home() {
               <div className="fade-right">
                 <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">Layanan Lainnya</h2>
                 <div className="space-y-3">
-                  {[
-                    { title: 'Jasa Pembuatan Website', desc: 'Website yang dibangun dengan struktur rapi dan performa cepat, dirancang khusus untuk bisnis, sekolah, dan instansi Anda, lengkap dengan optimasi SEO dasar untuk mendukung visibilitas di mesin pencari.', href: '/layanan/pembuatan-website' },
-                    { title: 'Jasa SEO Optimization', desc: 'Tingkatkan peringkat website Anda di Google melalui strategi SEO yang aman, terukur, dan bergaransi hasil, dikerjakan oleh tim yang memahami perkembangan algoritma pencarian terkini.', href: '/layanan/seo' },
-                    { title: 'Jasa Pembuatan Aplikasi', desc: 'Wujudkan ide digital Anda menjadi aplikasi berbasis web atau mobile yang fungsional, andal, dan sesuai dengan kebutuhan operasional bisnis Anda.', href: '/layanan/pembuatan-aplikasi' },
-                  ].map((s, i) => (
+                  {layananLainnya.map((s, i) => (
                     <a key={i} href={s.href} className="service-link flex items-center justify-between text-white rounded-2xl px-5 sm:px-6 py-3.5 sm:py-4" style={{ background: '#3d8b5e' }}>
                       <div className="flex-1 pr-4">
-                        <p className="font-bold text-base sm:text-lg">{s.title}</p>
+                        <p className="font-bold text-base sm:text-lg flex items-center gap-2 flex-wrap">
+                          {s.title}
+                          {s.isNew && (
+                            <span
+                              className="inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold flex-shrink-0"
+                              style={{ background: '#c96a1a' }}
+                            >
+                              Baru
+                            </span>
+                          )}
+                        </p>
                         <p className="text-sm opacity-90 mt-0.5">{s.desc}</p>
                       </div>
                       <div className="w-9 h-9 rounded-full bg-white flex items-center justify-center flex-shrink-0">

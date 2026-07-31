@@ -25,6 +25,8 @@ function SectionCurve({ fill, path }: { fill: string; path: string }) {
   );
 }
 
+const WA_LINK = 'https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F';
+
 const fitur = [
   {
     title: 'Pengembangan Aplikasi Android dan iOS',
@@ -41,6 +43,52 @@ const fitur = [
   {
     title: 'Integrasi Fitur Khusus',
     desc: 'Apakah bisnis Anda memerlukan integrasi pembayaran, notifikasi push, geolokasi, atau fitur khusus lainnya? Kami dapat menyesuaikan aplikasi Anda dengan fitur yang relevan dan fungsional, membantu Anda memenuhi kebutuhan spesifik pelanggan Anda.',
+  },
+];
+
+const prosesPengembangan = [
+  {
+    step: '01',
+    title: 'Konsultasi & Requirement',
+    desc: 'Diskusikan kebutuhan aplikasi Anda melalui WhatsApp, mulai dari platform yang dituju, fitur utama, hingga target pengguna aplikasi.',
+  },
+  {
+    step: '02',
+    title: 'Rancangan Tampilan',
+    desc: 'Kami menyusun tampilan antarmuka aplikasi yang rapi dan mudah digunakan, disesuaikan dengan identitas brand dan alur penggunaan yang Anda inginkan.',
+  },
+  {
+    step: '03',
+    title: 'Development & Testing',
+    desc: 'Aplikasi dibangun langsung melalui coding, dilengkapi fitur sesuai paket yang dipilih, dan diuji secara menyeluruh sebelum tahap publikasi.',
+  },
+  {
+    step: '04',
+    title: 'Publikasi ke Store',
+    desc: 'Kami menangani proses pengiriman dan persetujuan aplikasi ke Play Store dan/atau App Store, hingga aplikasi Anda siap diunduh publik.',
+  },
+];
+
+const faqList = [
+  {
+    q: 'Apakah saya perlu akun Google Play Console atau Apple Developer sendiri?',
+    a: 'Ya, publikasi aplikasi memerlukan akun developer resmi atas nama Anda atau perusahaan Anda (Google Play Console untuk Android, Apple Developer Program untuk iOS). Akun ini memiliki biaya pendaftaran dari pihak Google/Apple, di luar biaya jasa pembuatan aplikasi. Tim kami akan membantu proses pendaftaran dan publikasinya.',
+  },
+  {
+    q: 'Berapa lama proses review di Play Store atau App Store?',
+    a: 'Play Store umumnya memproses review dalam beberapa jam hingga 1-2 hari, sementara App Store bisa memakan waktu 1-3 hari kerja. Proses ini di luar kendali kami karena merupakan kebijakan masing-masing platform, namun kami akan memastikan aplikasi memenuhi seluruh ketentuan agar proses review berjalan lancar.',
+  },
+  {
+    q: 'Apakah saya mendapatkan source code aplikasi?',
+    a: 'Source code tidak termasuk pada paket Starter, Pro, dan Business. Source code hanya disertakan pada paket Enterprise sesuai kesepakatan kontrak. Anda tetap mendapatkan akses penuh terhadap aplikasi yang sudah dipublikasikan di store.',
+  },
+  {
+    q: 'Apakah aplikasi bisa diupdate setelah publish?',
+    a: 'Bisa. Setiap paket sudah termasuk garansi bug fix pasca peluncuran sesuai durasi masing-masing paket. Untuk penambahan fitur baru di luar cakupan awal, akan dikenakan biaya tambahan sesuai kompleksitas pengembangan yang dibutuhkan.',
+  },
+  {
+    q: 'Berapa lama waktu pengerjaan aplikasi?',
+    a: 'Durasi pengerjaan bergantung pada paket dan kompleksitas fitur. Paket Starter umumnya selesai dalam 2-3 minggu, sementara paket Pro dan Business dapat memakan waktu 1-2 bulan tergantung jumlah fitur dan integrasi yang dibutuhkan.',
   },
 ];
 
@@ -73,6 +121,7 @@ const paket = [
 
 export default function PembuatanAplikasi() {
   const [openSet, setOpenSet] = useState<Set<string>>(new Set());
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   useScrollAnim();
 
   const toggleDetail = (nama: string) => {
@@ -100,7 +149,7 @@ export default function PembuatanAplikasi() {
           </p>
           <div className="fade-up stagger-3">
             <a
-              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+              href={WA_LINK}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base"
               style={{ background: '#c96a1a' }}
@@ -131,7 +180,7 @@ export default function PembuatanAplikasi() {
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
-                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+                    href={WA_LINK}
                     target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                     style={{ background: '#c96a1a' }}
@@ -173,8 +222,33 @@ export default function PembuatanAplikasi() {
           <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
         </section>
 
+        {/* PROSES PENGEMBANGAN */}
+        <section className="relative bg-[#f1f5f9] py-12 sm:py-20 px-4 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Bagaimana Prosesnya?</h2>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base px-2 max-w-2xl mx-auto">
+              Alur pengembangan aplikasi yang jelas dan transparan, dari konsultasi awal hingga aplikasi Anda siap diunduh publik.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6">
+              {prosesPengembangan.map((p, i) => (
+                <div key={p.step} className={`fade-up stagger-${i + 1} relative`}>
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg mb-4"
+                    style={{ background: i % 2 === 0 ? '#3d8b5e' : '#c96a1a' }}
+                  >
+                    {p.step}
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-2">{p.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{p.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" />
+        </section>
+
         {/* PAKET */}
-        <section id="paket" className="bg-[#f1f5f9] py-12 sm:py-20 px-4">
+        <section id="paket" className="bg-white py-12 sm:py-20 px-4">
           <div className="max-w-7xl mx-auto">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Paket Pembuatan Aplikasi</h2>
             <p className="fade-up stagger-1 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base px-2">
@@ -203,7 +277,7 @@ export default function PembuatanAplikasi() {
                         {p.nama === 'Enterprise' && <span className="text-base font-normal text-gray-500 block mt-1">Hubungi Kami</span>}
                       </p>
                       <a
-                        href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+                        href={WA_LINK}
                         target="_blank" rel="noopener noreferrer"
                         className={`w-full py-2 sm:py-2.5 rounded-full border font-semibold text-sm mb-4 flex items-center justify-center gap-2 transition-colors ${p.bestSeller ? 'border-[#3d8b5e] text-[#3d8b5e] hover:bg-[#3d8b5e] hover:text-white' : 'border-[#c96a1a] text-[#c96a1a] hover:bg-[#c96a1a] hover:text-white'}`}
                       >
@@ -249,16 +323,14 @@ export default function PembuatanAplikasi() {
             </div>
 
             {/* CTA */}
-            <div className="fade-up mt-10 sm:mt-14 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-6 items-center" style={{ background: '#3d8b5e' }}>
+            <div className="fade-up mt-10 sm:mt-14 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center" style={{ background: '#3d8b5e' }}>
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Tidak yakin paket mana yang cocok?</h3>
-                <p className="text-white opacity-90 text-sm sm:text-base leading-relaxed">
+                <p className="text-white opacity-90 text-sm sm:text-base leading-relaxed mb-6">
                   Konsultasikan kebutuhan aplikasi Anda secara gratis bersama tim nativecode.cloud. Kami akan membantu memilihkan solusi terbaik sesuai dengan budget dan target bisnis Anda.
                 </p>
-              </div>
-              <div className="flex lg:justify-end">
                 <a
-                  href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Aplikasi.+Mohon+bantuannya+%F0%9F%99%8F"
+                  href={WA_LINK}
                   target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                   style={{ background: '#c96a1a' }}
@@ -266,6 +338,49 @@ export default function PembuatanAplikasi() {
                   <HeadphonesIcon size={18} />Konsultasi Gratis
                 </a>
               </div>
+              <div className="flex justify-center lg:justify-end">
+                <img
+                  src="/images/shared/konsultasi-tim.webp"
+                  alt="Tim nativecode.cloud siap membantu konsultasi"
+                  className="w-full max-w-xs sm:max-w-sm h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="relative bg-[#f1f5f9] py-12 sm:py-20 px-4">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Pertanyaan yang Sering Ditanyakan</h2>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-10 sm:mb-14 text-sm sm:text-base px-2">
+              Masih ada yang ingin ditanyakan? Hubungi kami langsung melalui WhatsApp.
+            </p>
+            <div className="space-y-3">
+              {faqList.map((f, i) => {
+                const isOpen = openFaq === i;
+                return (
+                  <div key={i} className={`fade-up stagger-${(i % 4) + 1} bg-white rounded-2xl border border-gray-200 overflow-hidden`}>
+                    <button
+                      onClick={() => setOpenFaq(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between gap-4 text-left p-5 sm:p-6"
+                    >
+                      <span className="font-semibold text-gray-900 text-sm sm:text-base">{f.q}</span>
+                      <svg
+                        width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d8b5e" strokeWidth="2.5"
+                        className={`flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                      >
+                        <polyline points="6 9 12 15 18 9"/>
+                      </svg>
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 sm:px-6 pb-5 sm:pb-6">
+                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{f.a}</p>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>

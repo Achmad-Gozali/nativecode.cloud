@@ -40,6 +40,7 @@ const layananOptions = [
   'Pembuatan Website',
   'Pembuatan Aplikasi',
   'SEO Bergaransi',
+  'Perbaikan & Redesain Website',
   'Lainnya',
 ];
 
@@ -47,15 +48,18 @@ export default function KontakPage() {
   const [nama, setNama] = useState('');
   const [noWa, setNoWa] = useState('');
   const [layanan, setLayanan] = useState(layananOptions[0]);
+  const [layananLainnya, setLayananLainnya] = useState('');
   const [pesan, setPesan] = useState('');
 
-  const isFormValid = nama.trim() && noWa.trim() && pesan.trim();
+  const isLainnya = layanan === 'Lainnya';
+  const isFormValid = nama.trim() && noWa.trim() && pesan.trim() && (!isLainnya || layananLainnya.trim());
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!isFormValid) return;
 
-    const teksPesan = `Halo nativecode.cloud, perkenalkan saya ${nama}.\n\nSaya tertarik dengan layanan *${layanan}*.\n\n${pesan}\n\nNo. WhatsApp saya: ${noWa}`;
+    const layananFinal = isLainnya ? layananLainnya.trim() : layanan;
+    const teksPesan = `Halo nativecode.cloud, perkenalkan saya ${nama}.\n\nSaya tertarik dengan layanan *${layananFinal}*.\n\n${pesan}\n\nNo. WhatsApp saya: ${noWa}`;
     const waUrl = `https://wa.me/6282249244647?text=${encodeURIComponent(teksPesan)}`;
     window.open(waUrl, '_blank', 'noopener,noreferrer');
   };
@@ -165,6 +169,20 @@ export default function KontakPage() {
                       ))}
                     </select>
                   </div>
+
+                  {isLainnya && (
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1.5">Sebutkan Layanan yang Diinginkan</label>
+                      <input
+                        type="text"
+                        value={layananLainnya}
+                        onChange={(e) => setLayananLainnya(e.target.value)}
+                        required
+                        placeholder="Contoh: Maintenance website, integrasi sistem, dll."
+                        className="w-full px-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3d8b5e]/30 focus:border-[#3d8b5e] transition-colors"
+                      />
+                    </div>
+                  )}
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1.5">Ceritakan Kebutuhan Anda</label>

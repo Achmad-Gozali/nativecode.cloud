@@ -25,6 +25,51 @@ function SectionCurve({ fill, path }: { fill: string; path: string }) {
   );
 }
 
+const WA_LINK = 'https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F';
+
+// Kenapa website belum muncul di Google - penyebab umum yang sering ditemui
+const penyebabTidakRanking = [
+  {
+    title: 'Belum Ada Optimasi Kata Kunci',
+    desc: 'Website tanpa riset dan penempatan kata kunci yang tepat akan sulit ditemukan oleh calon pelanggan yang sedang mencari produk atau jasa Anda di Google.',
+  },
+  {
+    title: 'Kecepatan Website Lambat',
+    desc: 'Google memprioritaskan website yang cepat diakses. Website yang loading-nya lambat berisiko turun peringkat, bahkan jika kontennya sudah relevan.',
+  },
+  {
+    title: 'Konten Kurang Relevan',
+    desc: 'Konten yang tidak menjawab kebutuhan pencari, atau tidak diperbarui secara berkala, akan kalah bersaing dengan website lain yang lebih aktif dan informatif.',
+  },
+  {
+    title: 'Kompetitor Lebih Aktif Beroptimasi',
+    desc: 'Jika bisnis serupa sudah lebih dulu berinvestasi pada SEO, posisi mereka di pencarian akan lebih sulit disaingi tanpa strategi optimasi yang terukur.',
+  },
+];
+
+const strategiKerja = [
+  {
+    step: '01',
+    title: 'Riset Kata Kunci',
+    desc: 'Menentukan kata kunci yang paling relevan dan potensial mendatangkan pengunjung, berdasarkan volume pencarian dan tingkat persaingan di industri Anda.',
+  },
+  {
+    step: '02',
+    title: 'Optimasi On-Page',
+    desc: 'Menyesuaikan judul, deskripsi, struktur konten, dan elemen di dalam halaman website agar lebih mudah dipahami oleh mesin pencari Google.',
+  },
+  {
+    step: '03',
+    title: 'Optimasi Teknis',
+    desc: 'Memastikan aspek teknis website seperti kecepatan akses, struktur URL, dan kompatibilitas mobile berada dalam kondisi yang mendukung performa SEO.',
+  },
+  {
+    step: '04',
+    title: 'Monitoring & Laporan',
+    desc: 'Memantau perkembangan peringkat kata kunci secara berkala menggunakan tool premium Rank Tracker, dan melaporkan hasilnya kepada Anda secara transparan.',
+  },
+];
+
 const paketSEO = [
   {
     nama: 'SEO Bergaransi', sub: 'Untuk Website dari nativecode.cloud', harga: '600K', satuan: '/Bulan',
@@ -100,7 +145,7 @@ export default function SEOBergaransi() {
           </p>
           <div className="fade-up stagger-3">
             <a
-              href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F"
+              href={WA_LINK}
               target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity shadow-md text-sm sm:text-base"
               style={{ background: '#c96a1a' }}
@@ -125,7 +170,7 @@ export default function SEOBergaransi() {
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
-                    href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F"
+                    href={WA_LINK}
                     target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
                     style={{ background: '#c96a1a' }}
@@ -153,6 +198,50 @@ export default function SEOBergaransi() {
             </div>
           </div>
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
+        </section>
+
+        {/* KENAPA BELUM MUNCUL DI GOOGLE - plain, tanpa card/icon */}
+        <section className="relative bg-white py-12 sm:py-20 px-4 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Kenapa Website Anda Belum Muncul di Google?</h2>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base px-2 max-w-2xl mx-auto">
+              Ada banyak faktor yang membuat website sulit ditemukan di pencarian. Berikut beberapa penyebab yang paling sering kami temui.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
+              {penyebabTidakRanking.map((m, i) => (
+                <div key={i} className={`fade-up stagger-${(i % 2) + 1}`}>
+                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl mb-2">{m.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{m.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
+        </section>
+
+        {/* STRATEGI KERJA KAMI */}
+        <section className="relative bg-[#f1f5f9] py-12 sm:py-20 px-4 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Strategi Kerja Kami</h2>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base px-2 max-w-2xl mx-auto">
+              Proses optimasi yang terstruktur dan terukur, bukan sekadar janji, untuk membantu website Anda naik peringkat secara berkelanjutan.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6">
+              {strategiKerja.map((s, i) => (
+                <div key={s.step} className={`fade-up stagger-${i + 1} relative`}>
+                  <div
+                    className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg mb-4"
+                    style={{ background: i % 2 === 0 ? '#3d8b5e' : '#c96a1a' }}
+                  >
+                    {s.step}
+                  </div>
+                  <h3 className="font-bold text-gray-900 text-base sm:text-lg mb-2">{s.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,50 L1440,60 L0,60 Z" />
         </section>
 
         {/* PAKET SEO */}
@@ -212,6 +301,31 @@ export default function SEOBergaransi() {
                 );
               })}
             </div>
+
+            {/* CTA */}
+            <div className="fade-up mt-10 sm:mt-14 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center" style={{ background: '#3d8b5e' }}>
+              <div>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Tidak yakin paket SEO mana yang cocok?</h3>
+                <p className="text-white opacity-90 text-sm sm:text-base leading-relaxed mb-6">
+                  Konsultasikan kondisi website Anda secara gratis bersama tim nativecode.cloud. Kami akan membantu menentukan strategi SEO yang paling sesuai dengan target bisnis Anda.
+                </p>
+                <a
+                  href={WA_LINK}
+                  target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-white px-6 sm:px-8 py-3 rounded-full font-semibold hover:opacity-90 transition-opacity text-sm sm:text-base"
+                  style={{ background: '#c96a1a' }}
+                >
+                  <HeadphonesIcon size={18} />Konsultasi Gratis
+                </a>
+              </div>
+              <div className="flex justify-center lg:justify-end">
+                <img
+                  src="/images/shared/konsultasi-tim.webp"
+                  alt="Tim nativecode.cloud siap membantu konsultasi"
+                  className="w-full max-w-xs sm:max-w-sm h-auto object-contain"
+                />
+              </div>
+            </div>
           </div>
           <SectionCurve fill="#f1f5f9" path="M0,20 C360,60 1080,0 1440,50 L1440,60 L0,60 Z" />
         </section>
@@ -245,7 +359,7 @@ export default function SEOBergaransi() {
             <div className="mt-8 flex flex-col sm:flex-row items-center gap-4 bg-white border border-gray-200 rounded-2xl shadow-sm px-5 sm:px-6 py-4">
               <p className="flex-1 text-sm sm:text-base text-gray-500 text-center sm:text-left">Masih ada pertanyaan tentang SEO? Konsultasikan langsung dengan tim kami.</p>
               <a
-                href="https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+SEO+Bergaransi.+Mohon+bantuannya+%F0%9F%99%8F"
+                href={WA_LINK}
                 target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:opacity-90 transition-opacity whitespace-nowrap"
                 style={{ background: '#c96a1a' }}

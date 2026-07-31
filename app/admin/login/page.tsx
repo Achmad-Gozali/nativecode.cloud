@@ -102,7 +102,7 @@ export default function AdminLogin() {
                   required
                   autoComplete="email"
                   className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#3d8b5e]/30 focus:border-[#3d8b5e] transition-colors"
-                  placeholder="admin@nativecode.cloud"
+                  placeholder="Masukkan email Anda"
                 />
               </div>
             </div>

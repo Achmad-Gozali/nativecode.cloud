@@ -4,6 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 // @ts-ignore
 import './globals.css';
 import FloatingButtons from '../komponen/FloatingButtons';
+import SmoothScroll from '../komponen/SmoothScroll';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -58,6 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${poppins.variable} font-sans antialiased text-gray-900 bg-[#FAFAFA] flex flex-col min-h-screen`}
         suppressHydrationWarning
       >
+        <SmoothScroll />
         {children}
         <FloatingButtons />
         <GoogleAnalytics gaId="G-3PKLNMQHPH" />

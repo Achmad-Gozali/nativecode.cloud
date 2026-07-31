@@ -163,7 +163,7 @@ export default function TentangKami() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold mb-1">
               <span className="text-[#D17B36]">nativecode</span>
-              <span className="text-[#5D9C76]">.id</span>
+              <span className="text-[#5D9C76]">.cloud</span>
             </h2>
             <p className="fade-up stagger-1 text-gray-700 font-semibold mb-8 sm:mb-12 text-sm sm:text-base">
               Jasa Pembuatan Website Profesional &amp; SEO Bergaransi

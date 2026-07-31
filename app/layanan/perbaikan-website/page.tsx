@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 import { useState } from 'react';
 import Navigasi from '@/komponen/Navigasi';
 import Footer from '@/komponen/Footer';
@@ -22,108 +22,124 @@ function SectionCurve({ fill, path }: { fill: string; path: string }) {
   );
 }
 
-const WA_LINK = 'https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Pembuatan+Website.+Mohon+bantuannya+%F0%9F%99%8F';
+const WA_LINK = 'https://wa.me/6282249244647?text=Halo+nativecode.cloud%2C+saya+ingin+konsultasi+mengenai+layanan+Perbaikan+%26+Perbaruan+Tampilan+Website.+Mohon+bantuannya+%F0%9F%99%8F';
+
+// Masalah yang sering dialami klien - sesuaikan dengan kasus nyata
+const masalah = [
+  {
+    title: 'Website Sering Error / Bug',
+    desc: 'Tombol tidak berfungsi, form tidak terkirim, atau tampilan berantakan di beberapa halaman? Error kecil bisa membuat pengunjung kehilangan kepercayaan terhadap bisnis Anda.',
+  },
+  {
+    title: 'Tampilan Ketinggalan Zaman',
+    desc: 'Website yang dibuat bertahun-tahun lalu sering terasa kaku dan kurang menarik. Tampilan yang segar membantu membangun kesan profesional sejak pandangan pertama.',
+  },
+  {
+    title: 'Tidak Responsif di HP',
+    desc: 'Lebih dari separuh pengunjung mengakses lewat smartphone. Jika tampilan berantakan di layar kecil, calon pelanggan bisa langsung pergi ke kompetitor.',
+  },
+  {
+    title: 'Sulit Dikelola Sendiri',
+    desc: 'Ingin update konten atau harga tapi harus mengubah kode manual? Kami bisa bantu sederhanakan pengelolaan website Anda agar tidak selalu bergantung pada developer.',
+  },
+];
 
 const paketDetail: Record<string, { deskDetail: string; fiturDetail: string[] }> = {
-  Silver: {
-    deskDetail: 'Paket ini cocok untuk Anda yang baru memulai dan membutuhkan website sederhana, praktis, dan mudah diakses, cocok untuk landing page atau profil singkat.',
-    fiturDetail: ['3 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Template Disesuaikan', 'Integrasi Sosial Media', 'Website SSL', 'Tombol WhatsApp', 'Responsive di Semua Perangkat', 'Free Support Pengerjaan'],
+  'Quick Fix': {
+    deskDetail: 'Untuk perbaikan bug atau error spesifik pada website yang sudah ada, tanpa mengubah tampilan secara keseluruhan.',
+    fiturDetail: ['Analisa & identifikasi penyebab bug', 'Perbaikan kode / logic yang error', 'Testing setelah perbaikan', 'Garansi 2 minggu setelah selesai', 'Tidak termasuk perubahan tampilan'],
   },
-  Gold: {
-    deskDetail: 'Paket ini cocok untuk company profile dengan kebutuhan halaman lebih lengkap dan tampilan yang lebih disesuaikan dengan identitas bisnis Anda.',
-    fiturDetail: ['5-6 Menu Halaman', 'Domain .com 1 Tahun', 'Hosting 1 Tahun', 'Tampilan Disesuaikan Kebutuhan', 'Free Logo dan Banner', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+  'Perbarui Tampilan Statis': {
+    deskDetail: 'Untuk website satu halaman (landing page) yang ingin tampil lebih modern, profesional, dan cepat diakses, tanpa sistem pengelolaan konten.',
+    fiturDetail: ['Perbarui tampilan sepenuhnya', 'Responsif di semua perangkat', 'Optimasi kecepatan akses', 'SEO dasar', 'Tanpa CMS (konten statis)', 'Garansi 1 bulan', 'Penambahan halaman: mulai Rp200.000/halaman'],
   },
-  Diamond: {
-    deskDetail: 'Paket website ini cocok bagi Anda yang membutuhkan company profile lengkap sebagai representasi profesional bisnis, dengan struktur dan tampilan yang disesuaikan penuh.',
-    fiturDetail: ['7-8 Menu Halaman', 'Domain .com / .co.id 1 Tahun', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+  'Perbarui Tampilan Dinamis': {
+    deskDetail: 'Untuk website company profile dengan banyak halaman yang butuh tampilan diperbarui lengkap dengan sistem pengelolaan konten (CMS), agar Anda bisa update sendiri.',
+    fiturDetail: ['Perbarui tampilan sepenuhnya', 'Content Management System (CMS)', 'Responsif di semua perangkat', 'SEO friendly', 'Struktur kode rapi & scalable', 'Garansi 1 bulan', 'Penambahan halaman: mulai Rp400.000/halaman'],
   },
-  Platinum: {
-    deskDetail: 'Paket website ini cocok untuk institusi atau bisnis yang membutuhkan website dengan halaman terlengkap, tampilan khusus, dan fitur tambahan sesuai kebutuhan, termasuk website sekolah.',
-    fiturDetail: ['10-12 Menu Halaman', 'Domain .com / .id / .co.id / .sch.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh', 'Free Logo dan Banner', 'Free 3 Artikel SEO Friendly', 'Free 1 Email Bisnis', 'Integrasi Sosial Media', 'Website SSL', 'Pemasangan Google Maps', 'Statistik Kunjungan Website', 'Free Support Pengerjaan'],
+  'Full Rebuild': {
+    deskDetail: 'Untuk website dengan kebutuhan fitur khusus, sistem custom, atau rombak total dari struktur lama ke teknologi yang lebih modern dan andal.',
+    fiturDetail: ['Konsultasi mendalam kebutuhan bisnis', 'Perbarui tampilan sepenuhnya + fitur custom', 'CMS / admin dashboard', 'Migrasi data dari website lama (jika ada)', 'SEO friendly & optimasi performa', 'Garansi 3 bulan', 'Penambahan modul/fitur: mulai Rp500.000/modul'],
   },
 };
 
 const paketList = [
-  { nama: 'Silver', medal: '/images/paket/silver.webp', harga: '700K', perp: '450ribu/tahun', best: false, fitur: ['3 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Template Disesuaikan'] },
-  { nama: 'Gold', medal: '/images/paket/gold.webp', harga: '1,8 Jt', perp: '550ribu/tahun', best: false, fitur: ['5-6 Menu', 'Domain .com', 'Hosting 1 Tahun', 'Tampilan Disesuaikan'] },
-  { nama: 'Diamond', medal: '/images/paket/diamond.webp', harga: '3 Jt', perp: '700ribu/tahun', best: true, fitur: ['7-8 Menu', 'Domain .com / .co.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh'] },
-  { nama: 'Platinum', medal: '/images/paket/platinum.webp', harga: '4,5 Jt', perp: '900ribu/tahun', best: false, fitur: ['10-12 Menu', 'Domain .com/.id/.co.id/.sch.id', 'Hosting 1 Tahun', 'Struktur & Tampilan Disesuaikan Penuh'] },
-];
-
-const fiturUnggulan = [
   {
-    title: 'Domain & Hosting Termasuk',
-    desc: 'Setiap paket sudah termasuk domain dan hosting 1 tahun pertama, sehingga website Anda bisa langsung online tanpa biaya tambahan di awal.',
+    nama: 'Quick Fix', medal: '/images/paket/silver.webp', harga: '150K', perp: 'Per masalah', best: false,
+    fitur: ['Perbaikan Bug Spesifik', 'Tanpa Ubah Tampilan', 'Testing Menyeluruh', 'Garansi 2 Minggu'],
   },
   {
-    title: 'Sertifikat SSL Gratis',
-    desc: 'Website Anda tampil aman dan terpercaya dengan sertifikat SSL (https) gratis yang disertakan pada semua paket.',
+    nama: 'Perbarui Tampilan Statis', medal: '/images/paket/gold.webp', harga: '250K', perp: 'Per halaman', best: false,
+    fitur: ['Tampilan Lebih Modern', 'Tanpa CMS', 'Responsif Semua Perangkat', 'Garansi 1 Bulan'],
   },
   {
-    title: 'Responsif di Semua Perangkat',
-    desc: 'Tampilan website menyesuaikan secara otomatis di desktop, tablet, hingga smartphone tanpa mengurangi kualitas visual.',
+    nama: 'Perbarui Tampilan Dinamis', medal: '/images/paket/diamond.webp', harga: '2 Jt', perp: 'Start From', best: true,
+    fitur: ['Perbarui Tampilan Penuh + CMS', 'Bisa Update Konten Sendiri', 'SEO Friendly', 'Garansi 1 Bulan'],
   },
   {
-    title: 'SEO Friendly',
-    desc: 'Struktur dan konten website kami rancang agar mudah diindeks dan ditemukan melalui pencarian Google.',
-  },
-  {
-    title: 'Struktur Kode yang Rapi',
-    desc: 'Website dibangun dengan struktur kode yang bersih dan terorganisir, mendukung performa yang cepat dan mudah dikembangkan di masa depan.',
-  },
-  {
-    title: 'Ide Konten & Copywriting',
-    desc: 'Tim kami siap membantu menyusun konten yang persuasif dan mudah dipahami untuk mendukung tujuan bisnis Anda.',
+    nama: 'Full Rebuild', medal: '/images/paket/platinum.webp', harga: '3 Jt', perp: 'Start From', best: false,
+    fitur: ['Rombak Total + Fitur Custom', 'Migrasi Data Website Lama', 'Admin Dashboard', 'Garansi 3 Bulan'],
   },
 ];
 
-const prosesPembuatan = [
+// Screenshot before-after project asli - ganti path & isi sesuai project yang sudah dikerjakan.
+// Tambahkan item baru ke array ini kalau ada studi kasus lain di kemudian hari.
+const sebelumSesudah = [
+  {
+    nama: 'Brew & Bean',
+    kategori: 'Perbarui Tampilan Statis',
+    before: '/images/layanan-perbaikan/before-1.webp',
+    after: '/images/layanan-perbaikan/after-1.webp',
+  },
+];
+
+const prosesPengerjaan = [
   {
     step: '01',
-    title: 'Konsultasi & Briefing',
-    desc: 'Ceritakan kebutuhan bisnis Anda melalui WhatsApp, mulai dari tujuan website, jumlah halaman, hingga referensi tampilan yang diinginkan.',
+    title: 'Konsultasi & Diagnosa',
+    desc: 'Kirimkan link atau ceritakan kendala website Anda melalui WhatsApp. Tim kami akan meninjau kondisi website dan mendiagnosa akar masalahnya secara gratis.',
   },
   {
     step: '02',
-    title: 'Rancangan Tampilan',
-    desc: 'Kami menyusun struktur halaman dan tampilan yang disesuaikan dengan identitas brand dan kebutuhan bisnis Anda.',
+    title: 'Rekomendasi & Estimasi',
+    desc: 'Berdasarkan hasil diagnosa, kami akan merekomendasikan paket yang paling sesuai beserta estimasi biaya dan waktu pengerjaan, sebelum Anda memutuskan untuk lanjut.',
   },
   {
     step: '03',
-    title: 'Pengembangan Website',
-    desc: 'Website dibangun langsung melalui coding, lengkap dengan domain, hosting, dan seluruh fitur sesuai paket yang dipilih.',
+    title: 'Proses Pengerjaan',
+    desc: 'Tim kami mulai memperbaiki atau memperbarui tampilan website Anda sesuai kesepakatan, dengan update progres berkala agar Anda tetap mengetahui perkembangannya.',
   },
   {
     step: '04',
-    title: 'Revisi & Launching',
-    desc: 'Anda dapat mengajukan revisi sesuai ketentuan paket sebelum website resmi diluncurkan dan siap digunakan.',
+    title: 'Testing & Serah Terima',
+    desc: 'Website diuji secara menyeluruh sebelum diserahkan kembali kepada Anda, lengkap dengan masa garansi sesuai paket yang dipilih.',
   },
 ];
 
 const faqList = [
   {
-    q: 'Berapa lama proses pembuatan website selesai?',
-    a: 'Durasi pengerjaan bergantung pada paket yang dipilih. Paket Silver umumnya selesai dalam 3-5 hari kerja, sementara paket dengan halaman lebih banyak seperti Diamond atau Platinum dapat memakan waktu 1-3 minggu tergantung kompleksitas kebutuhan.',
+    q: 'Apakah data dan konten website lama saya aman?',
+    a: 'Aman. Sebelum memulai pengerjaan, kami akan melakukan backup terhadap data dan konten website Anda yang sudah ada, sehingga tidak ada risiko kehilangan informasi selama proses berlangsung.',
   },
   {
-    q: 'Apakah saya bisa request tampilan sendiri?',
-    a: 'Bisa. Anda dapat memberikan referensi tampilan atau warna yang diinginkan, dan tim kami akan menyesuaikan tampilan website mengikuti identitas brand Anda sesuai ketentuan paket yang dipilih.',
+    q: 'Berapa lama proses pengerjaannya?',
+    a: 'Durasi pengerjaan bergantung pada skala masalah dan paket yang dipilih. Perbaikan bug (Quick Fix) umumnya selesai dalam 1-3 hari kerja, sementara perbaruan tampilan penuh dapat memakan waktu 1-3 minggu tergantung kompleksitasnya.',
   },
   {
-    q: 'Bagaimana jika saya belum punya logo, domain, atau konten?',
-    a: 'Tidak masalah. Beberapa paket sudah termasuk pembuatan logo dan banner gratis, dan tim kami akan membantu mendaftarkan domain baru. Untuk konten, kami juga menyediakan bantuan penyusunan copywriting jika diperlukan.',
+    q: 'Bagaimana jika masalah website saya tidak sesuai dengan 4 paket yang ada?',
+    a: 'Tidak masalah. Anda dapat berkonsultasi langsung dengan tim kami melalui WhatsApp untuk mendapatkan penawaran yang disesuaikan dengan kebutuhan spesifik Anda.',
   },
   {
-    q: 'Apakah saya bisa mengelola website sendiri setelah selesai?',
-    a: 'Bisa. Tergantung kebutuhan, website dapat dilengkapi sistem pengelolaan konten (CMS) sederhana agar Anda dapat memperbarui informasi tanpa perlu mengubah kode secara manual.',
+    q: 'Apakah saya perlu menyediakan akses hosting atau source code?',
+    a: 'Ya, kami akan meminta akses hosting, domain, atau source code website Anda (jika ada) agar tim dapat langsung menganalisa dan mengerjakan perbaikan atau pembaruan tampilan secara efektif.',
   },
   {
-    q: 'Apakah ada biaya tambahan setelah website selesai?',
-    a: 'Biaya tambahan hanya berlaku untuk perpanjangan domain dan hosting di tahun berikutnya, sesuai dengan harga perpanjangan pada masing-masing paket. Tidak ada biaya tersembunyi lainnya.',
+    q: 'Apakah ada garansi setelah pengerjaan selesai?',
+    a: 'Ada. Setiap paket sudah termasuk masa garansi, mulai dari 2 minggu hingga 3 bulan tergantung paket yang dipilih, untuk perbaikan apabila ditemukan kendala terkait pengerjaan kami.',
   },
 ];
 
-export default function PembuatanWebsite() {
+export default function PerbaikanWebsite() {
   const [openSet, setOpenSet] = useState<Set<string>>(new Set());
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   useScrollAnim();
@@ -141,13 +157,13 @@ export default function PembuatanWebsite() {
       <Navigasi />
       <main className="min-h-screen bg-white pt-16">
 
-        {/* Hero */}
+        {/* HERO */}
         <section className="relative bg-white pt-14 pb-16 sm:pt-24 sm:pb-24 px-4 text-center overflow-hidden">
-          <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Jasa Pembuatan Website</h1>
+          <h1 className="fade-up text-2xl sm:text-5xl font-bold text-gray-900 mb-3">Perbaikan &amp; Pembaruan Website</h1>
           <p className="fade-up stagger-1 text-gray-500 mb-3 text-sm sm:text-base">www.nativecode.cloud</p>
           <p className="fade-up stagger-2 text-base sm:text-lg text-gray-600 mb-8 px-2 max-w-lg mx-auto">
-            Jasa Pembuatan <span className="text-[#c96a1a] font-semibold">Website Profesional</span> dan{' '}
-            <span className="text-[#3d8b5e] font-semibold">SEO Bergaransi</span>
+            <span className="text-[#c96a1a] font-semibold">Perbaiki Kendala Teknis</span> atau{' '}
+            <span className="text-[#3d8b5e] font-semibold">Perbarui Tampilan</span> Website Anda
           </p>
           <div className="fade-up stagger-3">
             <a
@@ -162,19 +178,22 @@ export default function PembuatanWebsite() {
           <SectionCurve fill="#f1f5f9" path="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" />
         </section>
 
-        {/* Intro */}
+        {/* INTRO */}
         <section className="relative bg-[#f1f5f9] pt-12 pb-12 sm:pt-20 sm:pb-20 overflow-hidden">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
               <div className="fade-left">
                 <h2 className="text-2xl sm:text-3xl font-bold mb-1">
-                  <span className="text-[#c96a1a]">nativecode</span><span className="text-[#3d8b5e]">.id</span>
+                  <span className="text-[#c96a1a]">nativecode</span><span className="text-[#3d8b5e]">.cloud</span>
                 </h2>
                 <p className="font-semibold text-gray-800 text-base sm:text-lg mb-4">
-                  Tampil lebih profesional. Ditemukan lebih cepat. Dikenal lebih luas.
+                  Website lama bermasalah? Kami bantu benahi tanpa mulai dari nol.
+                </p>
+                <p className="text-gray-600 leading-relaxed mb-3 text-sm sm:text-base">
+                  Apakah website Anda sudah ada tapi ada bug yang mengganggu, tampilan sudah ketinggalan zaman, atau tidak nyaman diakses lewat HP? Anda tidak perlu membangun ulang dari awal.
                 </p>
                 <p className="text-gray-600 leading-relaxed mb-8 text-sm sm:text-base">
-                  Kami membangun website yang cepat, fungsional, dan responsif di semua perangkat, dengan struktur yang disesuaikan untuk mencerminkan identitas brand Anda secara utuh.
+                  Tim kami siap membantu memperbaiki, merapikan, hingga memperbarui tampilan website Anda sesuai kebutuhan dan skala masalahnya.
                 </p>
                 <div className="flex gap-3 flex-wrap">
                   <a
@@ -194,12 +213,11 @@ export default function PembuatanWebsite() {
                   </a>
                 </div>
               </div>
-              <div className="fade-right hidden lg:flex items-center justify-center">
+              <div className="fade-right flex items-center justify-center">
                 <img
-                  src="/images/layanan-website/pembuatan-website-hero.webp"
-                  alt="Web Design nativecode.cloud"
-                  className="w-full max-w-md object-contain"
-                  style={{ filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.08))' }}
+                  src="/images/layanan-perbaikan/perbaikan-website-hero.webp"
+                  alt="Jasa perbaikan dan perbaruan tampilan website nativecode.cloud"
+                  className="w-full max-w-xs sm:max-w-sm lg:max-w-md rounded-2xl object-cover"
                 />
               </div>
             </div>
@@ -207,15 +225,34 @@ export default function PembuatanWebsite() {
           <SectionCurve fill="#ffffff" path="M0,40 C360,0 1080,60 1440,20 L1440,60 L0,60 Z" />
         </section>
 
-        {/* Proses Pembuatan */}
+        {/* MASALAH YANG DIATASI - plain, tanpa card/icon */}
         <section className="relative bg-white py-12 sm:py-20 px-4 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Masalah Apa yang Kami Bantu Atasi?</h2>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base px-2">
+              Jika website Anda mengalami salah satu (atau lebih) dari masalah berikut, mungkin ini saatnya untuk diperbaiki.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
+              {masalah.map((m, i) => (
+                <div key={i} className={`fade-up stagger-${(i % 2) + 1}`}>
+                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl mb-2">{m.title}</h3>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{m.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
+        </section>
+
+        {/* PROSES PENGERJAAN */}
+        <section className="relative bg-[#f1f5f9] py-12 sm:py-20 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">
             <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Bagaimana Prosesnya?</h2>
             <p className="fade-up stagger-1 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base px-2 max-w-2xl mx-auto">
-              Alur pembuatan website yang jelas dan transparan, dari konsultasi awal hingga website Anda siap digunakan.
+              Alur pengerjaan yang jelas dan transparan, dari konsultasi awal hingga website Anda siap digunakan kembali.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-6">
-              {prosesPembuatan.map((p, i) => (
+              {prosesPengerjaan.map((p, i) => (
                 <div key={p.step} className={`fade-up stagger-${i + 1} relative`}>
                   <div
                     className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-white text-lg mb-4"
@@ -229,14 +266,16 @@ export default function PembuatanWebsite() {
               ))}
             </div>
           </div>
-          <SectionCurve fill="#f1f5f9" path="M0,0 C480,60 960,0 1440,40 L1440,60 L0,60 Z" />
+          <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,40 L1440,60 L0,60 Z" />
         </section>
 
-        {/* Paket */}
-        <section id="paket" className="relative bg-[#f1f5f9] pt-12 pb-12 sm:pt-20 sm:pb-20 px-4 overflow-hidden">
+        {/* PAKET */}
+        <section id="paket" className="bg-white py-12 sm:py-20 px-4">
           <div className="max-w-7xl mx-auto">
-            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Paket Website</h2>
-            <p className="fade-up stagger-1 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base">Konsultasikan kebutuhan Anda dan pilih paket website yang paling sesuai sekarang juga.</p>
+            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Paket Perbaikan &amp; Pembaruan Website</h2>
+            <p className="fade-up stagger-1 text-center text-gray-500 mb-8 sm:mb-12 text-sm sm:text-base px-2">
+              Pilih sesuai skala masalah website Anda. Belum yakin paket mana yang cocok? Konsultasikan dulu, gratis.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 items-start">
               {paketList.map((p, idx) => {
                 const isOpen = openSet.has(p.nama);
@@ -246,22 +285,21 @@ export default function PembuatanWebsite() {
                     className={`fade-up stagger-${idx + 1} relative rounded-2xl bg-white border flex flex-col overflow-hidden ${p.best ? 'border-[#3d8b5e] shadow-xl lg:scale-105' : 'border-gray-200 shadow-sm'}`}
                   >
                     {p.best && (
-                      <div className="text-white text-xs font-bold text-center py-1.5 tracking-wide" style={{ background: '#3d8b5e' }}>BEST SELLER !</div>
+                      <div className="text-white text-xs font-bold text-center py-1.5 tracking-wide" style={{ background: '#3d8b5e' }}>PALING SERING DIPILIH</div>
                     )}
                     <div className="p-5 sm:p-6 flex flex-col flex-1">
                       <div className="flex justify-center mb-3">
                         <img src={p.medal} alt={`${p.nama} package`} className="w-20 h-20 sm:w-24 sm:h-24 object-contain" style={{ filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.15))' }} />
                       </div>
                       <p className="text-center font-bold text-gray-700 text-base sm:text-lg mb-3">{p.nama}</p>
-                      <p className="text-xs sm:text-sm text-gray-400 text-center">Start From</p>
-                      <p className="text-3xl sm:text-4xl font-bold mb-1 text-center" style={{ color: '#3d8b5e' }}>{p.harga}</p>
-                      <p className="text-xs sm:text-sm text-gray-400 mb-4 text-center">Perpanjangan {p.perp}</p>
+                      <p className="text-xs sm:text-sm text-gray-400 text-center">{p.perp}</p>
+                      <p className="text-3xl sm:text-4xl font-bold mb-4 text-center" style={{ color: '#3d8b5e' }}>{p.harga}</p>
                       <a
                         href={WA_LINK}
                         target="_blank" rel="noopener noreferrer"
                         className={`w-full py-2.5 rounded-full border font-semibold text-sm mb-4 flex items-center justify-center gap-2 transition-colors ${p.best ? 'border-[#3d8b5e] text-[#3d8b5e] hover:bg-[#3d8b5e] hover:text-white' : 'border-[#c96a1a] text-[#c96a1a] hover:bg-[#c96a1a] hover:text-white'}`}
                       >
-                        Pesan Sekarang
+                        Konsultasi Sekarang
                       </a>
                       <div className="text-white text-center text-sm font-semibold py-2 rounded-lg mb-4" style={{ background: '#3d8b5e' }}>Fitur Paket</div>
                       <ul className="space-y-2 mb-4">
@@ -303,9 +341,9 @@ export default function PembuatanWebsite() {
             {/* CTA */}
             <div className="fade-up mt-10 sm:mt-14 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-6 items-center" style={{ background: '#3d8b5e' }}>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Tidak yakin paket mana yang cocok?</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-white mb-3">Tidak yakin skala masalah website Anda?</h3>
                 <p className="text-white opacity-90 text-sm sm:text-base leading-relaxed mb-6">
-                  Konsultasikan kebutuhan website Anda secara gratis bersama tim nativecode.cloud. Kami akan membantu memilihkan paket terbaik sesuai dengan budget dan target bisnis Anda.
+                  Kirimkan link atau screenshot website Anda, tim kami akan bantu diagnosa masalahnya dan rekomendasikan paket yang paling sesuai, gratis tanpa biaya.
                 </p>
                 <a
                   href={WA_LINK}
@@ -323,25 +361,6 @@ export default function PembuatanWebsite() {
                   className="w-full max-w-xs sm:max-w-sm h-auto object-contain"
                 />
               </div>
-            </div>
-          </div>
-          <SectionCurve fill="#ffffff" path="M0,20 C360,60 1080,0 1440,50 L1440,60 L0,60 Z" />
-        </section>
-
-        {/* Fitur Unggulan - plain, tanpa card/icon/nomor */}
-        <section className="bg-white py-12 sm:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="fade-up text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">Fitur Unggulan</h2>
-            <p className="fade-up stagger-1 text-center font-semibold text-gray-700 mb-2 text-sm sm:text-base">Dapatkan Semua Fitur Ini Secara Gratis!</p>
-            <p className="fade-up stagger-2 text-center text-gray-500 mb-10 sm:mb-16 text-sm sm:text-base">Inilah yang Anda dapatkan dari Jasa Pembuatan Website nativecode.cloud</p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-10">
-              {fiturUnggulan.map((f, i) => (
-                <div key={i} className={`fade-up stagger-${(i % 4) + 1}`}>
-                  <h3 className="font-bold text-gray-900 text-lg sm:text-xl mb-2">{f.title}</h3>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{f.desc}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>

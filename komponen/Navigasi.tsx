@@ -28,19 +28,27 @@ export default function Navigasi() {
 
   const navLinkClass = (active: boolean) =>
     `relative flex items-center gap-1 font-semibold text-xs xl:text-sm transition-all duration-200 py-1 whitespace-nowrap
-     ${active ? 'text-[#D17B36]' : 'text-gray-700 hover:text-[#5D9C76]'}
-     after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:rounded-full after:transition-all after:duration-200
-     ${active ? 'after:bg-[#D17B36]' : 'after:bg-transparent hover:after:bg-[#5D9C76]'}`;
+     ${active ? 'text-[#D17B36]' : 'text-gray-700 hover:text-[#5D9C76]'}`;
 
   const layananLinks = [
     { href: '/layanan/pembuatan-website', label: 'Pembuatan Website', desc: 'Landing page, company profile, toko online' },
     { href: '/layanan/pembuatan-aplikasi', label: 'Pembuatan Aplikasi', desc: 'iOS, Android & web app' },
     { href: '/layanan/seo', label: 'SEO Bergaransi', desc: 'Ranking Google, trafik organik naik' },
+    { href: '/layanan/perbaikan-website', label: 'Perbaikan Website', desc: 'Benahi bug atau perbarui tampilan', isNew: true },
   ];
 
   const dropdownBase = `absolute left-1/2 -translate-x-1/2 top-full opacity-0 invisible
     group-hover:opacity-100 group-hover:visible translate-y-1 group-hover:translate-y-0
     transition-all duration-200 z-50`;
+
+  const BadgeBaru = () => (
+    <span
+      className="ml-2 inline-flex items-center px-1.5 py-0.5 rounded-full text-[10px] font-bold text-white flex-shrink-0"
+      style={{ background: '#c96a1a' }}
+    >
+      Baru
+    </span>
+  );
 
   return (
     <>
@@ -86,8 +94,9 @@ export default function Navigasi() {
                           <Link key={l.href} href={l.href}
                             className={`flex flex-col px-4 py-3 rounded-lg transition-all group/item
                               ${pathname === l.href ? 'bg-[#fff3e8]' : 'hover:bg-gray-50'}`}>
-                            <p className={`text-sm font-semibold ${pathname === l.href ? 'text-[#D17B36]' : 'text-gray-800 group-hover/item:text-[#5D9C76]'}`}>
+                            <p className={`flex items-center text-sm font-semibold ${pathname === l.href ? 'text-[#D17B36]' : 'text-gray-800 group-hover/item:text-[#5D9C76]'}`}>
                               {l.label}
+                              {l.isNew && <BadgeBaru />}
                             </p>
                             <p className="text-xs text-gray-400 mt-0.5">{l.desc}</p>
                           </Link>
@@ -166,7 +175,10 @@ export default function Navigasi() {
                     <Link key={l.href} href={l.href}
                       className={`block px-3 py-2.5 rounded-xl transition-colors
                         ${pathname === l.href ? 'text-[#D17B36] bg-[#fff3e8]' : 'text-gray-600 hover:text-[#5D9C76] hover:bg-gray-50'}`}>
-                      <p className="text-sm font-medium">{l.label}</p>
+                      <p className="flex items-center text-sm font-medium">
+                        {l.label}
+                        {l.isNew && <BadgeBaru />}
+                      </p>
                       <p className="text-xs text-gray-400">{l.desc}</p>
                     </Link>
                   ))}
