@@ -22,7 +22,11 @@ jobs:
             git pull origin main
             docker build -t nativecode-app:latest .
             docker stop nativecode-app || true
-            docker rm nativecode-app || true
+            docker rm -f nativecode-app || true
+            while docker ps -a --format '{{.Names}}' | grep -q '^nativecode-app$'; do
+              echo "Menunggu container lama benar-benar terhapus..."
+              sleep 1
+            done
             docker run -d \
               --name nativecode-app \
               --network nativecode-net \
